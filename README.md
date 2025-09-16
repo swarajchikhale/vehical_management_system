@@ -357,12 +357,11 @@ copies or substantial portions of the Software.
 - **Documentation:** Check the `/docs` folder for detailed guides
 - **Issues:** Report bugs via GitHub Issues
 - **Discussions:** Join our community discussions
-- **Email:** support@vehiclems.com
 
 ### Community
-- **Discord Server:** [Join our community](https://discord.gg/vehiclems)
-- **Forum:** [Community discussions](https://forum.vehiclems.com)
-- **Blog:** [Latest updates and tutorials](https://blog.vehiclems.com)
+- **Discord Server:** [Join our community](https://discord.gg/EtQdFmED)
+- **Telegram :** [Community discussions](https://t.me/collabcoderx)
+
 
 ## 🏆 Acknowledgments
 
