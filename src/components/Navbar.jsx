@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { Car, Wrench, Shield, User, LogOut, ChevronDown, Sparkles } from 'lucide-react';
+import { Car, Wrench, Shield, User, Sparkles, Palette } from 'lucide-react';
 
 export const Navbar = ({ activeTab, setActiveTab }) => {
-  const { currentUser, switchRole, logout } = useAuth();
+  const { currentUser, switchRole } = useAuth();
+  
+  const [currentPalette, setCurrentPalette] = useState(() => {
+    return localStorage.getItem('dp_palette') || 'midnight';
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-palette', currentPalette);
+    localStorage.setItem('dp_palette', currentPalette);
+  }, [currentPalette]);
 
   return (
     <header style={{
@@ -14,7 +23,8 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
       backdropFilter: 'blur(16px)',
       WebkitBackdropFilter: 'blur(16px)',
       borderBottom: '1px solid var(--border-color)',
-      padding: '0.85rem 0'
+      padding: '0.85rem 0',
+      transition: 'all 0.3s ease'
     }}>
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
         {/* Brand Logo */}
@@ -25,7 +35,7 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
           <div style={{
             background: 'var(--gradient-primary)',
             padding: '0.6rem',
-            borderRadius: 'var(--radius-sm)',
+            borderRadius: '8px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -34,7 +44,7 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
             <Car size={26} color="#ffffff" />
           </div>
           <div>
-            <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1 }}>
+            <div style={{ fontFamily: 'Outfit, sans-serif', fontSize: '1.4rem', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1 }}>
               Drive<span className="text-gradient">Pulse</span>
             </div>
             <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 500 }}>Vehicle & Service OS</div>
@@ -46,21 +56,21 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
           <button 
             className={`btn ${activeTab === 'home' ? 'btn-primary' : 'btn-secondary'}`}
             onClick={() => setActiveTab('home')}
-            style={{ borderRadius: 'var(--radius-full)' }}
+            style={{ borderRadius: '9999px' }}
           >
             Home
           </button>
           <button 
             className={`btn ${activeTab === 'vehicles' ? 'btn-primary' : 'btn-secondary'}`}
             onClick={() => setActiveTab('vehicles')}
-            style={{ borderRadius: 'var(--radius-full)' }}
+            style={{ borderRadius: '9999px' }}
           >
             <Car size={16} /> Rental Fleet
           </button>
           <button 
             className={`btn ${activeTab === 'mechanics' ? 'btn-primary' : 'btn-secondary'}`}
             onClick={() => setActiveTab('mechanics')}
-            style={{ borderRadius: 'var(--radius-full)' }}
+            style={{ borderRadius: '9999px' }}
           >
             <Wrench size={16} /> Mechanic Services
           </button>
@@ -71,15 +81,39 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
               else if (currentUser.role === 'mechanic') setActiveTab('mechanic_dash');
               else setActiveTab('dashboard');
             }}
-            style={{ borderRadius: 'var(--radius-full)' }}
+            style={{ borderRadius: '9999px' }}
           >
             <Shield size={16} /> Portal ({currentUser.role.toUpperCase()})
           </button>
         </nav>
 
-        {/* Role Switcher & User Status */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-          <div style={{ position: 'relative', display: 'flex', alignItems: 'center', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', padding: '0.25rem 0.5rem' }}>
+        {/* Palette Selector & Role Switcher */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+          {/* UI Color Palette Switcher */}
+          <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '0.25rem 0.5rem' }}>
+            <Palette size={14} color="var(--accent-primary)" style={{ marginRight: '0.35rem' }} />
+            <select 
+              value={currentPalette}
+              onChange={(e) => setCurrentPalette(e.target.value)}
+              style={{
+                background: 'transparent',
+                color: 'var(--text-main)',
+                border: 'none',
+                outline: 'none',
+                fontWeight: 600,
+                fontSize: '0.82rem',
+                cursor: 'pointer'
+              }}
+            >
+              <option value="midnight">Theme: Midnight Cyber</option>
+              <option value="emerald">Theme: Royal Emerald</option>
+              <option value="crimson">Theme: Crimson Sport</option>
+              <option value="sapphire">Theme: Sapphire Light</option>
+            </select>
+          </div>
+
+          {/* Role Switcher */}
+          <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '0.25rem 0.5rem' }}>
             <Sparkles size={14} color="var(--accent-amber)" style={{ marginRight: '0.35rem' }} />
             <select 
               value={currentUser.role === 'user' ? 'customer' : currentUser.role}
@@ -99,13 +133,14 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
                 cursor: 'pointer'
               }}
             >
-              <option value="customer">Switch Role: Customer</option>
-              <option value="admin">Switch Role: Admin</option>
-              <option value="mechanic">Switch Role: Mechanic</option>
+              <option value="customer">Role: Customer</option>
+              <option value="admin">Role: Admin</option>
+              <option value="mechanic">Role: Mechanic</option>
             </select>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'var(--bg-glass)', border: '1px solid var(--border-color)', padding: '0.35rem 0.75rem', borderRadius: 'var(--radius-full)' }}>
+          {/* User Badge */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'var(--bg-glass)', border: '1px solid var(--border-color)', padding: '0.35rem 0.75rem', borderRadius: '9999px' }}>
             <User size={16} color="var(--accent-cyan)" />
             <span style={{ fontSize: '0.85rem', fontWeight: 600 }}>{currentUser.name}</span>
           </div>
