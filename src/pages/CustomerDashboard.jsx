@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useData } from '../context/DataContext';
 import { useAuth } from '../context/AuthContext';
 import { InvoiceModal } from '../components/InvoiceModal';
+import { formatINR, formatDateIN } from '../utils/formatters';
 import { Car, Wrench, FileText, Calendar, DollarSign, CheckCircle2, Clock, AlertCircle } from 'lucide-react';
 
 export const CustomerDashboard = ({ setActiveTab }) => {
@@ -34,7 +35,7 @@ export const CustomerDashboard = ({ setActiveTab }) => {
             <Car size={16} /> Rent New Vehicle
           </button>
           <button className="btn btn-secondary" onClick={() => setActiveTab('mechanics')}>
-            <Wrench size={16} /> Request Service
+            <Wrench size={16} /> Request Mechanic
           </button>
         </div>
       </div>
@@ -47,7 +48,7 @@ export const CustomerDashboard = ({ setActiveTab }) => {
           </div>
           <div>
             <div style={{ fontSize: '1.6rem', fontWeight: 800 }}>{userBookings.length}</div>
-            <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Total Vehicle Rentals</div>
+            <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Rental Reservations</div>
           </div>
         </div>
 
@@ -67,7 +68,7 @@ export const CustomerDashboard = ({ setActiveTab }) => {
           </div>
           <div>
             <div style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--accent-emerald)' }}>
-              ₹{totalSpent.toFixed(2)}
+              {formatINR(totalSpent)}
             </div>
             <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Total Settled Bills</div>
           </div>
@@ -97,14 +98,14 @@ export const CustomerDashboard = ({ setActiveTab }) => {
                       <span className={`badge badge-${b.status}`}>{b.status}</span>
                     </div>
                     <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                      Booking ID: #{b.id} • Dates: <strong>{b.start_date}</strong> to <strong>{b.end_date}</strong> ({b.total_days} Days)
+                      Booking ID: #{b.id} • Dates: <strong>{formatDateIN(b.start_date)}</strong> to <strong>{formatDateIN(b.end_date)}</strong> ({b.total_days} Days)
                     </p>
                     {b.notes && <div style={{ fontSize: '0.8rem', color: 'var(--text-subtle)', marginTop: '0.25rem' }}>Note: {b.notes}</div>}
                   </div>
 
                   <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
                     <div style={{ textAlign: 'right' }}>
-                      <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--accent-cyan)' }}>₹{Number(b.total_cost).toFixed(2)}</div>
+                      <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--accent-cyan)' }}>{formatINR(b.total_cost)}</div>
                       <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Total incl. tax</div>
                     </div>
 
@@ -155,7 +156,7 @@ export const CustomerDashboard = ({ setActiveTab }) => {
                   <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
                     <div style={{ textAlign: 'right' }}>
                       <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--text-main)' }}>
-                        ₹{Number(s.service_cost || 0).toFixed(2)}
+                        {formatINR(s.service_cost || 0)}
                       </div>
                       <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Estimated Cost</div>
                     </div>
