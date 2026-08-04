@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useData } from '../context/DataContext';
 import { useAuth } from '../context/AuthContext';
+import { formatINR } from '../utils/formatters';
 import { Wrench, AlertTriangle, MapPin, Calendar, Clock, CheckCircle2, PhoneCall, ShieldCheck } from 'lucide-react';
 
 export const MechanicServices = ({ setActiveTab }) => {
@@ -209,7 +210,7 @@ export const MechanicServices = ({ setActiveTab }) => {
                     <h4 style={{ fontSize: '1rem', margin: 0 }}>{m.name}</h4>
                     <span style={{ fontSize: '0.8rem', color: 'var(--accent-primary)' }}>{m.specialization}</span>
                     <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>
-                      Exp: {m.experience_years} yrs • ₹{m.hourly_rate}/hr • ★ {m.rating} ({m.total_reviews} reviews)
+                      Exp: {m.experience_years} yrs • {formatINR(m.hourly_rate, false)}/hr • ★ {m.rating} ({m.total_reviews} reviews)
                     </div>
                   </div>
 
