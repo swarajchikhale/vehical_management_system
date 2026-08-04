@@ -11,7 +11,7 @@ const INITIAL_VEHICLES = [
     model: 'Camry Hybrid',
     year: 2023,
     license_plate: 'CAM-8821',
-    rent_price: 65,
+    rent_price: 3500,
     status: 'available',
     image: 'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=800&q=80',
     description: 'Sleek sedan with premium leather interior, hybrid efficiency, advanced safety features, and smooth ride for long trips.'
@@ -24,7 +24,7 @@ const INITIAL_VEHICLES = [
     model: 'X5',
     year: 2024,
     license_plate: 'BMW-9901',
-    rent_price: 135,
+    rent_price: 9500,
     status: 'available',
     image: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=800&q=80',
     description: 'Luxury midsize SUV with all-wheel drive, panoramic sunroof, digital cockpit, and twin-turbo performance.'
@@ -37,7 +37,7 @@ const INITIAL_VEHICLES = [
     model: 'R7',
     year: 2023,
     license_plate: 'YAM-7721',
-    rent_price: 35,
+    rent_price: 1800,
     status: 'available',
     image: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=800&q=80',
     description: 'Agile sports motorcycle featuring a 689cc CP2 engine, aggressive ergonomics, and responsive handling.'
@@ -50,7 +50,7 @@ const INITIAL_VEHICLES = [
     model: 'Transit Custom',
     year: 2022,
     license_plate: 'VAN-4022',
-    rent_price: 85,
+    rent_price: 4500,
     status: 'rented',
     image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80',
     description: 'Spacious payload capacity with rear barn doors, tie-down anchor points, and Bluetooth telematics for transport.'
@@ -63,7 +63,7 @@ const INITIAL_VEHICLES = [
     model: 'Sprinter 15-Pass',
     year: 2023,
     license_plate: 'BUS-1004',
-    rent_price: 160,
+    rent_price: 12000,
     status: 'available',
     image: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=800&q=80',
     description: 'Luxury group shuttle van with seating for 15 passengers, high-ceiling comfort, and overhead storage.'
@@ -76,7 +76,7 @@ const INITIAL_VEHICLES = [
     model: 'PikUp 4x4',
     year: 2021,
     license_plate: 'TRK-9011',
-    rent_price: 75,
+    rent_price: 4000,
     status: 'maintenance',
     image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80',
     description: 'Rugged 4x4 utility pickup built for tough off-road terrain, heavy towing, and construction logistics.'
@@ -89,7 +89,7 @@ const INITIAL_MECHANICS = [
     name: 'John Mechanic',
     specialization: 'Engine & Electrical',
     experience_years: 6,
-    hourly_rate: 45,
+    hourly_rate: 1200,
     availability: 'available',
     phone: '+1 (555) 019-4820',
     rating: 4.9,
@@ -100,7 +100,7 @@ const INITIAL_MECHANICS = [
     name: 'Alex Rivera',
     specialization: 'Transmission & Brakes',
     experience_years: 8,
-    hourly_rate: 50,
+    hourly_rate: 1500,
     availability: 'busy',
     phone: '+1 (555) 019-8823',
     rating: 4.8,
@@ -111,7 +111,7 @@ const INITIAL_MECHANICS = [
     name: 'Sarah Chen',
     specialization: 'AC & EV Systems',
     experience_years: 5,
-    hourly_rate: 40,
+    hourly_rate: 1000,
     availability: 'available',
     phone: '+1 (555) 019-3390',
     rating: 5.0,
@@ -129,10 +129,10 @@ const INITIAL_BOOKINGS = [
     start_date: '2026-08-01',
     end_date: '2026-08-05',
     total_days: 5,
-    rent_price: 85,
-    subtotal: 425,
-    tax_amount: 76.5,
-    total_cost: 501.5,
+    rent_price: 4500,
+    subtotal: 22500,
+    tax_amount: 4050,
+    total_cost: 26550,
     status: 'active',
     notes: 'Moving equipment for weekend event.'
   }
@@ -153,7 +153,7 @@ const INITIAL_SERVICES = [
     preferred_date: '2026-08-04',
     status: 'in_progress',
     is_emergency: true,
-    service_cost: 120,
+    service_cost: 3500,
     completion_notes: 'Replaced radiator hose and flushed coolant system.'
   }
 ];
@@ -167,9 +167,9 @@ const INITIAL_BILLS = [
     bill_type: 'rental',
     item_title: 'Ford Transit Custom Cargo (5 Days)',
     booking_id: 1001,
-    subtotal: 425.00,
-    tax_amount: 76.50,
-    total_amount: 501.50,
+    subtotal: 22500.00,
+    tax_amount: 4050.00,
+    total_amount: 26550.00,
     status: 'paid',
     payment_method: 'Credit Card (**** 4821)',
     created_at: '2026-08-01'
@@ -178,36 +178,36 @@ const INITIAL_BILLS = [
 
 export const DataProvider = ({ children }) => {
   const [vehicles, setVehicles] = useState(() => {
-    const saved = localStorage.getItem('dp_vehicles');
+    const saved = localStorage.getItem('dp_vehicles_v2');
     return saved ? JSON.parse(saved) : INITIAL_VEHICLES;
   });
 
   const [mechanics, setMechanics] = useState(() => {
-    const saved = localStorage.getItem('dp_mechanics');
+    const saved = localStorage.getItem('dp_mechanics_v2');
     return saved ? JSON.parse(saved) : INITIAL_MECHANICS;
   });
 
   const [bookings, setBookings] = useState(() => {
-    const saved = localStorage.getItem('dp_bookings');
+    const saved = localStorage.getItem('dp_bookings_v2');
     return saved ? JSON.parse(saved) : INITIAL_BOOKINGS;
   });
 
   const [services, setServices] = useState(() => {
-    const saved = localStorage.getItem('dp_services');
+    const saved = localStorage.getItem('dp_services_v2');
     return saved ? JSON.parse(saved) : INITIAL_SERVICES;
   });
 
   const [bills, setBills] = useState(() => {
-    const saved = localStorage.getItem('dp_bills');
+    const saved = localStorage.getItem('dp_bills_v2');
     return saved ? JSON.parse(saved) : INITIAL_BILLS;
   });
 
   // Sync state to local storage
-  useEffect(() => { localStorage.setItem('dp_vehicles', JSON.stringify(vehicles)); }, [vehicles]);
-  useEffect(() => { localStorage.setItem('dp_mechanics', JSON.stringify(mechanics)); }, [mechanics]);
-  useEffect(() => { localStorage.setItem('dp_bookings', JSON.stringify(bookings)); }, [bookings]);
-  useEffect(() => { localStorage.setItem('dp_services', JSON.stringify(services)); }, [services]);
-  useEffect(() => { localStorage.setItem('dp_bills', JSON.stringify(bills)); }, [bills]);
+  useEffect(() => { localStorage.setItem('dp_vehicles_v2', JSON.stringify(vehicles)); }, [vehicles]);
+  useEffect(() => { localStorage.setItem('dp_mechanics_v2', JSON.stringify(mechanics)); }, [mechanics]);
+  useEffect(() => { localStorage.setItem('dp_bookings_v2', JSON.stringify(bookings)); }, [bookings]);
+  useEffect(() => { localStorage.setItem('dp_services_v2', JSON.stringify(services)); }, [services]);
+  useEffect(() => { localStorage.setItem('dp_bills_v2', JSON.stringify(bills)); }, [bills]);
 
   // Actions
   const addVehicle = (vehicleData) => {

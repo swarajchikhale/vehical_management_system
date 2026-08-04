@@ -91,7 +91,7 @@ $mechanics = $stmtM->fetchAll(PDO::FETCH_ASSOC);
                                         <?php echo str_replace('_', ' ', ucfirst($s['status'])); ?>
                                     </span>
                                 </td>
-                                <td class="fw-bold">$<?php echo number_format($s['service_cost'], 2); ?></td>
+                                <td class="fw-bold">₹<?php echo number_format($s['service_cost'], 2); ?></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

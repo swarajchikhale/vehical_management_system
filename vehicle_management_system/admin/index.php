@@ -352,7 +352,7 @@ $additionalScripts = '
                 data: {
                     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
                     datasets: [{
-                        label: "Revenue ($)",
+                        label: "Revenue (₹)",
                         data: [12000, 19000, 15000, 25000, 22000, 30000],
                         borderColor: "rgb(75, 192, 192)",
                         backgroundColor: "rgba(75, 192, 192, 0.2)",
@@ -366,7 +366,7 @@ $additionalScripts = '
                             beginAtZero: true,
                             ticks: {
                                 callback: function(value) {
-                                    return "$" + value.toLocaleString();
+                                    return "₹" + value.toLocaleString();
                                 }
                             }
                         }

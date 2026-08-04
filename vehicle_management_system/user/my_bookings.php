@@ -49,7 +49,7 @@ $userBookings = getUserBookings($_SESSION['user_id']);
                                     <td><span class="badge bg-secondary"><?php echo strtoupper($b['vehicle_type']); ?></span></td>
                                     <td><?php echo $b['start_date']; ?> to <?php echo $b['end_date']; ?></td>
                                     <td><?php echo $b['total_days']; ?></td>
-                                    <td class="fw-bold text-success">$<?php echo number_format($b['total_cost'], 2); ?></td>
+                                    <td class="fw-bold text-success">₹<?php echo number_format($b['total_cost'], 2); ?></td>
                                     <td>
                                         <span class="badge bg-<?php echo ($b['status'] == 'active' || $b['status'] == 'confirmed') ? 'success' : (($b['status'] == 'pending') ? 'warning' : 'secondary'); ?>">
                                             <?php echo ucfirst($b['status']); ?>

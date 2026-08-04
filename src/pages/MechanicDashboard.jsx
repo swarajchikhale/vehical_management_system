@@ -131,7 +131,7 @@ export const MechanicDashboard = () => {
                   
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '1rem', marginBottom: '1rem' }}>
                     <div className="form-group" style={{ margin: 0 }}>
-                      <label className="form-label">Service Charge ($)</label>
+                      <label className="form-label">Service Charge (₹)</label>
                       <input 
                         type="number" 
                         className="form-control"
@@ -168,7 +168,7 @@ export const MechanicDashboard = () => {
 
               {job.status === 'completed' && job.completion_notes && (
                 <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '0.75rem', marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--accent-emerald)' }}>
-                  <strong>✓ Mechanic Notes:</strong> {job.completion_notes} (${Number(job.service_cost).toFixed(2)})
+                  <strong>✓ Mechanic Notes:</strong> {job.completion_notes} (₹{Number(job.service_cost).toFixed(2)})
                 </div>
               )}
             </div>

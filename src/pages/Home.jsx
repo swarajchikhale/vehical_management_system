@@ -48,7 +48,7 @@ export const Home = ({ setActiveTab, onBookVehicle }) => {
               <div style={{ padding: '1.5rem', background: 'var(--gradient-card)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
                   <h3 style={{ fontSize: '1.3rem' }}>BMW X5 xDrive40i</h3>
-                  <span style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--accent-cyan)' }}>$135 <small style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>/day</small></span>
+                  <span style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--accent-cyan)' }}>₹9,500 <small style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>/day</small></span>
                 </div>
                 <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '1rem' }}>
                   Luxury midsize SUV with all-wheel drive, digital cockpit & twin-turbo power.
@@ -196,7 +196,7 @@ export const Home = ({ setActiveTab, onBookVehicle }) => {
                   </p>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid var(--border-color)', paddingTop: '0.85rem' }}>
                     <div>
-                      <span style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-main)' }}>${v.rent_price}</span>
+                      <span style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-main)' }}>₹{v.rent_price}</span>
                       <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}> / day</span>
                     </div>
                     <button 

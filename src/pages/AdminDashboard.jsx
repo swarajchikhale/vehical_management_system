@@ -37,8 +37,8 @@ export const AdminDashboard = () => {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
     datasets: [
       {
-        label: 'Monthly Revenue ($)',
-        data: [1200, 1900, 3000, 4500, 3800, 5200, 6100, Math.round(totalRevenue)],
+        label: 'Monthly Revenue (₹)',
+        data: [120000, 190000, 300000, 450000, 380000, 520000, 610000, Math.round(totalRevenue)],
         borderColor: '#6366f1',
         backgroundColor: 'rgba(99, 102, 241, 0.2)',
         tension: 0.4,
@@ -69,7 +69,7 @@ export const AdminDashboard = () => {
       model: '',
       year: 2024,
       license_plate: '',
-      rent_price: 50,
+      rent_price: 3500,
       image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80',
       description: ''
     });
@@ -95,7 +95,7 @@ export const AdminDashboard = () => {
       <div className="grid grid-cols-4" style={{ marginBottom: '2.5rem' }}>
         <div className="card">
           <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.25rem' }}>Total Gross Revenue</div>
-          <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--accent-emerald)' }}>${totalRevenue.toFixed(2)}</div>
+          <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--accent-emerald)' }}>₹{totalRevenue.toFixed(2)}</div>
           <div style={{ fontSize: '0.75rem', color: 'var(--accent-emerald)', marginTop: '0.35rem' }}>↑ +18.4% vs last month</div>
         </div>
 
@@ -183,7 +183,7 @@ export const AdminDashboard = () => {
                   </td>
                   <td style={{ padding: '1rem', textTransform: 'capitalize' }}>{v.vehicle_type}</td>
                   <td style={{ padding: '1rem', fontWeight: 600 }}>{v.license_plate}</td>
-                  <td style={{ padding: '1rem', fontWeight: 700, color: 'var(--accent-cyan)' }}>${v.rent_price}</td>
+                  <td style={{ padding: '1rem', fontWeight: 700, color: 'var(--accent-cyan)' }}>₹{v.rent_price}</td>
                   <td style={{ padding: '1rem' }}>
                     <select 
                       className="form-select"
@@ -230,7 +230,7 @@ export const AdminDashboard = () => {
                   <td style={{ padding: '1rem' }}>{b.user_name}</td>
                   <td style={{ padding: '1rem' }}>{b.vehicle_name}</td>
                   <td style={{ padding: '1rem', fontSize: '0.82rem' }}>{b.start_date} to {b.end_date}</td>
-                  <td style={{ padding: '1rem', fontWeight: 700, color: 'var(--accent-cyan)' }}>${Number(b.total_cost).toFixed(2)}</td>
+                  <td style={{ padding: '1rem', fontWeight: 700, color: 'var(--accent-cyan)' }}>₹{Number(b.total_cost).toFixed(2)}</td>
                   <td style={{ padding: '1rem' }}>
                     <span className={`badge badge-${b.status}`}>{b.status}</span>
                   </td>
@@ -325,9 +325,9 @@ export const AdminDashboard = () => {
                   <td style={{ padding: '1rem', fontWeight: 700, color: 'var(--accent-primary)' }}>{bill.invoice_number}</td>
                   <td style={{ padding: '1rem' }}>{bill.user_name}</td>
                   <td style={{ padding: '1rem' }}>{bill.item_title}</td>
-                  <td style={{ padding: '1rem' }}>${Number(bill.subtotal).toFixed(2)}</td>
-                  <td style={{ padding: '1rem' }}>${Number(bill.tax_amount).toFixed(2)}</td>
-                  <td style={{ padding: '1rem', fontWeight: 800, color: 'var(--accent-cyan)' }}>${Number(bill.total_amount).toFixed(2)}</td>
+                  <td style={{ padding: '1rem' }}>₹{Number(bill.subtotal).toFixed(2)}</td>
+                  <td style={{ padding: '1rem' }}>₹{Number(bill.tax_amount).toFixed(2)}</td>
+                  <td style={{ padding: '1rem', fontWeight: 800, color: 'var(--accent-cyan)' }}>₹{Number(bill.total_amount).toFixed(2)}</td>
                   <td style={{ padding: '1rem' }}>
                     <span className={`badge badge-${bill.status}`}>{bill.status}</span>
                   </td>
@@ -410,7 +410,7 @@ export const AdminDashboard = () => {
                 </div>
 
                 <div className="form-group">
-                  <label className="form-label">Daily Price ($)</label>
+                  <label className="form-label">Daily Price (₹)</label>
                   <input 
                     type="number" 
                     className="form-control" 

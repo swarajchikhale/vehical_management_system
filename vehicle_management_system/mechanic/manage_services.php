@@ -82,7 +82,7 @@ $assignedServices = $stmtS->fetchAll(PDO::FETCH_ASSOC);
                             </div>
 
                             <div class="mb-2">
-                                <label class="form-label small fw-bold">Service Cost ($)</label>
+                                <label class="form-label small fw-bold">Service Cost (₹)</label>
                                 <input type="number" step="0.01" name="service_cost" class="form-control form-control-sm" value="<?php echo $job['service_cost']; ?>">
                             </div>
 

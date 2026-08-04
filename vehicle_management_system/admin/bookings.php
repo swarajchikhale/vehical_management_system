@@ -66,7 +66,7 @@ $bookings = getAllBookings();
                                 <td><?php echo $b['start_date']; ?></td>
                                 <td><?php echo $b['end_date']; ?></td>
                                 <td><?php echo $b['total_days']; ?></td>
-                                <td class="fw-bold text-success">$<?php echo number_format($b['total_cost'], 2); ?></td>
+                                <td class="fw-bold text-success">₹<?php echo number_format($b['total_cost'], 2); ?></td>
                                 <td>
                                     <span class="badge bg-<?php 
                                         echo ($b['status'] == 'active' || $b['status'] == 'confirmed') ? 'success' : 

@@ -67,7 +67,7 @@ export const CustomerDashboard = ({ setActiveTab }) => {
           </div>
           <div>
             <div style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--accent-emerald)' }}>
-              ${totalSpent.toFixed(2)}
+              ₹{totalSpent.toFixed(2)}
             </div>
             <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Total Settled Bills</div>
           </div>
@@ -104,7 +104,7 @@ export const CustomerDashboard = ({ setActiveTab }) => {
 
                   <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
                     <div style={{ textAlign: 'right' }}>
-                      <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--accent-cyan)' }}>${Number(b.total_cost).toFixed(2)}</div>
+                      <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--accent-cyan)' }}>₹{Number(b.total_cost).toFixed(2)}</div>
                       <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Total incl. tax</div>
                     </div>
 
@@ -155,7 +155,7 @@ export const CustomerDashboard = ({ setActiveTab }) => {
                   <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
                     <div style={{ textAlign: 'right' }}>
                       <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--text-main)' }}>
-                        ${Number(s.service_cost || 0).toFixed(2)}
+                        ₹{Number(s.service_cost || 0).toFixed(2)}
                       </div>
                       <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Estimated Cost</div>
                     </div>

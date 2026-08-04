@@ -142,16 +142,16 @@ function calculateBookingTotal(pricePerDay) {
                 <div class="border rounded p-3 mt-3">
                     <div class="d-flex justify-content-between">
                         <span>Rental (${days} days):</span>
-                        <span>$${total.toFixed(2)}</span>
+                        <span>₹${total.toFixed(2)}</span>
                     </div>
                     <div class="d-flex justify-content-between">
                         <span>Tax (18%):</span>
-                        <span>$${tax.toFixed(2)}</span>
+                        <span>₹${tax.toFixed(2)}</span>
                     </div>
                     <hr>
                     <div class="d-flex justify-content-between fw-bold">
                         <span>Total:</span>
-                        <span>$${grandTotal.toFixed(2)}</span>
+                        <span>₹${grandTotal.toFixed(2)}</span>
                     </div>
                 </div>
             `;

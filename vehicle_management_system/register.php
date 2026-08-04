@@ -239,7 +239,7 @@ require_once 'includes/footer.php';
                                     
                                     <div class="col-md-6">
                                         <div class="form-group mb-3">
-                                            <label for="hourlyRate" class="form-label">Hourly Rate ($)</label>
+                                            <label for="hourlyRate" class="form-label">Hourly Rate (₹)</label>
                                             <input type="number" 
                                                    class="form-control" 
                                                    id="hourlyRate" 

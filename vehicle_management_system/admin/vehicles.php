@@ -78,7 +78,7 @@ $vehicles = $stmtV->fetchAll(PDO::FETCH_ASSOC);
                                 <td><span class="badge bg-secondary"><?php echo strtoupper($v['vehicle_type']); ?></span></td>
                                 <td><?php echo htmlspecialchars($v['brand'] . ' ' . $v['model']); ?> (<?php echo $v['year']; ?>)</td>
                                 <td><code><?php echo htmlspecialchars($v['license_plate']); ?></code></td>
-                                <td class="fw-bold text-success">$<?php echo number_format($v['rent_price'], 2); ?></td>
+                                <td class="fw-bold text-success">₹<?php echo number_format($v['rent_price'], 2); ?></td>
                                 <td>
                                     <span class="badge bg-<?php echo ($v['status'] == 'available') ? 'success' : (($v['status'] == 'rented') ? 'warning' : 'danger'); ?>">
                                         <?php echo ucfirst($v['status']); ?>
@@ -141,7 +141,7 @@ $vehicles = $stmtV->fetchAll(PDO::FETCH_ASSOC);
                             <input type="text" name="license_plate" class="form-control" required>
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label">Daily Price ($)</label>
+                            <label class="form-label">Daily Price (₹)</label>
                             <input type="number" step="0.01" name="rent_price" class="form-control" required>
                         </div>
                         <div class="col-12">

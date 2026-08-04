@@ -135,7 +135,7 @@ export const Vehicles = ({ setActiveTab }) => {
 
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid var(--border-color)', paddingTop: '1rem' }}>
                 <div>
-                  <span style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--accent-cyan)' }}>${vehicle.rent_price}</span>
+                  <span style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--accent-cyan)' }}>₹{vehicle.rent_price}</span>
                   <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}> / day</span>
                 </div>
 
@@ -232,7 +232,7 @@ export const Vehicles = ({ setActiveTab }) => {
                 <div style={{ background: 'var(--bg-glass)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', padding: '1.25rem', marginBottom: '1.5rem' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9rem', marginBottom: '0.4rem' }}>
                     <span style={{ color: 'var(--text-muted)' }}>Daily Rate:</span>
-                    <span>${selectedVehicle.rent_price} / day</span>
+                    <span>₹{selectedVehicle.rent_price} / day</span>
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9rem', marginBottom: '0.4rem' }}>
                     <span style={{ color: 'var(--text-muted)' }}>Total Rental Days:</span>
@@ -240,16 +240,16 @@ export const Vehicles = ({ setActiveTab }) => {
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9rem', marginBottom: '0.4rem' }}>
                     <span style={{ color: 'var(--text-muted)' }}>Subtotal:</span>
-                    <span>${pricing.subtotal.toFixed(2)}</span>
+                    <span>₹{pricing.subtotal.toFixed(2)}</span>
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9rem', marginBottom: '0.6rem' }}>
                     <span style={{ color: 'var(--text-muted)' }}>GST Tax (18%):</span>
-                    <span>${pricing.tax.toFixed(2)}</span>
+                    <span>₹{pricing.tax.toFixed(2)}</span>
                   </div>
 
                   <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '0.6rem', display: 'flex', justifyContent: 'space-between', fontWeight: 800, fontSize: '1.15rem' }}>
                     <span>Total Amount:</span>
-                    <span style={{ color: 'var(--accent-cyan)' }}>${pricing.total.toFixed(2)}</span>
+                    <span style={{ color: 'var(--accent-cyan)' }}>₹{pricing.total.toFixed(2)}</span>
                   </div>
                 </div>
 

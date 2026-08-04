@@ -137,7 +137,7 @@ function initializeDashboardCharts() {
                         beginAtZero: true,
                         ticks: {
                             callback: function(value) {
-                                return '$' + value.toLocaleString();
+                                return '₹' + value.toLocaleString();
                             }
                         }
                     }
@@ -199,7 +199,7 @@ function updateDashboardStats(stats) {
     };
     
     if (statElements.totalBookings) statElements.totalBookings.textContent = stats.totalBookings || 0;
-    if (statElements.totalRevenue) statElements.totalRevenue.textContent = '$' + (stats.totalRevenue || 0).toLocaleString();
+    if (statElements.totalRevenue) statElements.totalRevenue.textContent = '₹' + (stats.totalRevenue || 0).toLocaleString();
     if (statElements.activeRentals) statElements.activeRentals.textContent = stats.activeRentals || 0;
     if (statElements.totalUsers) statElements.totalUsers.textContent = stats.totalUsers || 0;
 }

@@ -91,7 +91,7 @@ $vehicleTypes = $typeStmt->fetchAll(PDO::FETCH_COLUMN);
                                id="price_min" 
                                name="price_min" 
                                value="<?php echo htmlspecialchars($priceMin); ?>"
-                               placeholder="$0"
+                               placeholder="₹0"
                                min="0"
                                step="0.01">
                     </div>
@@ -103,7 +103,7 @@ $vehicleTypes = $typeStmt->fetchAll(PDO::FETCH_COLUMN);
                                id="price_max" 
                                name="price_max" 
                                value="<?php echo htmlspecialchars($priceMax); ?>"
-                               placeholder="$1000"
+                               placeholder="₹1000"
                                min="0"
                                step="0.01">
                     </div>
@@ -448,7 +448,7 @@ $additionalScripts = '
                                     <tr><td><strong>Model:</strong></td><td>${vehicle.model || "N/A"}</td></tr>
                                     <tr><td><strong>Year:</strong></td><td>${vehicle.year || "N/A"}</td></tr>
                                     <tr><td><strong>License Plate:</strong></td><td>${vehicle.license_plate || "N/A"}</td></tr>
-                                    <tr><td><strong>Price per Day:</strong></td><td class="text-primary fw-bold">${vehicle.rent_price}</td></tr>
+                                    <tr><td><strong>Price per Day:</strong></td><td class="text-primary fw-bold">₹${vehicle.rent_price}</td></tr>
                                 </table>
                                 
                                 ${vehicle.description ? 
@@ -501,7 +501,7 @@ $additionalScripts = '
                 
                 document.getElementById("vehicleId").value = vehicleId;
                 document.getElementById("vehicleName").textContent = vehicleName;
-                document.getElementById("vehiclePrice").textContent = `${vehiclePrice}/day`;
+                document.getElementById("vehiclePrice").textContent = `₹${vehiclePrice}/day`;
                 
                 // Set minimum dates
                 const today = new Date().toISOString().split("T")[0];
@@ -524,7 +524,7 @@ $additionalScripts = '
     function calculateBookingTotal() {
         const startDate = document.getElementById("startDate").value;
         const endDate = document.getElementById("endDate").value;
-        const pricePerDay = parseFloat(document.getElementById("vehiclePrice").textContent.replace("$", "").replace("/day", ""));
+        const pricePerDay = parseFloat(document.getElementById("vehiclePrice").textContent.replace("₹", "").replace("$", "").replace("/day", ""));
         
         if (startDate && endDate) {
             const start = new Date(startDate);
@@ -544,16 +544,16 @@ $additionalScripts = '
                         <div class="card-body">
                             <div class="d-flex justify-content-between">
                                 <span>Rental (${days} day${days > 1 ? "s" : ""}):</span>
-                                <span>${subtotal.toFixed(2)}</span>
+                                <span>₹${subtotal.toFixed(2)}</span>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span>Tax (18%):</span>
-                                <span>${tax.toFixed(2)}</span>
+                                <span>₹${tax.toFixed(2)}</span>
                             </div>
                             <hr>
                             <div class="d-flex justify-content-between fw-bold fs-5">
                                 <span>Total:</span>
-                                <span class="text-primary">${total.toFixed(2)}</span>
+                                <span class="text-primary">₹${total.toFixed(2)}</span>
                             </div>
                         </div>
                     </div>
