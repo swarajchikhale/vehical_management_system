@@ -34,12 +34,18 @@
 - Automated invoice generation for all rental reservations and completed repair jobs.
 - Clean printable & downloadable invoice template with line item breakdown, 18% GST tax calculation, and payment status stamp.
 
+### 💱 **Indian Rupee (INR ₹) Currency & Localized Formatting**
+- Native Indian Rupee (`₹`) support across all rental rates, service tickets, and invoicing.
+- Realistic Indian market pricing for luxury SUVs (`₹9,500/day`), sedans (`₹3,500/day`), bikes (`₹1,800/day`), and mechanic services.
+- Reusable `Intl.NumberFormat('en-IN')` utility for precision currency formatting.
+
 ---
 
 ## 🛠️ Technology Stack
 
 - **Frontend App:** React 18, Vite, Lucide-React Icons, Chart.js, React-Chartjs-2
 - **Design System:** Custom HSL Design Tokens, Glassmorphism, Dark/Light Mode, Google Fonts (Inter & Outfit)
+- **Localization:** Indian Standard Formatting (`Intl.NumberFormat('en-IN')` & `en-IN` Date formatting)
 - **Backend / Legacy:** PHP 8.0+, MySQL 8.0+ PDO, Prepared Statements
 - **Runtime:** Node.js (v24+) / Apache XAMPP
 
@@ -98,6 +104,9 @@ vehical_management_system/
 │   ├── 📄 main.jsx                 # React root mount
 │   ├── 📄 App.jsx                  # Main application component & router
 │   ├── 📄 index.css                # Design system & HSL variables
+│   │
+│   ├── 📁 utils/
+│   │   └── 📄 formatters.js        # INR currency & date formatting utilities
 │   │
 │   ├── 📁 context/
 │   │   ├── 📄 AuthContext.jsx       # Multi-role auth & demo credentials
