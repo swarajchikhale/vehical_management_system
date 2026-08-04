@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useData } from '../context/DataContext';
 import { InvoiceModal } from '../components/InvoiceModal';
+import { formatINR } from '../utils/formatters';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, ArcElement, BarElement } from 'chart.js';
 import { Line, Bar } from 'react-chartjs-2';
 import { Shield, Car, Wrench, DollarSign, Plus, Edit, Trash2, CheckCircle, XCircle, FileText, UserCheck, AlertTriangle, X } from 'lucide-react';
@@ -95,7 +96,7 @@ export const AdminDashboard = () => {
       <div className="grid grid-cols-4" style={{ marginBottom: '2.5rem' }}>
         <div className="card">
           <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.25rem' }}>Total Gross Revenue</div>
-          <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--accent-emerald)' }}>₹{totalRevenue.toFixed(2)}</div>
+          <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--accent-emerald)' }}>{formatINR(totalRevenue)}</div>
           <div style={{ fontSize: '0.75rem', color: 'var(--accent-emerald)', marginTop: '0.35rem' }}>↑ +18.4% vs last month</div>
         </div>
 
@@ -183,7 +184,7 @@ export const AdminDashboard = () => {
                   </td>
                   <td style={{ padding: '1rem', textTransform: 'capitalize' }}>{v.vehicle_type}</td>
                   <td style={{ padding: '1rem', fontWeight: 600 }}>{v.license_plate}</td>
-                  <td style={{ padding: '1rem', fontWeight: 700, color: 'var(--accent-cyan)' }}>₹{v.rent_price}</td>
+                  <td style={{ padding: '1rem', fontWeight: 700, color: 'var(--accent-cyan)' }}>{formatINR(v.rent_price, false)}</td>
                   <td style={{ padding: '1rem' }}>
                     <select 
                       className="form-select"
@@ -230,7 +231,7 @@ export const AdminDashboard = () => {
                   <td style={{ padding: '1rem' }}>{b.user_name}</td>
                   <td style={{ padding: '1rem' }}>{b.vehicle_name}</td>
                   <td style={{ padding: '1rem', fontSize: '0.82rem' }}>{b.start_date} to {b.end_date}</td>
-                  <td style={{ padding: '1rem', fontWeight: 700, color: 'var(--accent-cyan)' }}>₹{Number(b.total_cost).toFixed(2)}</td>
+                  <td style={{ padding: '1rem', fontWeight: 700, color: 'var(--accent-cyan)' }}>{formatINR(b.total_cost)}</td>
                   <td style={{ padding: '1rem' }}>
                     <span className={`badge badge-${b.status}`}>{b.status}</span>
                   </td>
@@ -325,9 +326,9 @@ export const AdminDashboard = () => {
                   <td style={{ padding: '1rem', fontWeight: 700, color: 'var(--accent-primary)' }}>{bill.invoice_number}</td>
                   <td style={{ padding: '1rem' }}>{bill.user_name}</td>
                   <td style={{ padding: '1rem' }}>{bill.item_title}</td>
-                  <td style={{ padding: '1rem' }}>₹{Number(bill.subtotal).toFixed(2)}</td>
-                  <td style={{ padding: '1rem' }}>₹{Number(bill.tax_amount).toFixed(2)}</td>
-                  <td style={{ padding: '1rem', fontWeight: 800, color: 'var(--accent-cyan)' }}>₹{Number(bill.total_amount).toFixed(2)}</td>
+                  <td style={{ padding: '1rem' }}>{formatINR(bill.subtotal)}</td>
+                  <td style={{ padding: '1rem' }}>{formatINR(bill.tax_amount)}</td>
+                  <td style={{ padding: '1rem', fontWeight: 800, color: 'var(--accent-cyan)' }}>{formatINR(bill.total_amount)}</td>
                   <td style={{ padding: '1rem' }}>
                     <span className={`badge badge-${bill.status}`}>{bill.status}</span>
                   </td>
