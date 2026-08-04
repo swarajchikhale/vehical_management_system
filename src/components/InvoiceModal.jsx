@@ -1,4 +1,5 @@
 import React from 'react';
+import { formatINR, formatDateIN } from '../utils/formatters';
 import { FileText, Printer, CheckCircle, Clock, X, DollarSign } from 'lucide-react';
 
 export const InvoiceModal = ({ bill, onClose }) => {
@@ -91,7 +92,7 @@ export const InvoiceModal = ({ bill, onClose }) => {
               <tr style={{ borderBottom: '1px solid #f3f4f6' }}>
                 <td style={{ padding: '0.8rem', fontWeight: 600, color: '#111827' }}>{bill.item_title}</td>
                 <td style={{ padding: '0.8rem', textAlign: 'center', textTransform: 'capitalize', color: '#6b7280' }}>{bill.bill_type}</td>
-                <td style={{ padding: '0.8rem', textAlign: 'right', fontWeight: 600, color: '#111827' }}>₹{Number(bill.subtotal).toFixed(2)}</td>
+                <td style={{ padding: '0.8rem', textAlign: 'right', fontWeight: 600, color: '#111827' }}>{formatINR(bill.subtotal)}</td>
               </tr>
             </tbody>
           </table>
@@ -101,15 +102,15 @@ export const InvoiceModal = ({ bill, onClose }) => {
             <div style={{ width: '240px', fontSize: '0.9rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.3rem 0', color: '#4b5563' }}>
                 <span>Subtotal:</span>
-                <span>₹{Number(bill.subtotal).toFixed(2)}</span>
+                <span>{formatINR(bill.subtotal)}</span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.3rem 0', color: '#4b5563' }}>
                 <span>GST / Tax (18%):</span>
-                <span>₹{Number(bill.tax_amount).toFixed(2)}</span>
+                <span>{formatINR(bill.tax_amount)}</span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.6rem 0', borderTop: '2px solid #111827', fontWeight: 800, fontSize: '1.1rem', color: '#111827', marginTop: '0.4rem' }}>
                 <span>Total Amount:</span>
-                <span style={{ color: '#4f46e5' }}>₹{Number(bill.total_amount).toFixed(2)}</span>
+                <span style={{ color: '#4f46e5' }}>{formatINR(bill.total_amount)}</span>
               </div>
             </div>
           </div>
