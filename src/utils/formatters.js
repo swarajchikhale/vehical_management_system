@@ -29,3 +29,42 @@ export const formatDateIN = (dateString) => {
     year: 'numeric'
   });
 };
+
+/**
+ * Maps status strings to CSS badge classes for vehicles, services, and bookings.
+ * @param {string} status - Status key (e.g. 'available', 'rented', 'active', 'completed')
+ * @returns {string} Tailwind/CSS badge class string
+ */
+export const getStatusBadgeClass = (status) => {
+  const normalized = (status || '').toLowerCase();
+  switch (normalized) {
+    case 'available':
+    case 'completed':
+    case 'paid':
+    case 'active':
+      return 'badge-success';
+    case 'rented':
+    case 'assigned':
+    case 'in_progress':
+      return 'badge-warning';
+    case 'maintenance':
+    case 'cancelled':
+    case 'pending':
+      return 'badge-danger';
+    default:
+      return 'badge-secondary';
+  }
+};
+
+/**
+ * Returns formatted human-readable label for status key.
+ * @param {string} status - Raw status string
+ * @returns {string} Capitalized status label
+ */
+export const getStatusLabel = (status) => {
+  if (!status) return 'Unknown';
+  return status
+    .replace(/_/g, ' ')
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+};
+
