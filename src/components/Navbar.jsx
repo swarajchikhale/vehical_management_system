@@ -140,9 +140,12 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
           </div>
 
           {/* User Badge */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'var(--bg-glass)', border: '1px solid var(--border-color)', padding: '0.35rem 0.75rem', borderRadius: '9999px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'var(--bg-card)', border: '1px solid var(--border-color)', padding: '0.35rem 0.85rem', borderRadius: '9999px', boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }}>
             <User size={16} color="var(--accent-cyan)" />
-            <span style={{ fontSize: '0.85rem', fontWeight: 600 }}>{currentUser.name}</span>
+            <span style={{ fontSize: '0.85rem', fontWeight: 700 }}>{currentUser.name}</span>
+            <span style={{ fontSize: '0.68rem', padding: '0.1rem 0.4rem', borderRadius: '4px', background: 'var(--gradient-primary)', color: '#fff', fontWeight: 800, textTransform: 'uppercase' }}>
+              {currentUser.role}
+            </span>
           </div>
         </div>
       </div>
