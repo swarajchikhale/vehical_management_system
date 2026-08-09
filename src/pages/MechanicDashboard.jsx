@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useData } from '../context/DataContext';
 import { useAuth } from '../context/AuthContext';
-import { formatINR } from '../utils/formatters';
+import { formatINR, getStatusBadgeClass, getStatusLabel } from '../utils/formatters';
 import { Wrench, CheckCircle, Clock, MapPin, Phone, AlertTriangle, FileCheck } from 'lucide-react';
 
 export const MechanicDashboard = () => {
@@ -89,7 +89,7 @@ export const MechanicDashboard = () => {
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.4rem' }}>
                     <h3 style={{ fontSize: '1.25rem' }}>Dispatch Ticket #{job.id} - {job.vehicle_model}</h3>
-                    <span className={`badge badge-${job.status}`}>{job.status.replace('_', ' ')}</span>
+                    <span className={`badge ${getStatusBadgeClass(job.status)}`}>{getStatusLabel(job.status)}</span>
                     {job.is_emergency && <span className="badge badge-maintenance">EMERGENCY DISPATCH</span>}
                   </div>
                   <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', marginBottom: '0.5rem' }}>
