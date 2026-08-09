@@ -11,6 +11,7 @@ export const Vehicles = ({ setActiveTab }) => {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedType, setSelectedType] = useState('all');
+  const [sortBy, setSortBy] = useState('default');
   const [selectedVehicle, setSelectedVehicle] = useState(null);
 
   // Booking form state
@@ -19,14 +20,22 @@ export const Vehicles = ({ setActiveTab }) => {
   const [notes, setNotes] = useState('');
   const [bookingSuccess, setBookingSuccess] = useState(null);
 
-  // Filtering logic
-  const filteredVehicles = vehicles.filter(v => {
-    const matchesSearch = v.vehicle_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                          v.brand.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                          v.model.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesType = selectedType === 'all' || v.vehicle_type.toLowerCase() === selectedType.toLowerCase();
-    return matchesSearch && matchesType;
-  });
+  // Filtering & sorting logic
+  const filteredVehicles = vehicles
+    .filter(v => {
+      const matchesSearch = v.vehicle_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                            v.brand.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                            v.model.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                            v.license_plate.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesType = selectedType === 'all' || v.vehicle_type.toLowerCase() === selectedType.toLowerCase();
+      return matchesSearch && matchesType;
+    })
+    .sort((a, b) => {
+      if (sortBy === 'price_low') return a.rent_price - b.rent_price;
+      if (sortBy === 'price_high') return b.rent_price - a.rent_price;
+      if (sortBy === 'year_new') return b.year - a.year;
+      return 0;
+    });
 
   // Calculate pricing
   const calculateCost = () => {
@@ -98,27 +107,51 @@ export const Vehicles = ({ setActiveTab }) => {
           )}
         </div>
 
-        {/* Type Pill Filter */}
-        <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', alignItems: 'center' }}>
-          {['all', 'car', 'bike', 'van', 'bus', 'truck'].map(type => (
-            <button
-              key={type}
-              onClick={() => setSelectedType(type)}
+        {/* Type Pill Filter & Sort */}
+        <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center' }}>
+          <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', alignItems: 'center' }}>
+            {['all', 'car', 'bike', 'van', 'bus', 'truck'].map(type => (
+              <button
+                key={type}
+                onClick={() => setSelectedType(type)}
+                style={{
+                  padding: '0.45rem 0.9rem',
+                  borderRadius: 'var(--radius-full)',
+                  border: '1px solid var(--border-color)',
+                  background: selectedType === type ? 'var(--gradient-primary)' : 'var(--bg-glass)',
+                  color: '#ffffff',
+                  fontSize: '0.85rem',
+                  fontWeight: 600,
+                  textTransform: 'capitalize',
+                  cursor: 'pointer'
+                }}
+              >
+                {type}
+              </button>
+            ))}
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-glass)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', padding: '0.25rem 0.5rem' }}>
+            <Filter size={14} color="var(--accent-primary)" style={{ marginRight: '0.35rem' }} />
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
               style={{
-                padding: '0.45rem 0.9rem',
-                borderRadius: 'var(--radius-full)',
-                border: '1px solid var(--border-color)',
-                background: selectedType === type ? 'var(--gradient-primary)' : 'var(--bg-glass)',
-                color: '#ffffff',
+                background: 'transparent',
+                color: 'var(--text-main)',
+                border: 'none',
+                outline: 'none',
                 fontSize: '0.85rem',
                 fontWeight: 600,
-                textTransform: 'capitalize',
                 cursor: 'pointer'
               }}
             >
-              {type}
-            </button>
-          ))}
+              <option value="default">Sort: Recommended</option>
+              <option value="price_low">Sort: Price Low → High</option>
+              <option value="price_high">Sort: Price High → Low</option>
+              <option value="year_new">Sort: Newest Year First</option>
+            </select>
+          </div>
         </div>
       </div>
 
