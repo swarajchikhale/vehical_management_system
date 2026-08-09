@@ -106,24 +106,25 @@ vehical_management_system/
 │   ├── 📄 index.css                # Design system & HSL variables
 │   │
 │   ├── 📁 utils/
-│   │   └── 📄 formatters.js        # INR currency & date formatting utilities
+│   │   └── 📄 formatters.js        # INR currency, date & getStatusBadgeClass utilities
 │   │
 │   ├── 📁 context/
 │   │   ├── 📄 AuthContext.jsx       # Multi-role auth & demo credentials
 │   │   └── 📄 DataContext.jsx       # Fleet, bookings, services & bills state
 │   │
 │   ├── 📁 components/
-│   │   ├── 📄 Navbar.jsx            # Glassmorphism header with role switcher
+│   │   ├── 📄 Navbar.jsx            # Glassmorphism header with role switcher & user badge
 │   │   ├── 📄 Footer.jsx            # Footer with emergency hotline & links
-│   │   └── 📄 InvoiceModal.jsx      # Printable digital tax invoice modal
+│   │   ├── 📄 InvoiceModal.jsx      # Printable digital tax invoice modal
+│   │   └── 📄 Toast.jsx             # Floating notification toast component
 │   │
 │   └── 📁 pages/
 │       ├── 📄 Home.jsx              # Landing page & live stats
-│       ├── 📄 Vehicles.jsx          # Fleet rental hub & price calculator
+│       ├── 📄 Vehicles.jsx          # Fleet rental hub, live search & price calculator
 │       ├── 📄 MechanicServices.jsx  # Roadside mechanic request dispatch
-│       ├── 📄 CustomerDashboard.jsx # Customer rental & service portal
-│       ├── 📄 AdminDashboard.jsx    # Admin control center & Chart.js analytics
-│       └── 📄 MechanicDashboard.jsx # Technician repair workbench
+│       ├── 📄 CustomerDashboard.jsx # Customer portal with tabbed booking history
+│       ├── 📄 AdminDashboard.jsx    # Admin control center, Chart.js analytics & bill search
+│       └── 📄 MechanicDashboard.jsx # Technician repair workbench & quick status toggles
 │
 └── 📁 vehicle_management_system/   # PHP & MySQL Backend Legacy Stack
     ├── 📄 database.sql             # MySQL Database Schema & sample data
