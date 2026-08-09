@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useData } from '../context/DataContext';
 import { InvoiceModal } from '../components/InvoiceModal';
-import { formatINR } from '../utils/formatters';
+import { formatINR, getStatusBadgeClass, getStatusLabel } from '../utils/formatters';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, ArcElement, BarElement } from 'chart.js';
 import { Line, Bar } from 'react-chartjs-2';
-import { Shield, Car, Wrench, DollarSign, Plus, Edit, Trash2, CheckCircle, XCircle, FileText, UserCheck, AlertTriangle, X } from 'lucide-react';
+import { Shield, Car, Wrench, DollarSign, Plus, Edit, Trash2, CheckCircle, XCircle, FileText, UserCheck, AlertTriangle, X, Search } from 'lucide-react';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, ArcElement, Title, Tooltip, Legend);
 
@@ -14,6 +14,7 @@ export const AdminDashboard = () => {
   const [activeSubTab, setActiveSubTab] = useState('fleet'); // fleet | bookings | services | bills
   const [showAddVehicleModal, setShowAddVehicleModal] = useState(false);
   const [selectedBill, setSelectedBill] = useState(null);
+  const [billSearchTerm, setBillSearchTerm] = useState('');
 
   // New vehicle form state
   const [newVehicle, setNewVehicle] = useState({
@@ -306,41 +307,66 @@ export const AdminDashboard = () => {
 
       {/* Tab 4: Master Bills & Invoices */}
       {activeSubTab === 'bills' && (
-        <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.9rem' }}>
-            <thead>
-              <tr style={{ background: 'var(--bg-secondary)', borderBottom: '1px solid var(--border-color)', color: 'var(--text-muted)' }}>
-                <th style={{ padding: '1rem' }}>Invoice #</th>
-                <th style={{ padding: '1rem' }}>Customer</th>
-                <th style={{ padding: '1rem' }}>Item</th>
-                <th style={{ padding: '1rem' }}>Subtotal</th>
-                <th style={{ padding: '1rem' }}>Tax (18%)</th>
-                <th style={{ padding: '1rem' }}>Total</th>
-                <th style={{ padding: '1rem' }}>Status</th>
-                <th style={{ padding: '1rem', textAlign: 'right' }}>Invoice</th>
-              </tr>
-            </thead>
-            <tbody>
-              {bills.map(bill => (
-                <tr key={bill.id} style={{ borderBottom: '1px solid var(--border-color)' }}>
-                  <td style={{ padding: '1rem', fontWeight: 700, color: 'var(--accent-primary)' }}>{bill.invoice_number}</td>
-                  <td style={{ padding: '1rem' }}>{bill.user_name}</td>
-                  <td style={{ padding: '1rem' }}>{bill.item_title}</td>
-                  <td style={{ padding: '1rem' }}>{formatINR(bill.subtotal)}</td>
-                  <td style={{ padding: '1rem' }}>{formatINR(bill.tax_amount)}</td>
-                  <td style={{ padding: '1rem', fontWeight: 800, color: 'var(--accent-cyan)' }}>{formatINR(bill.total_amount)}</td>
-                  <td style={{ padding: '1rem' }}>
-                    <span className={`badge badge-${bill.status}`}>{bill.status}</span>
-                  </td>
-                  <td style={{ padding: '1rem', textAlign: 'right' }}>
-                    <button className="btn btn-secondary btn-sm" onClick={() => setSelectedBill(bill)}>
-                      <FileText size={14} /> Open
-                    </button>
-                  </td>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--bg-card)', padding: '0.75rem 1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
+            <div style={{ position: 'relative', flex: '1', maxWidth: '380px' }}>
+              <Search size={16} style={{ position: 'absolute', left: '0.75rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Filter by invoice #, customer or title..."
+                value={billSearchTerm}
+                onChange={(e) => setBillSearchTerm(e.target.value)}
+                style={{ paddingLeft: '2.25rem', fontSize: '0.85rem' }}
+              />
+            </div>
+            <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+              Showing {bills.filter(b => b.invoice_number.toLowerCase().includes(billSearchTerm.toLowerCase()) || b.user_name.toLowerCase().includes(billSearchTerm.toLowerCase()) || b.item_title.toLowerCase().includes(billSearchTerm.toLowerCase())).length} of {bills.length} invoices
+            </span>
+          </div>
+
+          <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.9rem' }}>
+              <thead>
+                <tr style={{ background: 'var(--bg-secondary)', borderBottom: '1px solid var(--border-color)', color: 'var(--text-muted)' }}>
+                  <th style={{ padding: '1rem' }}>Invoice #</th>
+                  <th style={{ padding: '1rem' }}>Customer</th>
+                  <th style={{ padding: '1rem' }}>Item</th>
+                  <th style={{ padding: '1rem' }}>Subtotal</th>
+                  <th style={{ padding: '1rem' }}>Tax (18%)</th>
+                  <th style={{ padding: '1rem' }}>Total</th>
+                  <th style={{ padding: '1rem' }}>Status</th>
+                  <th style={{ padding: '1rem', textAlign: 'right' }}>Invoice</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {bills
+                  .filter(b => 
+                    b.invoice_number.toLowerCase().includes(billSearchTerm.toLowerCase()) ||
+                    b.user_name.toLowerCase().includes(billSearchTerm.toLowerCase()) ||
+                    b.item_title.toLowerCase().includes(billSearchTerm.toLowerCase())
+                  )
+                  .map(bill => (
+                    <tr key={bill.id} style={{ borderBottom: '1px solid var(--border-color)' }}>
+                      <td style={{ padding: '1rem', fontWeight: 700, color: 'var(--accent-primary)' }}>{bill.invoice_number}</td>
+                      <td style={{ padding: '1rem' }}>{bill.user_name}</td>
+                      <td style={{ padding: '1rem' }}>{bill.item_title}</td>
+                      <td style={{ padding: '1rem' }}>{formatINR(bill.subtotal)}</td>
+                      <td style={{ padding: '1rem' }}>{formatINR(bill.tax_amount)}</td>
+                      <td style={{ padding: '1rem', fontWeight: 800, color: 'var(--accent-cyan)' }}>{formatINR(bill.total_amount)}</td>
+                      <td style={{ padding: '1rem' }}>
+                        <span className={`badge ${getStatusBadgeClass(bill.status)}`}>{getStatusLabel(bill.status)}</span>
+                      </td>
+                      <td style={{ padding: '1rem', textAlign: 'right' }}>
+                        <button className="btn btn-secondary btn-sm" onClick={() => setSelectedBill(bill)}>
+                          <FileText size={14} /> Open
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
 
