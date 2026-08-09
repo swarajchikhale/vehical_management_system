@@ -20,7 +20,8 @@
 
 ### 🚙 **Interactive Vehicle Rental Hub**
 - Live vehicle inventory with category filters (`Car`, `Bike`, `Van`, `Bus`, `Truck`).
-- Search by vehicle name, brand, or model.
+- Real-time search by vehicle name, brand, model, or license plate.
+- Advanced sorting: Price Low → High, Price High → Low, Newest Model Year.
 - Dynamic date pickers with conflict checking and live subtotal + GST calculation.
 - Instant reservation and booking invoice generation.
 
