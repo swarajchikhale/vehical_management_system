@@ -1,5 +1,6 @@
 import React from 'react';
 import { useData } from '../context/DataContext';
+import { formatINR, getStatusBadgeClass, getStatusLabel } from '../utils/formatters';
 import { Car, Wrench, ShieldCheck, Zap, Award, Star, ArrowRight, CheckCircle2, Clock, FileText } from 'lucide-react';
 
 export const Home = ({ setActiveTab, onBookVehicle }) => {
