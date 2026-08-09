@@ -21,9 +21,12 @@ export const Footer = ({ setActiveTab }) => {
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '1.25rem' }}>
               Next-generation Vehicle Management & Emergency Mechanic Service operating round-the-clock for luxury, utility, and commuter fleets.
             </p>
-            <div style={{ display: 'flex', gap: '0.75rem' }}>
-              <span style={{ background: 'var(--bg-glass)', border: '1px solid var(--border-color)', padding: '0.5rem 0.75rem', borderRadius: 'var(--radius-sm)', fontSize: '0.75rem', color: 'var(--accent-emerald)' }}>
+            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+              <span className="badge badge-available" style={{ fontSize: '0.75rem' }}>
                 ● 24/7 Dispatch Active
+              </span>
+              <span className="badge badge-confirmed" style={{ fontSize: '0.75rem' }}>
+                ● 99.98% System Uptime
               </span>
             </div>
           </div>
