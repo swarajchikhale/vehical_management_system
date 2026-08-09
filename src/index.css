@@ -358,3 +358,29 @@ a {
 @media (max-width: 640px) {
   .grid-cols-4, .grid-cols-3, .grid-cols-2 { grid-template-columns: repeat(1, 1fr); }
 }
+
+/* Print Styles for Digital Invoices */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-invoice, #printable-invoice * {
+    visibility: visible;
+  }
+  #printable-invoice {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 1.5cm;
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .modal-overlay {
+    background: none !important;
+    backdrop-filter: none !important;
+    position: static !important;
+  }
+}
+
