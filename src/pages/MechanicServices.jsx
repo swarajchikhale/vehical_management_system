@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useData } from '../context/DataContext';
 import { useAuth } from '../context/AuthContext';
-import { formatINR } from '../utils/formatters';
-import { Wrench, AlertTriangle, MapPin, Calendar, Clock, CheckCircle2, PhoneCall, ShieldCheck } from 'lucide-react';
+import { formatINR, getStatusBadgeClass, getStatusLabel } from '../utils/formatters';
+import { Wrench, AlertTriangle, MapPin, Calendar, Clock, CheckCircle2, PhoneCall, ShieldCheck, Search } from 'lucide-react';
 
 export const MechanicServices = ({ setActiveTab }) => {
   const { services, createServiceRequest, mechanics } = useData();
@@ -15,6 +15,7 @@ export const MechanicServices = ({ setActiveTab }) => {
   const [preferredDate, setPreferredDate] = useState(new Date().toISOString().split('T')[0]);
   const [isEmergency, setIsEmergency] = useState(false);
   const [submittedTicket, setSubmittedTicket] = useState(null);
+  const [mechSearchTerm, setMechSearchTerm] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -196,29 +197,43 @@ export const MechanicServices = ({ setActiveTab }) => {
         {/* Available Mechanics Panel */}
         <div>
           <div className="card" style={{ marginBottom: '1.5rem' }}>
-            <h3 style={{ fontSize: '1.2rem', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <h3 style={{ fontSize: '1.2rem', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <ShieldCheck size={20} color="var(--accent-emerald)" /> Certified On-Call Mechanics
             </h3>
-            <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '1.25rem' }}>
+            <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '1rem' }}>
               Our certified mechanics are equipped with mobile diagnostic tools and genuine replacement parts.
             </p>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              {mechanics.map(m => (
-                <div key={m.id} style={{ background: 'var(--bg-glass)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', padding: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <div>
-                    <h4 style={{ fontSize: '1rem', margin: 0 }}>{m.name}</h4>
-                    <span style={{ fontSize: '0.8rem', color: 'var(--accent-primary)' }}>{m.specialization}</span>
-                    <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>
-                      Exp: {m.experience_years} yrs • {formatINR(m.hourly_rate, false)}/hr • ★ {m.rating} ({m.total_reviews} reviews)
-                    </div>
-                  </div>
+            <div style={{ position: 'relative', marginBottom: '1rem' }}>
+              <Search size={14} style={{ position: 'absolute', left: '0.75rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Filter mechanics by name or spec..."
+                value={mechSearchTerm}
+                onChange={(e) => setMechSearchTerm(e.target.value)}
+                style={{ paddingLeft: '2.25rem', fontSize: '0.82rem' }}
+              />
+            </div>
 
-                  <span className={`badge badge-${m.availability}`}>
-                    {m.availability}
-                  </span>
-                </div>
-              ))}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              {mechanics
+                .filter(m => m.name.toLowerCase().includes(mechSearchTerm.toLowerCase()) || m.specialization.toLowerCase().includes(mechSearchTerm.toLowerCase()))
+                .map(m => (
+                  <div key={m.id} style={{ background: 'var(--bg-glass)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', padding: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div>
+                      <h4 style={{ fontSize: '1rem', margin: 0 }}>{m.name}</h4>
+                      <span style={{ fontSize: '0.8rem', color: 'var(--accent-primary)' }}>{m.specialization}</span>
+                      <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>
+                        Exp: {m.experience_years} yrs • {formatINR(m.hourly_rate, false)}/hr • ★ {m.rating} ({m.total_reviews} reviews)
+                      </div>
+                    </div>
+
+                    <span className={`badge ${getStatusBadgeClass(m.availability)}`}>
+                      {getStatusLabel(m.availability)}
+                    </span>
+                  </div>
+                ))}
             </div>
           </div>
 
