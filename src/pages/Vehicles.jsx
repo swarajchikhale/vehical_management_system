@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useData } from '../context/DataContext';
 import { useAuth } from '../context/AuthContext';
-import { formatINR } from '../utils/formatters';
+import { formatINR, getStatusBadgeClass, getStatusLabel } from '../utils/formatters';
+
 import { Search, Filter, Calendar, CheckCircle, Shield, AlertCircle, X, DollarSign } from 'lucide-react';
 
 export const Vehicles = ({ setActiveTab }) => {
@@ -111,8 +112,8 @@ export const Vehicles = ({ setActiveTab }) => {
                 alt={vehicle.vehicle_name}
                 style={{ width: '100%', height: '220px', objectFit: 'cover' }}
               />
-              <span className={`badge badge-${vehicle.status}`} style={{ position: 'absolute', top: '1rem', right: '1rem' }}>
-                {vehicle.status}
+              <span className={`badge ${getStatusBadgeClass(vehicle.status)}`} style={{ position: 'absolute', top: '1rem', right: '1rem' }}>
+                {getStatusLabel(vehicle.status)}
               </span>
               <span style={{ position: 'absolute', bottom: '1rem', left: '1rem', background: 'rgba(0,0,0,0.7)', padding: '0.2rem 0.6rem', borderRadius: '4px', fontSize: '0.75rem', color: '#fff', fontWeight: 600 }}>
                 {vehicle.license_plate}
