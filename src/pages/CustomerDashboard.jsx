@@ -2,16 +2,18 @@ import React, { useState } from 'react';
 import { useData } from '../context/DataContext';
 import { useAuth } from '../context/AuthContext';
 import { InvoiceModal } from '../components/InvoiceModal';
-import { formatINR, formatDateIN } from '../utils/formatters';
+import { formatINR, formatDateIN, getStatusBadgeClass, getStatusLabel } from '../utils/formatters';
 import { Car, Wrench, FileText, Calendar, DollarSign, CheckCircle2, Clock, AlertCircle } from 'lucide-react';
 
 export const CustomerDashboard = ({ setActiveTab }) => {
   const { bookings, services, bills } = useData();
   const { currentUser } = useAuth();
   const [selectedBill, setSelectedBill] = useState(null);
+  const [bookingFilter, setBookingFilter] = useState('all');
 
   // Filter items for current user
   const userBookings = bookings.filter(b => b.user_id === currentUser.id);
+  const filteredBookings = userBookings.filter(b => bookingFilter === 'all' || b.status.toLowerCase() === bookingFilter.toLowerCase());
   const userServices = services.filter(s => s.user_id === currentUser.id);
   const userBills = bills.filter(b => b.user_id === currentUser.id);
 
@@ -77,25 +79,49 @@ export const CustomerDashboard = ({ setActiveTab }) => {
 
       {/* Bookings Section */}
       <div style={{ marginBottom: '3rem' }}>
-        <h2 style={{ fontSize: '1.5rem', marginBottom: '1.2rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <Car size={22} color="var(--accent-primary)" /> My Rental Reservations ({userBookings.length})
-        </h2>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.2rem' }}>
+          <h2 style={{ fontSize: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem', margin: 0 }}>
+            <Car size={22} color="var(--accent-primary)" /> My Rental Reservations ({filteredBookings.length})
+          </h2>
 
-        {userBookings.length === 0 ? (
+          <div style={{ display: 'flex', gap: '0.35rem', background: 'var(--bg-card)', padding: '0.25rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)' }}>
+            {['all', 'active', 'confirmed', 'completed', 'cancelled'].map(f => (
+              <button
+                key={f}
+                onClick={() => setBookingFilter(f)}
+                style={{
+                  padding: '0.35rem 0.75rem',
+                  borderRadius: 'var(--radius-xs)',
+                  border: 'none',
+                  background: bookingFilter === f ? 'var(--gradient-primary)' : 'transparent',
+                  color: '#ffffff',
+                  fontSize: '0.8rem',
+                  fontWeight: 600,
+                  textTransform: 'capitalize',
+                  cursor: 'pointer'
+                }}
+              >
+                {f}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {filteredBookings.length === 0 ? (
           <div className="card" style={{ textAlign: 'center', padding: '3rem', color: 'var(--text-muted)' }}>
             <Car size={40} style={{ marginBottom: '0.75rem', opacity: 0.5 }} />
-            <p>You have no active vehicle reservations.</p>
+            <p>No vehicle reservations match the selected filter standard.</p>
           </div>
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            {userBookings.map(b => {
+            {filteredBookings.map(b => {
               const matchedBill = bills.find(bill => bill.booking_id === b.id);
               return (
                 <div key={b.id} className="card" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
                   <div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.4rem' }}>
                       <h3 style={{ fontSize: '1.2rem' }}>{b.vehicle_name}</h3>
-                      <span className={`badge badge-${b.status}`}>{b.status}</span>
+                      <span className={`badge ${getStatusBadgeClass(b.status)}`}>{getStatusLabel(b.status)}</span>
                     </div>
                     <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
                       Booking ID: #{b.id} • Dates: <strong>{formatDateIN(b.start_date)}</strong> to <strong>{formatDateIN(b.end_date)}</strong> ({b.total_days} Days)
