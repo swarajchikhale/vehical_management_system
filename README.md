@@ -155,6 +155,24 @@ vehical_management_system/
 
 ---
 
+## 📖 User Guide & Portal Features
+
+1. **Renting a Vehicle:**
+   - Navigate to **Rental Fleet** tab.
+   - Use search, category pills, or price/year sorting dropdowns to filter vehicles.
+   - Click **Book Vehicle** to configure reservation dates and calculate GST tax automatically.
+
+2. **Requesting a Mechanic:**
+   - Navigate to **Mechanic Services** tab.
+   - Select issue type or toggle **Urgent Roadside Emergency** for priority dispatch.
+   - Filter certified mechanics by specialization and rate.
+
+3. **Managing Invoices & Printing:**
+   - Access **Customer Dashboard** or **Admin Control Center**.
+   - Click **View Invoice** to inspect line items or **Print** to open the printable tax receipt layout.
+
+---
+
 ## 📄 License
 
 This project is licensed under the **MIT License**.
