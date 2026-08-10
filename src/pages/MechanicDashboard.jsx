@@ -76,10 +76,17 @@ export const MechanicDashboard = () => {
       </h2>
 
       {assignedJobs.length === 0 ? (
-        <div className="card" style={{ textAlign: 'center', padding: '3.5rem', color: 'var(--text-muted)' }}>
-          <Wrench size={48} style={{ marginBottom: '1rem', opacity: 0.4 }} />
-          <h3>No assigned service tickets right now</h3>
-          <p>You can switch to the Admin role to assign tickets to John Mechanic!</p>
+        <div className="card" style={{ textAlign: 'center', padding: '3.5rem 2rem', color: 'var(--text-muted)' }}>
+          <div style={{ background: 'rgba(245, 158, 11, 0.12)', color: 'var(--accent-amber)', width: '64px', height: '64px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.25rem auto' }}>
+            <Wrench size={32} />
+          </div>
+          <h3 style={{ fontSize: '1.4rem', color: 'var(--text-main)', marginBottom: '0.4rem' }}>No Active Service Dispatches</h3>
+          <p style={{ maxWidth: '460px', margin: '0 auto 1.5rem auto', fontSize: '0.9rem' }}>
+            You have zero pending roadside repair tickets assigned to your technician profile.
+          </p>
+          <span className="badge badge-assigned" style={{ fontSize: '0.8rem' }}>
+            Tip: Switch to the Admin role in top bar to assign new customer dispatch tickets
+          </span>
         </div>
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
