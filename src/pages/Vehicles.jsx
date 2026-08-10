@@ -263,8 +263,13 @@ export const Vehicles = ({ setActiveTab }) => {
           <div className="modal-content fade-in" onClick={(e) => e.stopPropagation()}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1rem' }}>
               <div>
-                <h2 style={{ fontSize: '1.4rem' }}>Reserve {selectedVehicle.vehicle_name}</h2>
-                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Customer: <strong>{currentUser.name}</strong> ({currentUser.email})</p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                  <h2 style={{ fontSize: '1.4rem', margin: 0 }}>Reserve {selectedVehicle.vehicle_name}</h2>
+                  <span className="badge badge-confirmed" style={{ fontSize: '0.75rem' }}>
+                    {pricing.days} {pricing.days === 1 ? 'Day' : 'Days'} Selected
+                  </span>
+                </div>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>Customer: <strong>{currentUser.name}</strong> ({currentUser.email})</p>
               </div>
               <button onClick={() => setSelectedVehicle(null)} style={{ background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer' }}>
                 <X size={20} />
