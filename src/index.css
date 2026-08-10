@@ -219,8 +219,12 @@ a {
   font-size: 0.95rem;
   cursor: pointer;
   border: none;
-  transition: all 0.3s ease;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none;
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.98) !important;
 }
 
 .btn-primary {
@@ -230,7 +234,7 @@ a {
 }
 
 .btn-primary:hover {
-  opacity: 0.92;
+  opacity: 0.94;
   transform: translateY(-2px);
   box-shadow: var(--shadow-glow);
 }
@@ -244,6 +248,7 @@ a {
 .btn-secondary:hover {
   background: var(--bg-card-hover);
   border-color: var(--text-muted);
+  transform: translateY(-1px);
 }
 
 .btn-danger {
