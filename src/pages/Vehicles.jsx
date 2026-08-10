@@ -11,6 +11,7 @@ export const Vehicles = ({ setActiveTab }) => {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedType, setSelectedType] = useState('all');
+  const [statusFilter, setStatusFilter] = useState('all');
   const [sortBy, setSortBy] = useState('default');
   const [selectedVehicle, setSelectedVehicle] = useState(null);
 
@@ -28,7 +29,8 @@ export const Vehicles = ({ setActiveTab }) => {
                             v.model.toLowerCase().includes(searchTerm.toLowerCase()) ||
                             v.license_plate.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesType = selectedType === 'all' || v.vehicle_type.toLowerCase() === selectedType.toLowerCase();
-      return matchesSearch && matchesType;
+      const matchesStatus = statusFilter === 'all' || v.status.toLowerCase() === statusFilter.toLowerCase();
+      return matchesSearch && matchesType && matchesStatus;
     })
     .sort((a, b) => {
       if (sortBy === 'price_low') return a.rent_price - b.rent_price;
@@ -129,6 +131,28 @@ export const Vehicles = ({ setActiveTab }) => {
                 {type}
               </button>
             ))}
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-glass)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', padding: '0.25rem 0.5rem' }}>
+            <Filter size={14} color="var(--accent-primary)" style={{ marginRight: '0.35rem' }} />
+            <select
+              value={statusFilter}
+              onChange={(e) => setStatusFilter(e.target.value)}
+              style={{
+                background: 'transparent',
+                color: 'var(--text-main)',
+                border: 'none',
+                outline: 'none',
+                fontSize: '0.85rem',
+                fontWeight: 600,
+                cursor: 'pointer'
+              }}
+            >
+              <option value="all">Status: All Statuses</option>
+              <option value="available">Status: Available</option>
+              <option value="rented">Status: Rented</option>
+              <option value="maintenance">Status: Maintenance</option>
+            </select>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-glass)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', padding: '0.25rem 0.5rem' }}>
