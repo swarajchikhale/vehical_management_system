@@ -459,13 +459,15 @@ export const AdminDashboard = () => {
                 </div>
 
                 <div className="form-group">
-                  <label className="form-label">License Plate</label>
+                  <label className="form-label">License Plate Number</label>
                   <input 
                     type="text" 
                     className="form-control" 
-                    placeholder="AUD-0091" 
+                    placeholder="E.g. MH-12-AB-1234" 
                     value={newVehicle.license_plate}
-                    onChange={(e) => setNewVehicle({ ...newVehicle, license_plate: e.target.value })}
+                    onChange={(e) => setNewVehicle({ ...newVehicle, license_plate: e.target.value.toUpperCase() })}
+                    pattern="[A-Za-z0-9\-]{4,15}"
+                    title="License plate should be 4-15 alphanumeric characters"
                     required 
                   />
                 </div>
