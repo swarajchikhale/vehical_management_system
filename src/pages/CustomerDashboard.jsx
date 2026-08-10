@@ -3,7 +3,7 @@ import { useData } from '../context/DataContext';
 import { useAuth } from '../context/AuthContext';
 import { InvoiceModal } from '../components/InvoiceModal';
 import { formatINR, formatDateIN, getStatusBadgeClass, getStatusLabel } from '../utils/formatters';
-import { Car, Wrench, FileText, Calendar, DollarSign, CheckCircle2, Clock, AlertCircle } from 'lucide-react';
+import { Car, Wrench, FileText, Calendar, DollarSign, CheckCircle2, Clock, AlertCircle, Printer } from 'lucide-react';
 
 export const CustomerDashboard = ({ setActiveTab }) => {
   const { bookings, services, bills } = useData();
@@ -148,9 +148,20 @@ export const CustomerDashboard = ({ setActiveTab }) => {
                     </div>
 
                     {matchedBill && (
-                      <button className="btn btn-secondary btn-sm" onClick={() => setSelectedBill(matchedBill)}>
-                        <FileText size={14} /> View Invoice
-                      </button>
+                      <div style={{ display: 'flex', gap: '0.5rem' }}>
+                        <button className="btn btn-secondary btn-sm" onClick={() => setSelectedBill(matchedBill)}>
+                          <FileText size={14} /> View Invoice
+                        </button>
+                        <button 
+                          className="btn btn-primary btn-sm"
+                          onClick={() => {
+                            setSelectedBill(matchedBill);
+                            setTimeout(() => window.print(), 200);
+                          }}
+                        >
+                          <Printer size={14} /> Print
+                        </button>
+                      </div>
                     )}
                   </div>
                 </div>
