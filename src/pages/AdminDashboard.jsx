@@ -15,6 +15,7 @@ export const AdminDashboard = () => {
   const [showAddVehicleModal, setShowAddVehicleModal] = useState(false);
   const [selectedBill, setSelectedBill] = useState(null);
   const [billSearchTerm, setBillSearchTerm] = useState('');
+  const [fleetTypeFilter, setFleetTypeFilter] = useState('all');
 
   // New vehicle form state
   const [newVehicle, setNewVehicle] = useState({
@@ -161,52 +162,85 @@ export const AdminDashboard = () => {
 
       {/* Tab 1: Fleet Management */}
       {activeSubTab === 'fleet' && (
-        <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.9rem' }}>
-            <thead>
-              <tr style={{ background: 'var(--bg-secondary)', borderBottom: '1px solid var(--border-color)', color: 'var(--text-muted)' }}>
-                <th style={{ padding: '1rem' }}>Vehicle</th>
-                <th style={{ padding: '1rem' }}>Type</th>
-                <th style={{ padding: '1rem' }}>Plate Number</th>
-                <th style={{ padding: '1rem' }}>Rate / Day</th>
-                <th style={{ padding: '1rem' }}>Status</th>
-                <th style={{ padding: '1rem', textAlign: 'right' }}>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {vehicles.map(v => (
-                <tr key={v.id} style={{ borderBottom: '1px solid var(--border-color)' }}>
-                  <td style={{ padding: '1rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                    <img src={v.image} alt={v.vehicle_name} style={{ width: '48px', height: '36px', borderRadius: '4px', objectFit: 'cover' }} />
-                    <div>
-                      <strong style={{ display: 'block' }}>{v.vehicle_name}</strong>
-                      <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>{v.brand} {v.model} ({v.year})</span>
-                    </div>
-                  </td>
-                  <td style={{ padding: '1rem', textTransform: 'capitalize' }}>{v.vehicle_type}</td>
-                  <td style={{ padding: '1rem', fontWeight: 600 }}>{v.license_plate}</td>
-                  <td style={{ padding: '1rem', fontWeight: 700, color: 'var(--accent-cyan)' }}>{formatINR(v.rent_price, false)}</td>
-                  <td style={{ padding: '1rem' }}>
-                    <select 
-                      className="form-select"
-                      style={{ padding: '0.25rem 0.5rem', fontSize: '0.8rem', width: 'auto' }}
-                      value={v.status}
-                      onChange={(e) => updateVehicleStatus(v.id, e.target.value)}
-                    >
-                      <option value="available">Available</option>
-                      <option value="rented">Rented</option>
-                      <option value="maintenance">Maintenance</option>
-                    </select>
-                  </td>
-                  <td style={{ padding: '1rem', textAlign: 'right' }}>
-                    <button className="btn btn-danger btn-sm" onClick={() => deleteVehicle(v.id)}>
-                      <Trash2 size={14} />
-                    </button>
-                  </td>
-                </tr>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--bg-card)', padding: '0.75rem 1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
+            <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', alignItems: 'center' }}>
+              <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 600, marginRight: '0.5rem' }}>Filter Type:</span>
+              {['all', 'car', 'bike', 'van', 'bus', 'truck'].map(type => (
+                <button
+                  key={type}
+                  onClick={() => setFleetTypeFilter(type)}
+                  style={{
+                    padding: '0.35rem 0.75rem',
+                    borderRadius: 'var(--radius-full)',
+                    border: '1px solid var(--border-color)',
+                    background: fleetTypeFilter === type ? 'var(--gradient-primary)' : 'var(--bg-glass)',
+                    color: '#ffffff',
+                    fontSize: '0.8rem',
+                    fontWeight: 600,
+                    textTransform: 'capitalize',
+                    cursor: 'pointer'
+                  }}
+                >
+                  {type}
+                </button>
               ))}
-            </tbody>
-          </table>
+            </div>
+
+            <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+              Showing {vehicles.filter(v => fleetTypeFilter === 'all' || v.vehicle_type.toLowerCase() === fleetTypeFilter.toLowerCase()).length} of {vehicles.length} vehicles
+            </span>
+          </div>
+
+          <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.9rem' }}>
+              <thead>
+                <tr style={{ background: 'var(--bg-secondary)', borderBottom: '1px solid var(--border-color)', color: 'var(--text-muted)' }}>
+                  <th style={{ padding: '1rem' }}>Vehicle</th>
+                  <th style={{ padding: '1rem' }}>Type</th>
+                  <th style={{ padding: '1rem' }}>Plate Number</th>
+                  <th style={{ padding: '1rem' }}>Rate / Day</th>
+                  <th style={{ padding: '1rem' }}>Status</th>
+                  <th style={{ padding: '1rem', textAlign: 'right' }}>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {vehicles
+                  .filter(v => fleetTypeFilter === 'all' || v.vehicle_type.toLowerCase() === fleetTypeFilter.toLowerCase())
+                  .map(v => (
+                    <tr key={v.id} style={{ borderBottom: '1px solid var(--border-color)' }}>
+                      <td style={{ padding: '1rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                        <img src={v.image} alt={v.vehicle_name} style={{ width: '48px', height: '36px', borderRadius: '4px', objectFit: 'cover' }} />
+                        <div>
+                          <strong style={{ display: 'block' }}>{v.vehicle_name}</strong>
+                          <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>{v.brand} {v.model} ({v.year})</span>
+                        </div>
+                      </td>
+                      <td style={{ padding: '1rem', textTransform: 'capitalize' }}>{v.vehicle_type}</td>
+                      <td style={{ padding: '1rem', fontWeight: 600 }}>{v.license_plate}</td>
+                      <td style={{ padding: '1rem', fontWeight: 700, color: 'var(--accent-cyan)' }}>{formatINR(v.rent_price, false)}</td>
+                      <td style={{ padding: '1rem' }}>
+                        <select 
+                          className="form-select"
+                          style={{ padding: '0.25rem 0.5rem', fontSize: '0.8rem', width: 'auto' }}
+                          value={v.status}
+                          onChange={(e) => updateVehicleStatus(v.id, e.target.value)}
+                        >
+                          <option value="available">Available</option>
+                          <option value="rented">Rented</option>
+                          <option value="maintenance">Maintenance</option>
+                        </select>
+                      </td>
+                      <td style={{ padding: '1rem', textAlign: 'right' }}>
+                        <button className="btn btn-danger btn-sm" onClick={() => deleteVehicle(v.id)}>
+                          <Trash2 size={14} />
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
 
