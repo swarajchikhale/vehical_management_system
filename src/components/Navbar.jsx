@@ -52,38 +52,38 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
         </div>
 
         {/* Navigation Links */}
-        <nav style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
+        <nav style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
           <button 
-            className={`btn ${activeTab === 'home' ? 'btn-primary' : 'btn-secondary'}`}
+            className={`btn btn-sm ${activeTab === 'home' ? 'btn-primary' : 'btn-secondary'}`}
             onClick={() => setActiveTab('home')}
-            style={{ borderRadius: '9999px' }}
+            style={{ borderRadius: '9999px', padding: '0.45rem 1rem' }}
           >
             Home
           </button>
           <button 
-            className={`btn ${activeTab === 'vehicles' ? 'btn-primary' : 'btn-secondary'}`}
+            className={`btn btn-sm ${activeTab === 'vehicles' ? 'btn-primary' : 'btn-secondary'}`}
             onClick={() => setActiveTab('vehicles')}
-            style={{ borderRadius: '9999px' }}
+            style={{ borderRadius: '9999px', padding: '0.45rem 1rem' }}
           >
-            <Car size={16} /> Rental Fleet
+            <Car size={15} /> Rental Fleet
           </button>
           <button 
-            className={`btn ${activeTab === 'mechanics' ? 'btn-primary' : 'btn-secondary'}`}
+            className={`btn btn-sm ${activeTab === 'mechanics' ? 'btn-primary' : 'btn-secondary'}`}
             onClick={() => setActiveTab('mechanics')}
-            style={{ borderRadius: '9999px' }}
+            style={{ borderRadius: '9999px', padding: '0.45rem 1rem' }}
           >
-            <Wrench size={16} /> Mechanic Services
+            <Wrench size={15} /> Mechanic Services
           </button>
           <button 
-            className={`btn ${['dashboard', 'admin', 'mechanic_dash'].includes(activeTab) ? 'btn-primary' : 'btn-secondary'}`}
+            className={`btn btn-sm ${['dashboard', 'admin', 'mechanic_dash'].includes(activeTab) ? 'btn-primary' : 'btn-secondary'}`}
             onClick={() => {
               if (currentUser.role === 'admin') setActiveTab('admin');
               else if (currentUser.role === 'mechanic') setActiveTab('mechanic_dash');
               else setActiveTab('dashboard');
             }}
-            style={{ borderRadius: '9999px' }}
+            style={{ borderRadius: '9999px', padding: '0.45rem 1rem' }}
           >
-            <Shield size={16} /> Portal ({currentUser.role.toUpperCase()})
+            <Shield size={15} /> Portal ({currentUser.role.toUpperCase()})
           </button>
         </nav>
 
