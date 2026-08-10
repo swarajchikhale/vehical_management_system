@@ -43,7 +43,7 @@ export const CustomerDashboard = ({ setActiveTab }) => {
       </div>
 
       {/* KPI Cards */}
-      <div className="grid grid-cols-3" style={{ marginBottom: '2.5rem' }}>
+      <div className="grid grid-cols-4" style={{ marginBottom: '2.5rem' }}>
         <div className="card" style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
           <div style={{ background: 'rgba(99, 102, 241, 0.15)', color: 'var(--accent-primary)', width: '54px', height: '54px', borderRadius: 'var(--radius-sm)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <Car size={26} />
@@ -73,6 +73,18 @@ export const CustomerDashboard = ({ setActiveTab }) => {
               {formatINR(totalSpent)}
             </div>
             <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Total Settled Bills</div>
+          </div>
+        </div>
+
+        <div className="card" style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+          <div style={{ background: 'rgba(6, 182, 212, 0.15)', color: 'var(--accent-cyan)', width: '54px', height: '54px', borderRadius: 'var(--radius-sm)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <FileText size={26} />
+          </div>
+          <div>
+            <div style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--accent-cyan)' }}>
+              {userBills.length}
+            </div>
+            <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Invoices Generated</div>
           </div>
         </div>
       </div>
