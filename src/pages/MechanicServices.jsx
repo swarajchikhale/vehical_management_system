@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useData } from '../context/DataContext';
 import { useAuth } from '../context/AuthContext';
 import { formatINR, getStatusBadgeClass, getStatusLabel } from '../utils/formatters';
-import { Wrench, AlertTriangle, MapPin, Calendar, Clock, CheckCircle2, PhoneCall, ShieldCheck, Search } from 'lucide-react';
+import { Wrench, AlertTriangle, MapPin, Calendar, Clock, CheckCircle2, PhoneCall, ShieldCheck, Search, Star } from 'lucide-react';
 
 export const MechanicServices = ({ setActiveTab }) => {
   const { services, createServiceRequest, mechanics } = useData();
@@ -224,8 +224,8 @@ export const MechanicServices = ({ setActiveTab }) => {
                     <div>
                       <h4 style={{ fontSize: '1rem', margin: 0 }}>{m.name}</h4>
                       <span style={{ fontSize: '0.8rem', color: 'var(--accent-primary)' }}>{m.specialization}</span>
-                      <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>
-                        Exp: {m.experience_years} yrs • {formatINR(m.hourly_rate, false)}/hr • ★ {m.rating} ({m.total_reviews} reviews)
+                      <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: '0.2rem', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                        Exp: {m.experience_years} yrs • {formatINR(m.hourly_rate, false)}/hr • <Star size={12} color="var(--accent-amber)" fill="var(--accent-amber)" /> {m.rating} ({m.total_reviews} reviews)
                       </div>
                     </div>
 
