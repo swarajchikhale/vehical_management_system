@@ -176,6 +176,21 @@ export const Vehicles = ({ setActiveTab }) => {
               <option value="year_new">Sort: Newest Year First</option>
             </select>
           </div>
+
+          {(searchTerm || selectedType !== 'all' || statusFilter !== 'all' || sortBy !== 'default') && (
+            <button
+              onClick={() => {
+                setSearchTerm('');
+                setSelectedType('all');
+                setStatusFilter('all');
+                setSortBy('default');
+              }}
+              className="btn btn-secondary btn-sm"
+              style={{ borderRadius: 'var(--radius-sm)', padding: '0.4rem 0.75rem' }}
+            >
+              Reset Filters
+            </button>
+          )}
         </div>
       </div>
 
