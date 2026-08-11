@@ -18,24 +18,9 @@ require_once 'includes/header.php';
             <div class="form-container fade-in">
                 <div class="text-center mb-4">
                     <i class="fas fa-user-plus fa-3x text-primary mb-3"></i>
-                    <h6>1. Information We Collect</h6>
-                <p>We collect information you provide when registering, booking vehicles, or requesting services.</p>
-                
-                <h6>2. How We Use Your Information</h6>
-                <p>Your information is used to provide services, process payments, and communicate with you.</p>
-                
-                <h6>3. Information Sharing</h6>
-                <p>We do not sell or share your personal information with third parties without consent.</p>
-                
-                <h6>4. Data Security</h6>
-                <p>We implement appropriate security measures to protect your personal information.</p>
-                
-                <h6>5. Contact Us</h6>
-                <p>If you have questions about this privacy policy, contact us at privacy@vehiclems.com</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
+                    <h2 class="fw-bold">Create an Account</h2>
+                    <p class="text-muted">Join DrivePulse to rent vehicles and request roadside services</p>
+                </div>
         </div>
     </div>
 </div>
