@@ -67,7 +67,12 @@ export const MechanicServices = ({ setActiveTab }) => {
             <div style={{ textAlign: 'center', padding: '1.5rem 0' }}>
               <CheckCircle2 size={56} color="var(--accent-emerald)" style={{ marginBottom: '1rem' }} />
               <h3 style={{ fontSize: '1.4rem', marginBottom: '0.5rem' }}>Dispatch Ticket #{submittedTicket.id} Created</h3>
-              <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
+              <div style={{ marginBottom: '1rem' }}>
+                <span className={`badge ${submittedTicket.is_emergency ? 'badge-maintenance' : 'badge-confirmed'}`} style={{ fontSize: '0.85rem', padding: '0.35rem 0.85rem' }}>
+                  <Clock size={14} /> Estimated Technician Arrival: {submittedTicket.is_emergency ? '15 - 25 Mins (Priority Unit)' : '45 - 60 Mins'}
+                </span>
+              </div>
+              <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '0.9rem' }}>
                 Your request has been routed to our dispatcher. A certified mechanic will contact you shortly at <strong>{currentUser.phone}</strong>.
               </p>
 
