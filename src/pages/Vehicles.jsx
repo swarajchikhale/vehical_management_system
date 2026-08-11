@@ -207,7 +207,11 @@ export const Vehicles = ({ setActiveTab }) => {
               <span className={`badge ${getStatusBadgeClass(vehicle.status)}`} style={{ position: 'absolute', top: '1rem', right: '1rem' }}>
                 {getStatusLabel(vehicle.status)}
               </span>
-              <span style={{ position: 'absolute', bottom: '1rem', left: '1rem', background: 'rgba(0,0,0,0.7)', padding: '0.2rem 0.6rem', borderRadius: '4px', fontSize: '0.75rem', color: '#fff', fontWeight: 600 }}>
+              <span 
+                onClick={() => navigator.clipboard.writeText(vehicle.license_plate)}
+                title="Click to copy license plate"
+                style={{ position: 'absolute', bottom: '1rem', left: '1rem', background: 'rgba(0,0,0,0.78)', padding: '0.2rem 0.6rem', borderRadius: '4px', fontSize: '0.75rem', color: '#fff', fontWeight: 600, cursor: 'pointer', transition: 'all 0.2s ease' }}
+              >
                 {vehicle.license_plate}
               </span>
             </div>
