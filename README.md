@@ -172,6 +172,7 @@ vehical_management_system/
    - Click **View Invoice** to inspect line items or **Print** to open the printable tax receipt layout.
    - Press **Escape** key at any time to close active invoice or reservation modals.
    - Click any license plate badge to quickly copy the plate number to your clipboard.
+   - Passwords and account registration forms include aria-accessible show/hide toggle controls.
 
 ---
 
