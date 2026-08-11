@@ -99,7 +99,13 @@ export const AdminDashboard = () => {
         <div className="card">
           <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.25rem' }}>Total Gross Revenue</div>
           <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--accent-emerald)' }}>{formatINR(totalRevenue)}</div>
-          <div style={{ fontSize: '0.75rem', color: 'var(--accent-emerald)', marginTop: '0.35rem' }}>↑ +18.4% vs last month</div>
+          <div style={{ marginTop: '0.5rem', background: 'var(--bg-glass)', height: '6px', borderRadius: '3px', overflow: 'hidden' }}>
+            <div style={{ width: `${Math.min(100, Math.round((totalRevenue / 1000000) * 100))}%`, background: 'var(--accent-emerald)', height: '100%' }}></div>
+          </div>
+          <div style={{ fontSize: '0.75rem', color: 'var(--accent-emerald)', marginTop: '0.35rem', display: 'flex', justifyContent: 'space-between' }}>
+            <span>Target: ₹10,00,000</span>
+            <span>{Math.round((totalRevenue / 1000000) * 100)}%</span>
+          </div>
         </div>
 
         <div className="card">
