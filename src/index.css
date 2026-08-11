@@ -198,6 +198,8 @@ a {
   letter-spacing: 0.05em;
 }
 
+.badge { transition: all 0.2s ease; cursor: default; }
+.badge:hover { filter: brightness(1.2); transform: translateY(-1px); }
 .badge-available { background: rgba(16, 185, 129, 0.18); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.35); }
 .badge-rented { background: rgba(245, 158, 11, 0.18); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.35); }
 .badge-maintenance { background: rgba(244, 63, 94, 0.18); color: #f87171; border: 1px solid rgba(244, 63, 94, 0.35); }
