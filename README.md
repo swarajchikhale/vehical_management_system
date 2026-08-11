@@ -170,6 +170,8 @@ vehical_management_system/
 3. **Managing Invoices & Printing:**
    - Access **Customer Dashboard** or **Admin Control Center**.
    - Click **View Invoice** to inspect line items or **Print** to open the printable tax receipt layout.
+   - Press **Escape** key at any time to close active invoice or reservation modals.
+   - Click any license plate badge to quickly copy the plate number to your clipboard.
 
 ---
 
