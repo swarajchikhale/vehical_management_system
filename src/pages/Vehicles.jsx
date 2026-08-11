@@ -78,14 +78,14 @@ export const Vehicles = ({ setActiveTab }) => {
       <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'space-between', marginBottom: '2rem', background: 'var(--bg-card)', padding: '1rem 1.5rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
         {/* Search */}
         <div style={{ position: 'relative', flex: '1', minWidth: '260px' }}>
-          <Search size={18} style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+          <Search size={18} style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', color: searchTerm ? 'var(--accent-primary)' : 'var(--text-muted)' }} />
           <input 
             type="text"
             className="form-control"
             placeholder="Search by vehicle name, brand, model or plate..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            style={{ paddingLeft: '2.75rem', paddingRight: searchTerm ? '2.5rem' : '1rem' }}
+            style={{ paddingLeft: '2.75rem', paddingRight: searchTerm ? '2.5rem' : '1rem', borderColor: searchTerm ? 'var(--accent-primary)' : 'var(--border-color)' }}
           />
           {searchTerm && (
             <button
