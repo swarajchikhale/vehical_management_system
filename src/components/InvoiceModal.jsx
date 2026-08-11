@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { formatINR, formatDateIN } from '../utils/formatters';
 import { FileText, Printer, CheckCircle, Clock, X, DollarSign } from 'lucide-react';
 
 export const InvoiceModal = ({ bill, onClose }) => {
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onClose]);
+
   if (!bill) return null;
 
   const handlePrint = () => {
