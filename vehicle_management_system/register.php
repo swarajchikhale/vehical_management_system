@@ -35,9 +35,11 @@ $additionalScripts = '
         if (field.type === "password") {
             field.type = "text";
             toggle.className = "fas fa-eye-slash";
+            toggle.setAttribute("aria-label", "Hide password");
         } else {
             field.type = "password";
             toggle.className = "fas fa-eye";
+            toggle.setAttribute("aria-label", "Show password");
         }
     }
     
