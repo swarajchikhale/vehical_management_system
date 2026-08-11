@@ -84,9 +84,17 @@ export const CustomerDashboard = ({ setActiveTab }) => {
             <div style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--accent-cyan)' }}>
               {userBills.length}
             </div>
-            <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Invoices Generated</div>
           </div>
         </div>
+      </div>
+
+      {/* Status Legend Guidance Bar */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap', background: 'var(--bg-glass)', border: '1px solid var(--border-color)', padding: '0.6rem 1.25rem', borderRadius: 'var(--radius-sm)', marginBottom: '2.5rem', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+        <span style={{ fontWeight: 700, color: 'var(--text-main)' }}>Status Guide:</span>
+        <span className="badge badge-confirmed">● Active / Confirmed</span>
+        <span className="badge badge-assigned">● In Progress</span>
+        <span className="badge badge-completed">● Completed / Settled</span>
+        <span className="badge badge-cancelled">● Cancelled</span>
       </div>
 
       {/* Bookings Section */}
