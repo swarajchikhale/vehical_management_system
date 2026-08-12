@@ -15,6 +15,10 @@ export const MechanicDashboard = () => {
   // Get assigned services for this mechanic
   const assignedJobs = services.filter(s => s.mechanic_id === currentUser.id || s.mechanic_name === currentUser.name);
 
+  const totalEarnings = assignedJobs
+    .filter(j => j.status === 'completed')
+    .reduce((sum, j) => sum + (Number(j.service_cost) || 0), 0);
+
   const handleUpdateJob = (serviceId, status) => {
     if (status === 'completed') {
       const cost = Number(costInput) || 120;
@@ -49,7 +53,7 @@ export const MechanicDashboard = () => {
       </div>
 
       {/* Jobs Overview */}
-      <div className="grid grid-cols-3" style={{ marginBottom: '2.5rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.25rem', marginBottom: '2.5rem' }}>
         <div className="card">
           <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.25rem' }}>Assigned Dispatch Jobs</div>
           <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--accent-primary)' }}>{assignedJobs.length}</div>
@@ -66,6 +70,13 @@ export const MechanicDashboard = () => {
           <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.25rem' }}>Jobs Completed</div>
           <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--accent-emerald)' }}>
             {assignedJobs.filter(j => j.status === 'completed').length}
+          </div>
+        </div>
+
+        <div className="card">
+          <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.25rem' }}>Completed Revenue</div>
+          <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--accent-cyan)' }}>
+            {formatINR(totalEarnings, false)}
           </div>
         </div>
       </div>
