@@ -1,7 +1,11 @@
 import React from 'react';
-import { Car, Wrench, Shield, Phone, Mail, MapPin, Heart } from 'lucide-react';
+import { Car, Wrench, Shield, Phone, Mail, MapPin, Heart, ArrowUp } from 'lucide-react';
 
 export const Footer = ({ setActiveTab }) => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer style={{
       background: 'var(--bg-secondary)',
@@ -76,8 +80,18 @@ export const Footer = ({ setActiveTab }) => {
 
         </div>
 
-        <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '1.5rem', textAlign: 'center', fontSize: '0.85rem', color: 'var(--text-subtle)' }}>
-          © {new Date().getFullYear()} DrivePulse Vehicle Management System. Built with high precision.
+        <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', fontSize: '0.85rem', color: 'var(--text-subtle)' }}>
+          <div>
+            © {new Date().getFullYear()} DrivePulse Vehicle Management System v1.2.0 • All rights reserved.
+          </div>
+          <button
+            onClick={scrollToTop}
+            className="btn btn-secondary btn-sm"
+            style={{ borderRadius: '9999px', padding: '0.35rem 0.85rem', fontSize: '0.8rem', display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}
+            title="Scroll to top of page"
+          >
+            <ArrowUp size={14} /> Back to Top
+          </button>
         </div>
       </div>
     </footer>
