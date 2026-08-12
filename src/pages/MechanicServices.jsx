@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useData } from '../context/DataContext';
 import { useAuth } from '../context/AuthContext';
 import { formatINR, getStatusBadgeClass, getStatusLabel } from '../utils/formatters';
-import { Wrench, AlertTriangle, MapPin, Calendar, Clock, CheckCircle2, PhoneCall, ShieldCheck, Search, Star } from 'lucide-react';
+import { Wrench, AlertTriangle, MapPin, Calendar, Clock, CheckCircle2, PhoneCall, ShieldCheck, Search, Star, X } from 'lucide-react';
 
 export const MechanicServices = ({ setActiveTab }) => {
   const { services, createServiceRequest, mechanics } = useData();
@@ -209,21 +209,46 @@ export const MechanicServices = ({ setActiveTab }) => {
               Our certified mechanics are equipped with mobile diagnostic tools and genuine replacement parts.
             </p>
 
-            <div style={{ position: 'relative', marginBottom: '1rem' }}>
-              <Search size={14} style={{ position: 'absolute', left: '0.75rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+            <div style={{ position: 'relative', marginBottom: '0.65rem' }}>
+              <Search size={14} style={{ position: 'absolute', left: '0.75rem', top: '50%', transform: 'translateY(-50%)', color: mechSearchTerm ? 'var(--accent-primary)' : 'var(--text-muted)' }} />
               <input
                 type="text"
                 className="form-control"
-                placeholder="Filter mechanics by name or spec..."
+                placeholder="Filter mechanics by name, spec or phone..."
                 value={mechSearchTerm}
                 onChange={(e) => setMechSearchTerm(e.target.value)}
-                style={{ paddingLeft: '2.25rem', fontSize: '0.82rem' }}
+                style={{ paddingLeft: '2.25rem', paddingRight: mechSearchTerm ? '2.25rem' : '0.75rem', fontSize: '0.82rem' }}
               />
+              {mechSearchTerm && (
+                <button
+                  type="button"
+                  onClick={() => setMechSearchTerm('')}
+                  style={{
+                    position: 'absolute',
+                    right: '0.65rem',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    background: 'transparent',
+                    border: 'none',
+                    color: 'var(--text-muted)',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center'
+                  }}
+                  title="Clear search"
+                >
+                  <X size={14} />
+                </button>
+              )}
+            </div>
+
+            <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '1rem', fontWeight: 600 }}>
+              Showing {mechanics.filter(m => m.name.toLowerCase().includes(mechSearchTerm.toLowerCase()) || m.specialization.toLowerCase().includes(mechSearchTerm.toLowerCase()) || (m.phone && m.phone.includes(mechSearchTerm))).length} of {mechanics.length} certified mechanics
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {mechanics
-                .filter(m => m.name.toLowerCase().includes(mechSearchTerm.toLowerCase()) || m.specialization.toLowerCase().includes(mechSearchTerm.toLowerCase()))
+                .filter(m => m.name.toLowerCase().includes(mechSearchTerm.toLowerCase()) || m.specialization.toLowerCase().includes(mechSearchTerm.toLowerCase()) || (m.phone && m.phone.includes(mechSearchTerm)))
                 .map(m => (
                   <div key={m.id} style={{ background: 'var(--bg-glass)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', padding: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div>
