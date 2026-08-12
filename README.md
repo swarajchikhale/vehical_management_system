@@ -179,3 +179,17 @@ vehical_management_system/
 ## 📄 License
 
 This project is licensed under the **MIT License**.
+
+---
+
+## 📜 Recent Release Commits (v1.2.0)
+
+1. `Add date range validation to vehicle booking form to prevent invalid checkout dates` - Enforces `min` attribute constraints on checkout date inputs and guards against prior date ranges.
+2. `Add notification badge count indicator to navigation bar portal tab` - Displays dynamic notification count badge on the Portal navigation button tailored to user role.
+3. `Add search clear icon and result count indicator to mechanic directory in services page` - Provides 1-click filter reset button and live mechanic match count readout.
+4. `Add download as JSON export utility for invoice records in invoice modal` - Introduces automated JSON blob export action for tax invoice records.
+5. `Add total service revenue summary pill to mechanic dashboard workbench header` - Adds dynamic earnings summary metric card to technician workbench.
+6. `Add digital invoices counter label and active rental badge to customer dashboard` - Enhances customer dashboard overview with missing digital invoices label and Active Now rental badge chip.
+7. `Add scroll to top button and release version tag in footer component` - Adds smooth back-to-top navigation shortcut and release tag to site footer.
+8. `Update README architecture documentation and recent commit release log` - Documents new features, commit release history, and system component enhancements.
+
