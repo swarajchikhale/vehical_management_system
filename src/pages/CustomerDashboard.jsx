@@ -84,6 +84,7 @@ export const CustomerDashboard = ({ setActiveTab }) => {
             <div style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--accent-cyan)' }}>
               {userBills.length}
             </div>
+            <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Digital Invoices</div>
           </div>
         </div>
       </div>
@@ -100,9 +101,16 @@ export const CustomerDashboard = ({ setActiveTab }) => {
       {/* Bookings Section */}
       <div style={{ marginBottom: '3rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.2rem' }}>
-          <h2 style={{ fontSize: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem', margin: 0 }}>
-            <Car size={22} color="var(--accent-primary)" /> My Rental Reservations ({filteredBookings.length})
-          </h2>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <h2 style={{ fontSize: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem', margin: 0 }}>
+              <Car size={22} color="var(--accent-primary)" /> My Rental Reservations ({filteredBookings.length})
+            </h2>
+            {userBookings.filter(b => b.status === 'active').length > 0 && (
+              <span className="badge badge-confirmed" style={{ fontSize: '0.78rem' }}>
+                {userBookings.filter(b => b.status === 'active').length} Active Now
+              </span>
+            )}
+          </div>
 
           <div style={{ display: 'flex', gap: '0.35rem', background: 'var(--bg-card)', padding: '0.25rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)' }}>
             {['all', 'active', 'confirmed', 'completed', 'cancelled'].map(f => (
