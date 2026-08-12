@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { formatINR, formatDateIN } from '../utils/formatters';
-import { FileText, Printer, CheckCircle, Clock, X, DollarSign } from 'lucide-react';
+import { FileText, Printer, CheckCircle, Clock, X, DollarSign, Download } from 'lucide-react';
 
 export const InvoiceModal = ({ bill, onClose }) => {
   useEffect(() => {
@@ -17,6 +17,16 @@ export const InvoiceModal = ({ bill, onClose }) => {
     window.print();
   };
 
+  const handleExportJSON = () => {
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(bill, null, 2));
+    const downloadAnchor = document.createElement('a');
+    downloadAnchor.setAttribute("href", dataStr);
+    downloadAnchor.setAttribute("download", `${bill.invoice_number || 'invoice'}.json`);
+    document.body.appendChild(downloadAnchor);
+    downloadAnchor.click();
+    downloadAnchor.remove();
+  };
+
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div 
@@ -31,6 +41,13 @@ export const InvoiceModal = ({ bill, onClose }) => {
             <span>DIGITAL TAX INVOICE</span>
           </div>
           <div style={{ display: 'flex', gap: '0.5rem' }}>
+            <button 
+              onClick={handleExportJSON}
+              style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', background: '#059669', color: '#fff', border: 'none', padding: '0.45rem 0.9rem', borderRadius: '6px', cursor: 'pointer', fontWeight: 600, fontSize: '0.85rem' }}
+              title="Download invoice metadata as JSON file"
+            >
+              <Download size={14} /> Export JSON
+            </button>
             <button 
               onClick={handlePrint}
               style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', background: '#4f46e5', color: '#fff', border: 'none', padding: '0.45rem 0.9rem', borderRadius: '6px', cursor: 'pointer', fontWeight: 600, fontSize: '0.85rem' }}
