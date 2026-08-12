@@ -55,12 +55,17 @@ export const Vehicles = ({ setActiveTab }) => {
   const handleBookingSubmit = (e) => {
     e.preventDefault();
     if (!selectedVehicle) return;
+    if (new Date(endDate) < new Date(startDate)) {
+      alert('End date cannot be prior to start date. Please select a valid checkout date.');
+      return;
+    }
 
     const result = createBooking(currentUser, selectedVehicle, startDate, endDate, notes);
     setBookingSuccess(result.bill);
   };
 
   const pricing = calculateCost();
+  const todayStr = new Date().toISOString().split('T')[0];
 
   return (
     <div className="container fade-in" style={{ padding: '3rem 1.5rem' }}>
@@ -302,6 +307,7 @@ export const Vehicles = ({ setActiveTab }) => {
                     <input 
                       type="date"
                       className="form-control"
+                      min={todayStr}
                       value={startDate}
                       onChange={(e) => setStartDate(e.target.value)}
                       required
@@ -313,6 +319,7 @@ export const Vehicles = ({ setActiveTab }) => {
                     <input 
                       type="date"
                       className="form-control"
+                      min={startDate || todayStr}
                       value={endDate}
                       onChange={(e) => setEndDate(e.target.value)}
                       required
