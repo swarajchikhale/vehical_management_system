@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
+import { useData } from '../context/DataContext';
 import { Car, Wrench, Shield, User, Sparkles, Palette } from 'lucide-react';
 
 export const Navbar = ({ activeTab, setActiveTab }) => {
   const { currentUser, switchRole } = useAuth();
+  const { bookings = [], services = [] } = useData() || {};
   
   const [currentPalette, setCurrentPalette] = useState(() => {
     return localStorage.getItem('dp_palette') || 'midnight';
@@ -13,6 +15,18 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
     document.documentElement.setAttribute('data-palette', currentPalette);
     localStorage.setItem('dp_palette', currentPalette);
   }, [currentPalette]);
+
+  const getPendingNotificationCount = () => {
+    if (currentUser.role === 'admin') {
+      return services.filter(s => s.status === 'pending').length;
+    }
+    if (currentUser.role === 'mechanic') {
+      return services.filter(s => s.status === 'assigned' || s.status === 'in_progress').length;
+    }
+    return bookings.filter(b => b.user_id === currentUser.id && b.status === 'active').length;
+  };
+
+  const notificationCount = getPendingNotificationCount();
 
   return (
     <header style={{
@@ -81,9 +95,23 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
               else if (currentUser.role === 'mechanic') setActiveTab('mechanic_dash');
               else setActiveTab('dashboard');
             }}
-            style={{ borderRadius: '9999px', padding: '0.45rem 1rem' }}
+            style={{ borderRadius: '9999px', padding: '0.45rem 1rem', display: 'inline-flex', alignItems: 'center' }}
           >
-            <Shield size={15} /> Portal ({currentUser.role.toUpperCase()})
+            <Shield size={15} style={{ marginRight: '0.35rem' }} /> Portal ({currentUser.role.toUpperCase()})
+            {notificationCount > 0 && (
+              <span style={{
+                marginLeft: '0.45rem',
+                background: '#ef4444',
+                color: '#ffffff',
+                fontSize: '0.68rem',
+                fontWeight: 800,
+                padding: '0.1rem 0.45rem',
+                borderRadius: '9999px',
+                lineHeight: 1
+              }}>
+                {notificationCount}
+              </span>
+            )}
           </button>
         </nav>
 
