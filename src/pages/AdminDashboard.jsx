@@ -16,6 +16,7 @@ export const AdminDashboard = () => {
   const [selectedBill, setSelectedBill] = useState(null);
   const [billSearchTerm, setBillSearchTerm] = useState('');
   const [fleetTypeFilter, setFleetTypeFilter] = useState('all');
+  const [fleetSearchTerm, setFleetSearchTerm] = useState('');
 
   // New vehicle form state
   const [newVehicle, setNewVehicle] = useState({
@@ -169,32 +170,54 @@ export const AdminDashboard = () => {
       {/* Tab 1: Fleet Management */}
       {activeSubTab === 'fleet' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--bg-card)', padding: '0.75rem 1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
-            <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', alignItems: 'center' }}>
-              <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 600, marginRight: '0.5rem' }}>Filter Type:</span>
-              {['all', 'car', 'bike', 'van', 'bus', 'truck'].map(type => (
-                <button
-                  key={type}
-                  onClick={() => setFleetTypeFilter(type)}
-                  style={{
-                    padding: '0.35rem 0.75rem',
-                    borderRadius: 'var(--radius-full)',
-                    border: '1px solid var(--border-color)',
-                    background: fleetTypeFilter === type ? 'var(--gradient-primary)' : 'var(--bg-glass)',
-                    color: '#ffffff',
-                    fontSize: '0.8rem',
-                    fontWeight: 600,
-                    textTransform: 'capitalize',
-                    cursor: 'pointer'
-                  }}
-                >
-                  {type}
-                </button>
-              ))}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', background: 'var(--bg-card)', padding: '0.75rem 1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap', flex: '1' }}>
+              <div style={{ position: 'relative', minWidth: '220px' }}>
+                <Search size={14} style={{ position: 'absolute', left: '0.75rem', top: '50%', transform: 'translateY(-50%)', color: fleetSearchTerm ? 'var(--accent-primary)' : 'var(--text-muted)' }} />
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Search fleet by name or plate..."
+                  value={fleetSearchTerm}
+                  onChange={(e) => setFleetSearchTerm(e.target.value)}
+                  style={{ paddingLeft: '2.25rem', paddingRight: fleetSearchTerm ? '2rem' : '0.75rem', fontSize: '0.82rem' }}
+                />
+                {fleetSearchTerm && (
+                  <button
+                    type="button"
+                    onClick={() => setFleetSearchTerm('')}
+                    style={{ position: 'absolute', right: '0.5rem', top: '50%', transform: 'translateY(-50%)', background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer' }}
+                  >
+                    <X size={14} />
+                  </button>
+                )}
+              </div>
+
+              <div style={{ display: 'flex', gap: '0.35rem', flexWrap: 'wrap' }}>
+                {['all', 'car', 'bike', 'van', 'bus', 'truck'].map(type => (
+                  <button
+                    key={type}
+                    onClick={() => setFleetTypeFilter(type)}
+                    style={{
+                      padding: '0.35rem 0.75rem',
+                      borderRadius: 'var(--radius-full)',
+                      border: '1px solid var(--border-color)',
+                      background: fleetTypeFilter === type ? 'var(--gradient-primary)' : 'var(--bg-glass)',
+                      color: '#ffffff',
+                      fontSize: '0.8rem',
+                      fontWeight: 600,
+                      textTransform: 'capitalize',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    {type}
+                  </button>
+                ))}
+              </div>
             </div>
 
-            <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-              Showing {vehicles.filter(v => fleetTypeFilter === 'all' || v.vehicle_type.toLowerCase() === fleetTypeFilter.toLowerCase()).length} of {vehicles.length} vehicles
+            <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 600 }}>
+              Showing {vehicles.filter(v => (fleetTypeFilter === 'all' || v.vehicle_type.toLowerCase() === fleetTypeFilter.toLowerCase()) && (v.vehicle_name.toLowerCase().includes(fleetSearchTerm.toLowerCase()) || v.license_plate.toLowerCase().includes(fleetSearchTerm.toLowerCase()))).length} of {vehicles.length} vehicles
             </span>
           </div>
 
@@ -212,7 +235,7 @@ export const AdminDashboard = () => {
               </thead>
               <tbody>
                 {vehicles
-                  .filter(v => fleetTypeFilter === 'all' || v.vehicle_type.toLowerCase() === fleetTypeFilter.toLowerCase())
+                  .filter(v => (fleetTypeFilter === 'all' || v.vehicle_type.toLowerCase() === fleetTypeFilter.toLowerCase()) && (v.vehicle_name.toLowerCase().includes(fleetSearchTerm.toLowerCase()) || v.license_plate.toLowerCase().includes(fleetSearchTerm.toLowerCase())))
                   .map(v => (
                     <tr key={v.id} style={{ borderBottom: '1px solid var(--border-color)' }}>
                       <td style={{ padding: '1rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
