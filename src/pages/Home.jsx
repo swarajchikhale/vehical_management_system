@@ -28,13 +28,25 @@ export const Home = ({ setActiveTab, onBookVehicle }) => {
               Book high-performance cars, bikes, and vans with transparent daily pricing, or dispatch certified mechanics to your breakdown location in minutes.
             </p>
             
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '1.75rem' }}>
               <button className="btn btn-primary btn-lg" onClick={() => setActiveTab('vehicles')}>
                 <Car size={20} /> Rent a Vehicle
               </button>
               <button className="btn btn-secondary btn-lg" onClick={() => setActiveTab('mechanics')}>
                 <Wrench size={20} /> Request Mechanic
               </button>
+            </div>
+
+            <div style={{ display: 'flex', gap: '0.65rem', flexWrap: 'wrap', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+              <span onClick={() => setActiveTab('vehicles')} style={{ cursor: 'pointer', background: 'var(--bg-glass)', border: '1px solid var(--border-color)', padding: '0.35rem 0.75rem', borderRadius: '9999px', display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
+                <CheckCircle2 size={13} color="var(--accent-emerald)" /> Instant Fleet Filter
+              </span>
+              <span onClick={() => setActiveTab('mechanics')} style={{ cursor: 'pointer', background: 'var(--bg-glass)', border: '1px solid var(--border-color)', padding: '0.35rem 0.75rem', borderRadius: '9999px', display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
+                <Clock size={13} color="var(--accent-amber)" /> 24/7 Mobile Mechanic
+              </span>
+              <span onClick={() => setActiveTab('dashboard')} style={{ cursor: 'pointer', background: 'var(--bg-glass)', border: '1px solid var(--border-color)', padding: '0.35rem 0.75rem', borderRadius: '9999px', display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
+                <FileText size={13} color="var(--accent-cyan)" /> Digital Tax Invoices
+              </span>
             </div>
           </div>
 
