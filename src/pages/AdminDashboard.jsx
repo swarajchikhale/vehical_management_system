@@ -348,19 +348,40 @@ export const AdminDashboard = () => {
       {/* Tab 4: Master Bills & Invoices */}
       {activeSubTab === 'bills' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--bg-card)', padding: '0.75rem 1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', background: 'var(--bg-card)', padding: '0.75rem 1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
             <div style={{ position: 'relative', flex: '1', maxWidth: '380px' }}>
-              <Search size={16} style={{ position: 'absolute', left: '0.75rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+              <Search size={16} style={{ position: 'absolute', left: '0.75rem', top: '50%', transform: 'translateY(-50%)', color: billSearchTerm ? 'var(--accent-primary)' : 'var(--text-muted)' }} />
               <input
                 type="text"
                 className="form-control"
                 placeholder="Filter by invoice #, customer or title..."
                 value={billSearchTerm}
                 onChange={(e) => setBillSearchTerm(e.target.value)}
-                style={{ paddingLeft: '2.25rem', fontSize: '0.85rem' }}
+                style={{ paddingLeft: '2.25rem', paddingRight: billSearchTerm ? '2.25rem' : '0.75rem', fontSize: '0.85rem' }}
               />
+              {billSearchTerm && (
+                <button
+                  type="button"
+                  onClick={() => setBillSearchTerm('')}
+                  style={{
+                    position: 'absolute',
+                    right: '0.65rem',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    background: 'transparent',
+                    border: 'none',
+                    color: 'var(--text-muted)',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center'
+                  }}
+                  title="Clear search"
+                >
+                  <X size={14} />
+                </button>
+              )}
             </div>
-            <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+            <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 600 }}>
               Showing {bills.filter(b => b.invoice_number.toLowerCase().includes(billSearchTerm.toLowerCase()) || b.user_name.toLowerCase().includes(billSearchTerm.toLowerCase()) || b.item_title.toLowerCase().includes(billSearchTerm.toLowerCase())).length} of {bills.length} invoices
             </span>
           </div>
