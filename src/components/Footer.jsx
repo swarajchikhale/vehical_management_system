@@ -1,9 +1,17 @@
-import React from 'react';
-import { Car, Wrench, Shield, Phone, Mail, MapPin, Heart, ArrowUp } from 'lucide-react';
+import React, { useState } from 'react';
+import { Car, Wrench, Shield, Phone, Mail, MapPin, Heart, ArrowUp, Check } from 'lucide-react';
 
 export const Footer = ({ setActiveTab }) => {
+  const [copiedPhone, setCopiedPhone] = useState(false);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleCopyPhone = () => {
+    navigator.clipboard.writeText('+1 (800) 555-DRIVE');
+    setCopiedPhone(true);
+    setTimeout(() => setCopiedPhone(false), 2000);
   };
 
   return (
@@ -63,9 +71,14 @@ export const Footer = ({ setActiveTab }) => {
           <div>
             <h4 style={{ fontSize: '1rem', marginBottom: '1.2rem', color: 'var(--text-main)' }}>Emergency Hotline</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <Phone size={16} color="var(--accent-amber)" />
-                <span>+1 (800) 555-DRIVE</span>
+              <div 
+                onClick={handleCopyPhone} 
+                title="Click to copy emergency hotline" 
+                style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', userSelect: 'none', transition: 'color 0.2s' }}
+              >
+                {copiedPhone ? <Check size={16} color="#10b981" /> : <Phone size={16} color="var(--accent-amber)" />}
+                <span style={{ textDecoration: 'underline text-decoration-style-dotted' }}>+1 (800) 555-DRIVE</span>
+                {copiedPhone && <span style={{ fontSize: '0.7rem', color: '#10b981', fontWeight: 700, marginLeft: '0.2rem' }}>Copied!</span>}
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <Mail size={16} color="var(--accent-cyan)" />
