@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useData } from '../context/DataContext';
-import { Car, Wrench, Shield, User, Sparkles, Palette } from 'lucide-react';
+import { Car, Wrench, Shield, User, Sparkles, Palette, Clock } from 'lucide-react';
 
 export const Navbar = ({ activeTab, setActiveTab }) => {
   const { currentUser, switchRole } = useAuth();
@@ -10,6 +10,25 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
   const [currentPalette, setCurrentPalette] = useState(() => {
     return localStorage.getItem('dp_palette') || 'midnight';
   });
+
+  const [timeStr, setTimeStr] = useState('');
+
+  useEffect(() => {
+    const updateClock = () => {
+      const now = new Date();
+      setTimeStr(now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+    };
+    updateClock();
+    const interval = setInterval(updateClock, 10000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const getGreeting = () => {
+    const hour = new Date().getHours();
+    if (hour < 12) return 'Good Morning';
+    if (hour < 17) return 'Good Afternoon';
+    return 'Good Evening';
+  };
 
   useEffect(() => {
     document.documentElement.setAttribute('data-palette', currentPalette);
@@ -166,6 +185,15 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
               <option value="mechanic">Role: Mechanic</option>
             </select>
           </div>
+
+          {/* Real-time Clock & Dynamic Greeting Pill */}
+          {timeStr && (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', padding: '0.35rem 0.75rem', borderRadius: '9999px', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-muted)' }} title={`${getGreeting()}, ${currentUser.name}!`}>
+              <Clock size={13} color="var(--accent-primary)" />
+              <span style={{ color: 'var(--text-main)' }}>{timeStr}</span>
+              <span style={{ fontSize: '0.72rem', color: 'var(--text-subtle)' }}>• {getGreeting()}</span>
+            </div>
+          )}
 
           {/* User Badge */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'var(--bg-card)', border: '1px solid var(--border-color)', padding: '0.35rem 0.85rem', borderRadius: '9999px', boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }}>
