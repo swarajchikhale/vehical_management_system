@@ -67,16 +67,30 @@ export const Vehicles = ({ setActiveTab }) => {
   const pricing = calculateCost();
   const todayStr = new Date().toISOString().split('T')[0];
 
+  const availableCount = vehicles.filter(v => v.status === 'available').length;
+  const rentedCount = vehicles.filter(v => v.status === 'rented').length;
+
   return (
     <div className="container fade-in" style={{ padding: '3rem 1.5rem' }}>
       {/* Page Header */}
-      <div style={{ marginBottom: '2.5rem' }}>
-        <h1 style={{ fontSize: '2.4rem', marginBottom: '0.5rem' }}>
-          Vehicle <span className="text-gradient">Rental Fleet</span>
-        </h1>
-        <p style={{ color: 'var(--text-muted)' }}>
-          Explore our fully inspected vehicles available for daily and long-term rental.
-        </p>
+      <div style={{ marginBottom: '2.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem' }}>
+        <div>
+          <h1 style={{ fontSize: '2.4rem', marginBottom: '0.5rem' }}>
+            Vehicle <span className="text-gradient">Rental Fleet</span>
+          </h1>
+          <p style={{ color: 'var(--text-muted)' }}>
+            Explore our fully inspected vehicles available for daily and long-term rental.
+          </p>
+        </div>
+
+        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+          <span className="badge badge-available" style={{ padding: '0.4rem 0.85rem', fontSize: '0.82rem' }}>
+            ● {availableCount} Vehicles Available
+          </span>
+          <span className="badge badge-maintenance" style={{ padding: '0.4rem 0.85rem', fontSize: '0.82rem' }}>
+            ● {rentedCount} Currently Rented
+          </span>
+        </div>
       </div>
 
       {/* Controls Bar */}
