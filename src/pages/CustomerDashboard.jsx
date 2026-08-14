@@ -3,7 +3,7 @@ import { useData } from '../context/DataContext';
 import { useAuth } from '../context/AuthContext';
 import { InvoiceModal } from '../components/InvoiceModal';
 import { formatINR, formatDateIN, getStatusBadgeClass, getStatusLabel } from '../utils/formatters';
-import { Car, Wrench, FileText, Calendar, DollarSign, CheckCircle2, Clock, AlertCircle, Printer } from 'lucide-react';
+import { Car, Wrench, FileText, Calendar, DollarSign, CheckCircle2, Clock, AlertCircle, Printer, RotateCcw, X } from 'lucide-react';
 
 export const CustomerDashboard = ({ setActiveTab }) => {
   const { bookings, services, bills } = useData();
@@ -112,26 +112,38 @@ export const CustomerDashboard = ({ setActiveTab }) => {
             )}
           </div>
 
-          <div style={{ display: 'flex', gap: '0.35rem', background: 'var(--bg-card)', padding: '0.25rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)' }}>
-            {['all', 'active', 'confirmed', 'completed', 'cancelled'].map(f => (
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            {bookingFilter !== 'all' && (
               <button
-                key={f}
-                onClick={() => setBookingFilter(f)}
-                style={{
-                  padding: '0.35rem 0.75rem',
-                  borderRadius: 'var(--radius-xs)',
-                  border: 'none',
-                  background: bookingFilter === f ? 'var(--gradient-primary)' : 'transparent',
-                  color: '#ffffff',
-                  fontSize: '0.8rem',
-                  fontWeight: 600,
-                  textTransform: 'capitalize',
-                  cursor: 'pointer'
-                }}
+                className="btn btn-secondary btn-sm"
+                onClick={() => setBookingFilter('all')}
+                style={{ padding: '0.35rem 0.65rem', fontSize: '0.75rem', borderRadius: 'var(--radius-xs)', display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}
+                title="Reset filter standard"
               >
-                {f}
+                <RotateCcw size={12} /> Clear Filter
               </button>
-            ))}
+            )}
+            <div style={{ display: 'flex', gap: '0.35rem', background: 'var(--bg-card)', padding: '0.25rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)' }}>
+              {['all', 'active', 'confirmed', 'completed', 'cancelled'].map(f => (
+                <button
+                  key={f}
+                  onClick={() => setBookingFilter(f)}
+                  style={{
+                    padding: '0.35rem 0.75rem',
+                    borderRadius: 'var(--radius-xs)',
+                    border: 'none',
+                    background: bookingFilter === f ? 'var(--gradient-primary)' : 'transparent',
+                    color: '#ffffff',
+                    fontSize: '0.8rem',
+                    fontWeight: 600,
+                    textTransform: 'capitalize',
+                    cursor: 'pointer'
+                  }}
+                >
+                  {f}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
