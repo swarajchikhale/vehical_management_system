@@ -182,14 +182,12 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## 📜 Recent Release Commits (v1.2.0)
+## 📜 Recent Release Commits (v1.3.0)
 
-1. `Add date range validation to vehicle booking form to prevent invalid checkout dates` - Enforces `min` attribute constraints on checkout date inputs and guards against prior date ranges.
-2. `Add notification badge count indicator to navigation bar portal tab` - Displays dynamic notification count badge on the Portal navigation button tailored to user role.
-3. `Add search clear icon and result count indicator to mechanic directory in services page` - Provides 1-click filter reset button and live mechanic match count readout.
-4. `Add download as JSON export utility for invoice records in invoice modal` - Introduces automated JSON blob export action for tax invoice records.
-5. `Add total service revenue summary pill to mechanic dashboard workbench header` - Adds dynamic earnings summary metric card to technician workbench.
-6. `Add digital invoices counter label and active rental badge to customer dashboard` - Enhances customer dashboard overview with missing digital invoices label and Active Now rental badge chip.
-7. `Add scroll to top button and release version tag in footer component` - Adds smooth back-to-top navigation shortcut and release tag to site footer.
-8. `Update README architecture documentation and recent commit release log` - Documents new features, commit release history, and system component enhancements.
+1. `Add real-time clock and dynamic greeting badge to navigation header` - Displays live system clock and time-aware greeting badge next to active user profile pill.
+2. `Add click to copy hotline phone number shortcut in footer component` - Introduces 1-click clipboard copy utility with feedback notification tooltip for emergency contact hotline.
+3. `Add fleet availability status counter pill to vehicle rental hub` - Displays live summary counters for available vs rented fleet vehicles in vehicle rental header.
+4. `Add search filter clear icon and total result count badge to customer dashboard` - Provides 1-click filter reset shortcut for customer rental reservations.
+5. `Add status filter tab pills with count badges to mechanic dashboard` - Adds interactive tabbed filtering for assigned, in-progress, and completed service dispatch jobs.
+6. `Update README architecture documentation and recent commit release log` - Documents v1.3.0 release updates, system component enhancements, and recent commit history.
 
