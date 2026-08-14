@@ -11,9 +11,11 @@ export const MechanicDashboard = () => {
   const [editingServiceId, setEditingServiceId] = useState(null);
   const [costInput, setCostInput] = useState('');
   const [notesInput, setNotesInput] = useState('');
+  const [statusFilter, setStatusFilter] = useState('all');
 
   // Get assigned services for this mechanic
   const assignedJobs = services.filter(s => s.mechanic_id === currentUser.id || s.mechanic_name === currentUser.name);
+  const filteredJobs = assignedJobs.filter(j => statusFilter === 'all' || j.status.toLowerCase() === statusFilter.toLowerCase());
 
   const totalEarnings = assignedJobs
     .filter(j => j.status === 'completed')
@@ -82,26 +84,57 @@ export const MechanicDashboard = () => {
       </div>
 
       {/* Service Tickets List */}
-      <h2 style={{ fontSize: '1.4rem', marginBottom: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-        <Wrench size={20} color="var(--accent-amber)" /> Active Service Dispatches ({assignedJobs.length})
-      </h2>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.25rem' }}>
+        <h2 style={{ fontSize: '1.4rem', margin: 0, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <Wrench size={20} color="var(--accent-amber)" /> Active Service Dispatches ({filteredJobs.length})
+        </h2>
 
-      {assignedJobs.length === 0 ? (
+        <div style={{ display: 'flex', gap: '0.35rem', background: 'var(--bg-card)', padding: '0.25rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)' }}>
+          {['all', 'assigned', 'in_progress', 'completed'].map(st => {
+            const count = st === 'all' ? assignedJobs.length : assignedJobs.filter(j => j.status.toLowerCase() === st).length;
+            return (
+              <button
+                key={st}
+                onClick={() => setStatusFilter(st)}
+                style={{
+                  padding: '0.35rem 0.75rem',
+                  borderRadius: 'var(--radius-xs)',
+                  border: 'none',
+                  background: statusFilter === st ? 'var(--gradient-primary)' : 'transparent',
+                  color: '#ffffff',
+                  fontSize: '0.8rem',
+                  fontWeight: 600,
+                  textTransform: 'capitalize',
+                  cursor: 'pointer',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.35rem'
+                }}
+              >
+                {st.replace('_', ' ')}
+                <span style={{ fontSize: '0.68rem', padding: '0.05rem 0.35rem', borderRadius: '9999px', background: 'rgba(255,255,255,0.2)' }}>{count}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {filteredJobs.length === 0 ? (
         <div className="card" style={{ textAlign: 'center', padding: '3.5rem 2rem', color: 'var(--text-muted)' }}>
           <div style={{ background: 'rgba(245, 158, 11, 0.12)', color: 'var(--accent-amber)', width: '64px', height: '64px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.25rem auto' }}>
             <Wrench size={32} />
           </div>
-          <h3 style={{ fontSize: '1.4rem', color: 'var(--text-main)', marginBottom: '0.4rem' }}>No Active Service Dispatches</h3>
+          <h3 style={{ fontSize: '1.4rem', color: 'var(--text-main)', marginBottom: '0.4rem' }}>No Matching Service Dispatches</h3>
           <p style={{ maxWidth: '460px', margin: '0 auto 1.5rem auto', fontSize: '0.9rem' }}>
-            You have zero pending roadside repair tickets assigned to your technician profile.
+            You have zero repair tickets matching the selected status filter standard.
           </p>
           <span className="badge badge-assigned" style={{ fontSize: '0.8rem' }}>
-            Tip: Switch to the Admin role in top bar to assign new customer dispatch tickets
+            Tip: Switch filter pill to "all" to inspect your full workbench assignment list
           </span>
         </div>
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-          {assignedJobs.map(job => (
+          {filteredJobs.map(job => (
             <div key={job.id} className="card" style={{ padding: '1.5rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem', marginBottom: '1rem' }}>
                 <div>
