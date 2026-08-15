@@ -68,3 +68,19 @@ export const getStatusLabel = (status) => {
     .replace(/\b\w/g, (char) => char.toUpperCase());
 };
 
+/**
+ * Returns a human-readable relative time string (e.g. 'Just now', '5m ago', '2h ago').
+ * @param {string|Date} dateVal - Date object or ISO string
+ * @returns {string} Relative time string
+ */
+export const formatTimeAgo = (dateVal) => {
+  if (!dateVal) return 'Just now';
+  const past = new Date(dateVal).getTime();
+  if (isNaN(past)) return 'Just now';
+  const diffSecs = Math.floor((Date.now() - past) / 1000);
+  if (diffSecs < 60) return 'Just now';
+  if (diffSecs < 3600) return `${Math.floor(diffSecs / 60)}m ago`;
+  if (diffSecs < 86400) return `${Math.floor(diffSecs / 3600)}h ago`;
+  return `${Math.floor(diffSecs / 86400)}d ago`;
+};
+
