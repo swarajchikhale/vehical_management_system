@@ -18,8 +18,13 @@ export const Home = ({ setActiveTab, onBookVehicle }) => {
       }}>
         <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', alignItems: 'center' }}>
           <div>
-            <div className="badge badge-available" style={{ marginBottom: '1.25rem' }}>
-              <Zap size={14} /> Next-Gen Fleet & Maintenance Platform
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '1.25rem' }}>
+              <div className="badge badge-available">
+                <Zap size={14} /> Next-Gen Fleet & Maintenance Platform
+              </div>
+              <div className="badge badge-confirmed" style={{ fontSize: '0.78rem', background: 'rgba(245, 158, 11, 0.15)', color: 'var(--accent-amber)', borderColor: 'rgba(245, 158, 11, 0.3)' }}>
+                <Star size={13} fill="var(--accent-amber)" color="var(--accent-amber)" /> 4.98 (2,400+ Customer Reviews)
+              </div>
             </div>
             <h1 style={{ fontSize: '3.2rem', lineHeight: 1.1, marginBottom: '1.5rem', fontWeight: 800 }}>
               Premium Vehicle Rental & <span className="text-gradient">Instant Mechanic Service</span>
