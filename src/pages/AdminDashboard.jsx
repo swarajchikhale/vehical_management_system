@@ -194,25 +194,34 @@ export const AdminDashboard = () => {
               </div>
 
               <div style={{ display: 'flex', gap: '0.35rem', flexWrap: 'wrap' }}>
-                {['all', 'car', 'bike', 'van', 'bus', 'truck'].map(type => (
-                  <button
-                    key={type}
-                    onClick={() => setFleetTypeFilter(type)}
-                    style={{
-                      padding: '0.35rem 0.75rem',
-                      borderRadius: 'var(--radius-full)',
-                      border: '1px solid var(--border-color)',
-                      background: fleetTypeFilter === type ? 'var(--gradient-primary)' : 'var(--bg-glass)',
-                      color: '#ffffff',
-                      fontSize: '0.8rem',
-                      fontWeight: 600,
-                      textTransform: 'capitalize',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    {type}
-                  </button>
-                ))}
+                {['all', 'car', 'bike', 'van', 'bus', 'truck'].map(type => {
+                  const typeCount = type === 'all' ? vehicles.length : vehicles.filter(v => v.vehicle_type.toLowerCase() === type.toLowerCase()).length;
+                  return (
+                    <button
+                      key={type}
+                      onClick={() => setFleetTypeFilter(type)}
+                      style={{
+                        padding: '0.35rem 0.75rem',
+                        borderRadius: 'var(--radius-full)',
+                        border: '1px solid var(--border-color)',
+                        background: fleetTypeFilter === type ? 'var(--gradient-primary)' : 'var(--bg-glass)',
+                        color: '#ffffff',
+                        fontSize: '0.8rem',
+                        fontWeight: 600,
+                        textTransform: 'capitalize',
+                        cursor: 'pointer',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '0.35rem'
+                      }}
+                    >
+                      {type}
+                      <span style={{ fontSize: '0.68rem', padding: '0.05rem 0.35rem', borderRadius: '9999px', background: 'rgba(255,255,255,0.2)' }}>
+                        {typeCount}
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
