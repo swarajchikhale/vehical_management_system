@@ -15,6 +15,7 @@ export const AdminDashboard = () => {
   const [showAddVehicleModal, setShowAddVehicleModal] = useState(false);
   const [selectedBill, setSelectedBill] = useState(null);
   const [billSearchTerm, setBillSearchTerm] = useState('');
+  const [billTypeFilter, setBillTypeFilter] = useState('all');
   const [fleetTypeFilter, setFleetTypeFilter] = useState('all');
   const [fleetSearchTerm, setFleetSearchTerm] = useState('');
 
@@ -381,40 +382,72 @@ export const AdminDashboard = () => {
       {activeSubTab === 'bills' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', background: 'var(--bg-card)', padding: '0.75rem 1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
-            <div style={{ position: 'relative', flex: '1', maxWidth: '380px' }}>
-              <Search size={16} style={{ position: 'absolute', left: '0.75rem', top: '50%', transform: 'translateY(-50%)', color: billSearchTerm ? 'var(--accent-primary)' : 'var(--text-muted)' }} />
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Filter by invoice #, customer or title..."
-                value={billSearchTerm}
-                onChange={(e) => setBillSearchTerm(e.target.value)}
-                style={{ paddingLeft: '2.25rem', paddingRight: billSearchTerm ? '2.25rem' : '0.75rem', fontSize: '0.85rem' }}
-              />
-              {billSearchTerm && (
-                <button
-                  type="button"
-                  onClick={() => setBillSearchTerm('')}
-                  style={{
-                    position: 'absolute',
-                    right: '0.65rem',
-                    top: '50%',
-                    transform: 'translateY(-50%)',
-                    background: 'transparent',
-                    border: 'none',
-                    color: 'var(--text-muted)',
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center'
-                  }}
-                  title="Clear search"
-                >
-                  <X size={14} />
-                </button>
-              )}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+              <div style={{ position: 'relative', minWidth: '280px' }}>
+                <Search size={16} style={{ position: 'absolute', left: '0.75rem', top: '50%', transform: 'translateY(-50%)', color: billSearchTerm ? 'var(--accent-primary)' : 'var(--text-muted)' }} />
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Filter by invoice #, customer or title..."
+                  value={billSearchTerm}
+                  onChange={(e) => setBillSearchTerm(e.target.value)}
+                  style={{ paddingLeft: '2.25rem', paddingRight: billSearchTerm ? '2.25rem' : '0.75rem', fontSize: '0.85rem' }}
+                />
+                {billSearchTerm && (
+                  <button
+                    type="button"
+                    onClick={() => setBillSearchTerm('')}
+                    style={{
+                      position: 'absolute',
+                      right: '0.65rem',
+                      top: '50%',
+                      transform: 'translateY(-50%)',
+                      background: 'transparent',
+                      border: 'none',
+                      color: 'var(--text-muted)',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center'
+                    }}
+                    title="Clear search"
+                  >
+                    <X size={14} />
+                  </button>
+                )}
+              </div>
+
+              <div style={{ display: 'flex', gap: '0.35rem' }}>
+                {['all', 'rental', 'service'].map(bt => {
+                  const count = bt === 'all' ? bills.length : bills.filter(b => b.bill_type === bt).length;
+                  return (
+                    <button
+                      key={bt}
+                      onClick={() => setBillTypeFilter(bt)}
+                      style={{
+                        padding: '0.35rem 0.75rem',
+                        borderRadius: 'var(--radius-full)',
+                        border: '1px solid var(--border-color)',
+                        background: billTypeFilter === bt ? 'var(--gradient-primary)' : 'var(--bg-glass)',
+                        color: '#ffffff',
+                        fontSize: '0.8rem',
+                        fontWeight: 600,
+                        textTransform: 'capitalize',
+                        cursor: 'pointer',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '0.35rem'
+                      }}
+                    >
+                      {bt}
+                      <span style={{ fontSize: '0.68rem', padding: '0.05rem 0.35rem', borderRadius: '9999px', background: 'rgba(255,255,255,0.2)' }}>{count}</span>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
+
             <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 600 }}>
-              Showing {bills.filter(b => b.invoice_number.toLowerCase().includes(billSearchTerm.toLowerCase()) || b.user_name.toLowerCase().includes(billSearchTerm.toLowerCase()) || b.item_title.toLowerCase().includes(billSearchTerm.toLowerCase())).length} of {bills.length} invoices
+              Showing {bills.filter(b => (billTypeFilter === 'all' || b.bill_type === billTypeFilter) && (b.invoice_number.toLowerCase().includes(billSearchTerm.toLowerCase()) || b.user_name.toLowerCase().includes(billSearchTerm.toLowerCase()) || b.item_title.toLowerCase().includes(billSearchTerm.toLowerCase()))).length} of {bills.length} invoices
             </span>
           </div>
 
@@ -435,9 +468,10 @@ export const AdminDashboard = () => {
               <tbody>
                 {bills
                   .filter(b => 
-                    b.invoice_number.toLowerCase().includes(billSearchTerm.toLowerCase()) ||
-                    b.user_name.toLowerCase().includes(billSearchTerm.toLowerCase()) ||
-                    b.item_title.toLowerCase().includes(billSearchTerm.toLowerCase())
+                    (billTypeFilter === 'all' || b.bill_type === billTypeFilter) &&
+                    (b.invoice_number.toLowerCase().includes(billSearchTerm.toLowerCase()) ||
+                     b.user_name.toLowerCase().includes(billSearchTerm.toLowerCase()) ||
+                     b.item_title.toLowerCase().includes(billSearchTerm.toLowerCase()))
                   )
                   .map(bill => (
                     <tr key={bill.id} style={{ borderBottom: '1px solid var(--border-color)' }}>
