@@ -182,12 +182,14 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## 📜 Recent Release Commits (v1.3.0)
+## 📜 Recent Release Commits (v1.4.0)
 
-1. `Add real-time clock and dynamic greeting badge to navigation header` - Displays live system clock and time-aware greeting badge next to active user profile pill.
-2. `Add click to copy hotline phone number shortcut in footer component` - Introduces 1-click clipboard copy utility with feedback notification tooltip for emergency contact hotline.
-3. `Add fleet availability status counter pill to vehicle rental hub` - Displays live summary counters for available vs rented fleet vehicles in vehicle rental header.
-4. `Add search filter clear icon and total result count badge to customer dashboard` - Provides 1-click filter reset shortcut for customer rental reservations.
-5. `Add status filter tab pills with count badges to mechanic dashboard` - Adds interactive tabbed filtering for assigned, in-progress, and completed service dispatch jobs.
-6. `Update README architecture documentation and recent commit release log` - Documents v1.3.0 release updates, system component enhancements, and recent commit history.
+1. `Add system operational status indicator and customer rating pill to home hero` - Displays customer review score rating badge alongside system status indicator in landing hero.
+2. `Add fleet category distribution breakdown counters to admin control center` - Adds interactive count badges for vehicle categories (cars, bikes, vans, heavy) in admin fleet controls.
+3. `Add emergency response time estimate banner to roadside mechanic dispatch page` - Displays live estimated arrival time pill and location dispatch badge in mechanic dispatch view.
+4. `Add print keyboard shortcut hint tag and verified payment badge to invoice modal` - Introduces Esc keyboard shortcut indicator pill in digital tax invoice modal.
+5. `Add relative time formatting utility helper function for service activity logs` - Provides relative time calculations (`formatTimeAgo`) for formatting activity logs.
+6. `Add auto dismiss animation progress indicator and manual close button to toast component` - Adds manual dismiss tooltip title and subtle background accent styling to toast component.
+7. `Add bill status filter quick selector pills and search clear button to master bills table` - Introduces category filter pills for rental vs mechanic service bills in admin control center.
+8. `Update README architecture documentation and recent commit release log` - Documents v1.4.0 release updates, system component enhancements, and recent commit history.
 
