@@ -36,9 +36,14 @@ export const InvoiceModal = ({ bill, onClose }) => {
       >
         {/* Header Bar (No Print) */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', borderBottom: '1px solid #e5e7eb', paddingBottom: '1rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#4f46e5', fontWeight: 700 }}>
-            <FileText size={22} />
-            <span>DIGITAL TAX INVOICE</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#4f46e5', fontWeight: 700 }}>
+              <FileText size={22} />
+              <span>DIGITAL TAX INVOICE</span>
+            </div>
+            <span style={{ fontSize: '0.72rem', background: '#f3f4f6', color: '#6b7280', padding: '0.15rem 0.5rem', borderRadius: '4px', fontWeight: 600 }}>
+              Press Esc to close
+            </span>
           </div>
           <div style={{ display: 'flex', gap: '0.5rem' }}>
             <button 
