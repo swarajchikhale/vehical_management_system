@@ -38,17 +38,20 @@ export const Toast = ({ message, type = 'success', onClose }) => {
       {onClose && (
         <button
           onClick={onClose}
+          title="Dismiss notification"
           style={{
-            background: 'transparent',
+            background: 'rgba(0,0,0,0.15)',
             border: 'none',
-            color: 'rgba(255,255,255,0.8)',
+            color: 'rgba(255,255,255,0.9)',
             cursor: 'pointer',
-            marginLeft: '0.5rem',
+            marginLeft: '0.75rem',
+            padding: '0.2rem',
+            borderRadius: '4px',
             display: 'flex',
             alignItems: 'center'
           }}
         >
-          <X size={16} />
+          <X size={15} />
         </button>
       )}
     </div>
