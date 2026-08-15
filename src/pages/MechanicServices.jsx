@@ -43,16 +43,25 @@ export const MechanicServices = ({ setActiveTab }) => {
   return (
     <div className="container fade-in" style={{ padding: '3rem 1.5rem' }}>
       {/* Header */}
-      <div style={{ marginBottom: '2.5rem' }}>
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(245, 158, 11, 0.15)', color: 'var(--accent-amber)', padding: '0.35rem 0.85rem', borderRadius: 'var(--radius-full)', fontSize: '0.8rem', fontWeight: 700, marginBottom: '0.85rem' }}>
-          <AlertTriangle size={14} /> 24/7 Mobile Mechanic Hotline Active
+      <div style={{ marginBottom: '2.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem' }}>
+        <div>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(245, 158, 11, 0.15)', color: 'var(--accent-amber)', padding: '0.35rem 0.85rem', borderRadius: 'var(--radius-full)', fontSize: '0.8rem', fontWeight: 700, marginBottom: '0.85rem' }}>
+            <AlertTriangle size={14} /> 24/7 Mobile Mechanic Hotline Active
+          </div>
+          <h1 style={{ fontSize: '2.4rem', marginBottom: '0.5rem' }}>
+            Request Roadside <span className="text-gradient">Mechanic Dispatch</span>
+          </h1>
+          <p style={{ color: 'var(--text-muted)' }}>
+            Submit issue details below to dispatch a certified master mechanic directly to your current location.
+          </p>
         </div>
-        <h1 style={{ fontSize: '2.4rem', marginBottom: '0.5rem' }}>
-          Request Roadside <span className="text-gradient">Mechanic Dispatch</span>
-        </h1>
-        <p style={{ color: 'var(--text-muted)' }}>
-          Submit issue details below to dispatch a certified master mechanic directly to your current location.
-        </p>
+
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.35rem' }}>
+          <span className="badge badge-confirmed" style={{ padding: '0.4rem 0.85rem', fontSize: '0.82rem' }}>
+            ● Avg Emergency Dispatch ETA: 15-25 Mins
+          </span>
+          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Live GPS Location Tracking Included</span>
+        </div>
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2.5rem' }}>
