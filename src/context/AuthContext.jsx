@@ -8,7 +8,9 @@ const DEMO_USERS = {
     name: 'System Admin',
     email: 'admin@vehiclems.com',
     role: 'admin',
-    phone: '+1 (555) 019-2831'
+    phone: '+1 (555) 019-2831',
+    created_at: '2024-01-15',
+    session_active: true
   },
   mechanic: {
     id: 2,
@@ -17,14 +19,18 @@ const DEMO_USERS = {
     role: 'mechanic',
     phone: '+1 (555) 019-4820',
     specialization: 'Engine & Electrical Specialist',
-    hourlyRate: 45
+    hourlyRate: 45,
+    created_at: '2024-02-01',
+    session_active: true
   },
   customer: {
     id: 3,
     name: 'Jane Customer',
     email: 'user@vehiclems.com',
     role: 'user',
-    phone: '+1 (555) 019-7711'
+    phone: '+1 (555) 019-7711',
+    created_at: '2024-03-10',
+    session_active: true
   }
 };
 
