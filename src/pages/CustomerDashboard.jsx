@@ -172,7 +172,9 @@ export const CustomerDashboard = ({ setActiveTab }) => {
                   <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
                     <div style={{ textAlign: 'right' }}>
                       <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--accent-cyan)' }}>{formatINR(b.total_cost)}</div>
-                      <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Total incl. tax</div>
+                      <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                        {b.total_days} {b.total_days === 1 ? 'day' : 'days'} reservation (incl. 18% GST)
+                      </div>
                     </div>
 
                     {matchedBill && (
