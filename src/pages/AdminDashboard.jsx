@@ -125,7 +125,9 @@ export const AdminDashboard = () => {
         <div className="card">
           <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.25rem' }}>Registered Mechanics</div>
           <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--accent-cyan)' }}>{mechanics.length}</div>
-          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '0.35rem' }}>100% certified technicians</div>
+          <div style={{ fontSize: '0.75rem', color: 'var(--accent-cyan)', marginTop: '0.35rem' }}>
+            Avg Ticket: {formatINR(bills.length > 0 ? Math.round(totalRevenue / bills.length) : 0, false)}
+          </div>
         </div>
       </div>
 
