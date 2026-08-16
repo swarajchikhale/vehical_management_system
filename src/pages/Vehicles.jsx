@@ -3,7 +3,7 @@ import { useData } from '../context/DataContext';
 import { useAuth } from '../context/AuthContext';
 import { formatINR, getStatusBadgeClass, getStatusLabel } from '../utils/formatters';
 
-import { Search, Filter, Calendar, CheckCircle, Shield, AlertCircle, X, DollarSign } from 'lucide-react';
+import { Search, Filter, Calendar, CheckCircle, Shield, AlertCircle, X, DollarSign, Star } from 'lucide-react';
 
 export const Vehicles = ({ setActiveTab }) => {
   const { vehicles, createBooking } = useData();
@@ -240,8 +240,8 @@ export const Vehicles = ({ setActiveTab }) => {
                 <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--accent-primary)', textTransform: 'uppercase' }}>
                   {vehicle.brand} • {vehicle.year}
                 </span>
-                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-                  Type: <strong style={{ color: 'var(--text-main)', textTransform: 'capitalize' }}>{vehicle.vehicle_type}</strong>
+                <span style={{ fontSize: '0.78rem', color: 'var(--accent-amber)', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '0.2rem' }}>
+                  <Star size={12} fill="var(--accent-amber)" color="var(--accent-amber)" /> {vehicle.rating || 4.9} ({vehicle.trips_completed || 24} trips)
                 </span>
               </div>
 
