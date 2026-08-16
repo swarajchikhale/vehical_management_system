@@ -182,14 +182,14 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## 📜 Recent Release Commits (v1.4.0)
+## 📜 Recent Release Commits (v1.5.0)
 
-1. `Add system operational status indicator and customer rating pill to home hero` - Displays customer review score rating badge alongside system status indicator in landing hero.
-2. `Add fleet category distribution breakdown counters to admin control center` - Adds interactive count badges for vehicle categories (cars, bikes, vans, heavy) in admin fleet controls.
-3. `Add emergency response time estimate banner to roadside mechanic dispatch page` - Displays live estimated arrival time pill and location dispatch badge in mechanic dispatch view.
-4. `Add print keyboard shortcut hint tag and verified payment badge to invoice modal` - Introduces Esc keyboard shortcut indicator pill in digital tax invoice modal.
-5. `Add relative time formatting utility helper function for service activity logs` - Provides relative time calculations (`formatTimeAgo`) for formatting activity logs.
-6. `Add auto dismiss animation progress indicator and manual close button to toast component` - Adds manual dismiss tooltip title and subtle background accent styling to toast component.
-7. `Add bill status filter quick selector pills and search clear button to master bills table` - Introduces category filter pills for rental vs mechanic service bills in admin control center.
-8. `Update README architecture documentation and recent commit release log` - Documents v1.4.0 release updates, system component enhancements, and recent commit history.
+1. `Add vehicle rating score and completed trip metrics to initial dataset` - Adds vehicle rating scores and completed trip metrics to initial vehicle state dataset.
+2. `Add vehicle rating score badge and total trip count indicator to rental card` - Renders star rating badge and trip count pill in vehicle card component.
+3. `Add user creation timestamp and active session tag to auth context state` - Enriches demo account objects with account creation date and active session flags.
+4. `Add role navigation tooltip guidance and keyboard shortcut tags to navbar links` - Introduces descriptive title tooltips across primary header navigation buttons.
+5. `Add rental rate calculation breakdown label to customer booking history list` - Adds total reservation day count and GST tax breakdown label to customer booking cards.
+6. `Add average invoice transaction value KPI card to admin financial summary` - Displays average invoice transaction metric pill in admin command center dashboard.
+7. `Add technician repair completed counter badge to mechanic directory list` - Adds verified technician check icon badge to mechanic directory list.
+8. `Update README architecture documentation and recent commit release log` - Documents v1.5.0 release updates, system component enhancements, and recent commit history.
 
