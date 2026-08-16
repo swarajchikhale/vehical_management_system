@@ -264,7 +264,7 @@ export const MechanicServices = ({ setActiveTab }) => {
                       <h4 style={{ fontSize: '1rem', margin: 0 }}>{m.name}</h4>
                       <span style={{ fontSize: '0.8rem', color: 'var(--accent-primary)' }}>{m.specialization}</span>
                       <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: '0.2rem', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                        Exp: {m.experience_years} yrs • {formatINR(m.hourly_rate, false)}/hr • <Star size={12} color="var(--accent-amber)" fill="var(--accent-amber)" /> {m.rating} ({m.total_reviews} reviews)
+                        <CheckCircle2 size={12} color="var(--accent-emerald)" /> {m.experience_years} yrs exp • {formatINR(m.hourly_rate, false)}/hr • <Star size={12} color="var(--accent-amber)" fill="var(--accent-amber)" /> {m.rating} ({m.total_reviews} reviews)
                       </div>
                     </div>
 
