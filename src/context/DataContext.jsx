@@ -13,6 +13,8 @@ const INITIAL_VEHICLES = [
     license_plate: 'CAM-8821',
     rent_price: 3500,
     status: 'available',
+    rating: 4.9,
+    trips_completed: 34,
     image: 'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=800&q=80',
     description: 'Sleek sedan with premium leather interior, hybrid efficiency, advanced safety features, and smooth ride for long trips.'
   },
@@ -26,6 +28,8 @@ const INITIAL_VEHICLES = [
     license_plate: 'BMW-9901',
     rent_price: 9500,
     status: 'available',
+    rating: 4.95,
+    trips_completed: 48,
     image: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=800&q=80',
     description: 'Luxury midsize SUV with all-wheel drive, panoramic sunroof, digital cockpit, and twin-turbo performance.'
   },
