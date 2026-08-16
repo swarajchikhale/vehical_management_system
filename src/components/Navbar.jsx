@@ -90,6 +90,7 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
             className={`btn btn-sm ${activeTab === 'home' ? 'btn-primary' : 'btn-secondary'}`}
             onClick={() => setActiveTab('home')}
             style={{ borderRadius: '9999px', padding: '0.45rem 1rem' }}
+            title="Navigate to Home showcase"
           >
             Home
           </button>
@@ -97,6 +98,7 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
             className={`btn btn-sm ${activeTab === 'vehicles' ? 'btn-primary' : 'btn-secondary'}`}
             onClick={() => setActiveTab('vehicles')}
             style={{ borderRadius: '9999px', padding: '0.45rem 1rem' }}
+            title="Browse available vehicle rental inventory"
           >
             <Car size={15} /> Rental Fleet
           </button>
@@ -104,6 +106,7 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
             className={`btn btn-sm ${activeTab === 'mechanics' ? 'btn-primary' : 'btn-secondary'}`}
             onClick={() => setActiveTab('mechanics')}
             style={{ borderRadius: '9999px', padding: '0.45rem 1rem' }}
+            title="Request emergency roadside mechanic dispatch"
           >
             <Wrench size={15} /> Mechanic Services
           </button>
@@ -114,6 +117,7 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
               else if (currentUser.role === 'mechanic') setActiveTab('mechanic_dash');
               else setActiveTab('dashboard');
             }}
+            title={`Access ${currentUser.role.toUpperCase()} management portal`}
             style={{ borderRadius: '9999px', padding: '0.45rem 1rem', display: 'inline-flex', alignItems: 'center' }}
           >
             <Shield size={15} style={{ marginRight: '0.35rem' }} /> Portal ({currentUser.role.toUpperCase()})
