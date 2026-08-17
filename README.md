@@ -182,14 +182,10 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## 📜 Recent Release Commits (v1.5.0)
+## 📜 Recent Release Commits (v1.6.0)
 
-1. `Add vehicle rating score and completed trip metrics to initial dataset` - Adds vehicle rating scores and completed trip metrics to initial vehicle state dataset.
-2. `Add vehicle rating score badge and total trip count indicator to rental card` - Renders star rating badge and trip count pill in vehicle card component.
-3. `Add user creation timestamp and active session tag to auth context state` - Enriches demo account objects with account creation date and active session flags.
-4. `Add role navigation tooltip guidance and keyboard shortcut tags to navbar links` - Introduces descriptive title tooltips across primary header navigation buttons.
-5. `Add rental rate calculation breakdown label to customer booking history list` - Adds total reservation day count and GST tax breakdown label to customer booking cards.
-6. `Add average invoice transaction value KPI card to admin financial summary` - Displays average invoice transaction metric pill in admin command center dashboard.
-7. `Add technician repair completed counter badge to mechanic directory list` - Adds verified technician check icon badge to mechanic directory list.
-8. `Update README architecture documentation and recent commit release log` - Documents v1.5.0 release updates, system component enhancements, and recent commit history.
+1. `Add localized payment gateway method tag to digital tax invoice modal` - Updates invoice payment method badge with localized Indian payment options.
+2. `Add maximum rental duration guideline note to vehicle reservation form` - Displays 30-day maximum booking duration guideline text in vehicle checkout form.
+3. `Add technician average repair turnaround time metric to mechanic dashboard` - Adds 45-minute average turnaround time metric pill to technician workbench.
+4. `Update README architecture documentation and recent commit release log` - Documents v1.6.0 release updates, system component enhancements, and recent commit history.
 
