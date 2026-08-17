@@ -73,6 +73,9 @@ export const MechanicDashboard = () => {
           <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--accent-emerald)' }}>
             {assignedJobs.filter(j => j.status === 'completed').length}
           </div>
+          <div style={{ fontSize: '0.75rem', color: 'var(--accent-emerald)', marginTop: '0.25rem' }}>
+            Avg Turnaround: 45m
+          </div>
         </div>
 
         <div className="card">
