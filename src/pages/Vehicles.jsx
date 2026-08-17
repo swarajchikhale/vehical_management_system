@@ -341,6 +341,10 @@ export const Vehicles = ({ setActiveTab }) => {
                   </div>
                 </div>
 
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '1rem', marginTop: '-0.5rem' }}>
+                  Note: Maximum 30 consecutive days allowed per single online rental reservation.
+                </div>
+
                 <div className="form-group">
                   <label className="form-label">Rental Notes / Special Requirements</label>
                   <textarea 
