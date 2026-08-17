@@ -105,7 +105,7 @@ export const InvoiceModal = ({ bill, onClose }) => {
             </div>
             <div style={{ textAlign: 'right' }}>
               <span style={{ fontSize: '0.75rem', color: '#6b7280', display: 'block', textTransform: 'uppercase', fontWeight: 700 }}>Payment Method</span>
-              <span style={{ color: '#111827', fontWeight: 600 }}>{bill.payment_method || 'Direct Billing'}</span>
+              <span style={{ color: '#111827', fontWeight: 600 }}>{bill.payment_method || 'UPI / Cards / NetBanking (INR ₹)'}</span>
             </div>
           </div>
 
