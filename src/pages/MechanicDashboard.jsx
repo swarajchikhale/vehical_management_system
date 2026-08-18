@@ -48,9 +48,12 @@ export const MechanicDashboard = () => {
           </p>
         </div>
 
-        <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', padding: '0.75rem 1.25rem', borderRadius: 'var(--radius-md)' }}>
+        <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', padding: '0.75rem 1.25rem', borderRadius: 'var(--radius-md)', display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
           <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'block' }}>Current Status</span>
-          <span className="badge badge-available">● On Duty & Ready</span>
+          <div style={{ display: 'flex', gap: '0.5rem' }}>
+            <span className="badge badge-available">● On Duty</span>
+            <span className="badge badge-maintenance" style={{ fontSize: '0.72rem' }}>● Emergency Ready</span>
+          </div>
         </div>
       </div>
 
