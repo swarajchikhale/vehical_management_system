@@ -84,6 +84,9 @@ export const Footer = ({ setActiveTab }) => {
                 <Mail size={16} color="var(--accent-cyan)" />
                 <span>support@drivepulse.com</span>
               </div>
+              <div style={{ fontSize: '0.75rem', color: 'var(--accent-emerald)', fontWeight: 600, marginTop: '0.2rem' }}>
+                ● Mon-Sun 24/7 Emergency Support Active
+              </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <MapPin size={16} color="var(--accent-rose)" />
                 <span>100 Innovation Parkway, Suite 400</span>
