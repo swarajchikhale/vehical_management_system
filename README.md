@@ -182,10 +182,13 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## 📜 Recent Release Commits (v1.6.0)
+## 📜 Recent Release Commits (v1.7.0)
 
-1. `Add localized payment gateway method tag to digital tax invoice modal` - Updates invoice payment method badge with localized Indian payment options.
-2. `Add maximum rental duration guideline note to vehicle reservation form` - Displays 30-day maximum booking duration guideline text in vehicle checkout form.
-3. `Add technician average repair turnaround time metric to mechanic dashboard` - Adds 45-minute average turnaround time metric pill to technician workbench.
-4. `Update README architecture documentation and recent commit release log` - Documents v1.6.0 release updates, system component enhancements, and recent commit history.
+1. `Add fuel type and transmission specification tag to vehicle rental cards` - Renders automatic transmission and insurance specification tags on vehicle rental cards.
+2. `Add support operational hours badge tag to footer hotline panel` - Displays 24/7 emergency support operating hours tag in footer.
+3. `Add insurance and zero hidden fee guarantee trust badges to landing hero` - Adds 100% fully insured trust badge pill to landing hero feature highlight row.
+4. `Add active reservation status summary pill to customer portal header` - Displays verified customer account active badge tag in customer portal header.
+5. `Add high priority emergency repair badge indicator to mechanic workbench` - Adds emergency readiness channel badge in technician workbench header.
+6. `Add fleet table export summary action shortcut in admin control center` - Introduces Export System Report button shortcut in admin control center.
+7. `Update README architecture documentation and recent commit release log` - Documents v1.7.0 release updates, system component enhancements, and recent commit history.
 
