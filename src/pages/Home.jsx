@@ -52,6 +52,9 @@ export const Home = ({ setActiveTab, onBookVehicle }) => {
               <span onClick={() => setActiveTab('dashboard')} style={{ cursor: 'pointer', background: 'var(--bg-glass)', border: '1px solid var(--border-color)', padding: '0.35rem 0.75rem', borderRadius: '9999px', display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
                 <FileText size={13} color="var(--accent-cyan)" /> Digital Tax Invoices
               </span>
+              <span style={{ background: 'var(--bg-glass)', border: '1px solid var(--border-color)', padding: '0.35rem 0.75rem', borderRadius: '9999px', display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
+                <ShieldCheck size={13} color="var(--accent-emerald)" /> 100% Fully Insured
+              </span>
             </div>
           </div>
 
