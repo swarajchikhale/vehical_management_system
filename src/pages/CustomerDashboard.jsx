@@ -27,6 +27,11 @@ export const CustomerDashboard = ({ setActiveTab }) => {
           <h1 style={{ fontSize: '2.2rem', marginBottom: '0.4rem' }}>
             Welcome back, <span className="text-gradient">{currentUser.name}</span>
           </h1>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.4rem' }}>
+            <span className="badge badge-available" style={{ fontSize: '0.72rem' }}>
+              ● Verified Customer • Account Active
+            </span>
+          </div>
           <p style={{ color: 'var(--text-muted)' }}>
             Manage your active vehicle rentals, requested mechanic services, and digital invoices.
           </p>
