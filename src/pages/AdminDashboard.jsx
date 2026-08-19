@@ -4,7 +4,7 @@ import { InvoiceModal } from '../components/InvoiceModal';
 import { formatINR, getStatusBadgeClass, getStatusLabel } from '../utils/formatters';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, ArcElement, BarElement } from 'chart.js';
 import { Line, Bar } from 'react-chartjs-2';
-import { Shield, Car, Wrench, DollarSign, Plus, Edit, Trash2, CheckCircle, XCircle, FileText, UserCheck, AlertTriangle, X, Search, Download } from 'lucide-react';
+import { Shield, Car, Wrench, DollarSign, Plus, Edit, Trash2, CheckCircle, XCircle, FileText, UserCheck, AlertTriangle, X, Search, Download, RotateCcw } from 'lucide-react';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, ArcElement, Title, Tooltip, Legend);
 
@@ -92,6 +92,9 @@ export const AdminDashboard = () => {
         </div>
 
         <div style={{ display: 'flex', gap: '0.75rem' }}>
+          <button className="btn btn-secondary" onClick={() => alert('Data feed synced with latest active telemetry.')} title="Sync real-time data feed">
+            <RotateCcw size={15} /> Refresh Feed
+          </button>
           <button className="btn btn-secondary" onClick={() => alert('Exporting system analytics & invoice summary report as CSV blob...')} title="Export system metrics as CSV summary">
             <Download size={16} /> Export Report
           </button>
