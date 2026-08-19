@@ -121,7 +121,7 @@ export const Vehicles = ({ setActiveTab }) => {
                 display: 'flex',
                 alignItems: 'center'
               }}
-              title="Clear search"
+              title="Clear vehicle search query"
             >
               <X size={16} />
             </button>
