@@ -184,7 +184,7 @@ export const CustomerDashboard = ({ setActiveTab }) => {
 
                     {matchedBill && (
                       <div style={{ display: 'flex', gap: '0.5rem' }}>
-                        <button className="btn btn-secondary btn-sm" onClick={() => setSelectedBill(matchedBill)}>
+                        <button className="btn btn-secondary btn-sm" onClick={() => setSelectedBill(matchedBill)} title="Inspect digital tax receipt invoice details">
                           <FileText size={14} /> View Invoice
                         </button>
                         <button 
