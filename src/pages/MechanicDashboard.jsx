@@ -147,6 +147,7 @@ export const MechanicDashboard = () => {
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.4rem' }}>
                     <h3 style={{ fontSize: '1.25rem' }}>Dispatch Ticket #{job.id} - {job.vehicle_model}</h3>
                     <span className={`badge ${getStatusBadgeClass(job.status)}`}>{getStatusLabel(job.status)}</span>
+                    {job.status === 'in_progress' && <span className="badge badge-assigned" style={{ fontSize: '0.72rem' }}>● Repair Active</span>}
                     {job.is_emergency && <span className="badge badge-maintenance">EMERGENCY DISPATCH</span>}
                   </div>
                   <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', marginBottom: '0.5rem' }}>
