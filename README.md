@@ -182,13 +182,12 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## 📜 Recent Release Commits (v1.7.0)
+## 📜 Recent Release Commits (v1.8.0)
 
-1. `Add fuel type and transmission specification tag to vehicle rental cards` - Renders automatic transmission and insurance specification tags on vehicle rental cards.
-2. `Add support operational hours badge tag to footer hotline panel` - Displays 24/7 emergency support operating hours tag in footer.
-3. `Add insurance and zero hidden fee guarantee trust badges to landing hero` - Adds 100% fully insured trust badge pill to landing hero feature highlight row.
-4. `Add active reservation status summary pill to customer portal header` - Displays verified customer account active badge tag in customer portal header.
-5. `Add high priority emergency repair badge indicator to mechanic workbench` - Adds emergency readiness channel badge in technician workbench header.
-6. `Add fleet table export summary action shortcut in admin control center` - Introduces Export System Report button shortcut in admin control center.
-7. `Update README architecture documentation and recent commit release log` - Documents v1.7.0 release updates, system component enhancements, and recent commit history.
+1. `Add clear search query tooltip and active focus style to fleet filter input` - Adds descriptive tooltip guidance to fleet search clear button in rental page.
+2. `Add digital tax invoice download tooltip guidance to customer portal` - Adds invoice inspection tooltip guidance to customer booking list.
+3. `Add active repair status pulse indicator to technician dispatch card` - Displays active repair pulse badge tag on in-progress mechanic tickets.
+4. `Add quick refresh data feed button shortcut to admin control center` - Adds data feed refresh button shortcut in admin command center.
+5. `Add open source MIT license badge tag to site footer component` - Documents open source MIT licensing tag in footer copyright section.
+6. `Update README architecture documentation and recent commit release log` - Documents v1.8.0 release updates, system component enhancements, and recent commit history.
 
