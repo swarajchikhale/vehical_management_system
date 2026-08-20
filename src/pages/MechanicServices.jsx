@@ -204,6 +204,9 @@ export const MechanicServices = ({ setActiveTab }) => {
               <button type="submit" className={`btn ${isEmergency ? 'btn-danger' : 'btn-primary'}`} style={{ width: '100%', marginTop: '0.5rem' }}>
                 <Wrench size={18} /> {isEmergency ? 'DISPATCH EMERGENCY MECHANIC NOW' : 'Schedule Service Request'}
               </button>
+              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textAlign: 'center', marginTop: '0.65rem' }}>
+                Guaranteed response SLA: Certified technician assigned within 5 minutes.
+              </div>
             </form>
           )}
         </div>
