@@ -131,25 +131,34 @@ export const Vehicles = ({ setActiveTab }) => {
         {/* Type Pill Filter & Sort */}
         <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center' }}>
           <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', alignItems: 'center' }}>
-            {['all', 'car', 'bike', 'van', 'bus', 'truck'].map(type => (
-              <button
-                key={type}
-                onClick={() => setSelectedType(type)}
-                style={{
-                  padding: '0.45rem 0.9rem',
-                  borderRadius: 'var(--radius-full)',
-                  border: '1px solid var(--border-color)',
-                  background: selectedType === type ? 'var(--gradient-primary)' : 'var(--bg-glass)',
-                  color: '#ffffff',
-                  fontSize: '0.85rem',
-                  fontWeight: 600,
-                  textTransform: 'capitalize',
-                  cursor: 'pointer'
-                }}
-              >
-                {type}
-              </button>
-            ))}
+            {['all', 'car', 'bike', 'van', 'bus', 'truck'].map(type => {
+              const count = type === 'all' ? vehicles.length : vehicles.filter(v => v.vehicle_type.toLowerCase() === type).length;
+              return (
+                <button
+                  key={type}
+                  onClick={() => setSelectedType(type)}
+                  style={{
+                    padding: '0.45rem 0.9rem',
+                    borderRadius: 'var(--radius-full)',
+                    border: '1px solid var(--border-color)',
+                    background: selectedType === type ? 'var(--gradient-primary)' : 'var(--bg-glass)',
+                    color: '#ffffff',
+                    fontSize: '0.85rem',
+                    fontWeight: 600,
+                    textTransform: 'capitalize',
+                    cursor: 'pointer',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.35rem'
+                  }}
+                >
+                  {type}
+                  <span style={{ fontSize: '0.68rem', padding: '0.05rem 0.35rem', borderRadius: '9999px', background: 'rgba(255,255,255,0.2)' }}>
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-glass)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', padding: '0.25rem 0.5rem' }}>
