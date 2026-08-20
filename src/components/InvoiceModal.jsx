@@ -75,7 +75,7 @@ export const InvoiceModal = ({ bill, onClose }) => {
             <div>
               <h2 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#111827', margin: 0 }}>DrivePulse Inc.</h2>
               <p style={{ fontSize: '0.85rem', color: '#6b7280', marginTop: '0.2rem' }}>Vehicle Rental & Mechanic Operations</p>
-              <p style={{ fontSize: '0.8rem', color: '#9ca3af' }}>Tax ID: REG-99482-VMS</p>
+              <p style={{ fontSize: '0.8rem', color: '#6b7280' }}>GSTIN: 27AAAAA0000A1Z5 • Tax ID: REG-99482-VMS</p>
             </div>
             <div style={{ textAlign: 'right' }}>
               <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#4f46e5' }}>{bill.invoice_number}</div>
