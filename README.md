@@ -182,12 +182,10 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## 📜 Recent Release Commits (v1.8.0)
+## 📜 Recent Release Commits (v1.9.0)
 
-1. `Add clear search query tooltip and active focus style to fleet filter input` - Adds descriptive tooltip guidance to fleet search clear button in rental page.
-2. `Add digital tax invoice download tooltip guidance to customer portal` - Adds invoice inspection tooltip guidance to customer booking list.
-3. `Add active repair status pulse indicator to technician dispatch card` - Displays active repair pulse badge tag on in-progress mechanic tickets.
-4. `Add quick refresh data feed button shortcut to admin control center` - Adds data feed refresh button shortcut in admin command center.
-5. `Add open source MIT license badge tag to site footer component` - Documents open source MIT licensing tag in footer copyright section.
-6. `Update README architecture documentation and recent commit release log` - Documents v1.8.0 release updates, system component enhancements, and recent commit history.
+1. `Add official GSTIN tax registration number badge to digital invoice template` - Adds official GSTIN registration number tag in digital invoice header.
+2. `Add active category matching vehicle count pill to rental inventory filters` - Renders live vehicle match count badges inside category filter pills.
+3. `Add emergency dispatch SLA guarantee badge to roadside service form` - Displays 5-minute technician assignment SLA guarantee note in roadside request form.
+4. `Update README architecture documentation and recent commit release log` - Documents v1.9.0 release updates, system component enhancements, and recent commit history.
 
