@@ -341,7 +341,12 @@ export const AdminDashboard = () => {
 
       {/* Tab 3: Mechanic Service Dispatch */}
       {activeSubTab === 'services' && (
-        <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--bg-card)', padding: '0.75rem 1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 600 }}>
+            <span>Showing {services.length} active service dispatch tickets</span>
+            <span style={{ color: 'var(--accent-amber)' }}>{services.filter(s => s.status === 'pending').length} Pending Technician Assignment</span>
+          </div>
+          <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.9rem' }}>
             <thead>
               <tr style={{ background: 'var(--bg-secondary)', borderBottom: '1px solid var(--border-color)', color: 'var(--text-muted)' }}>
@@ -386,6 +391,7 @@ export const AdminDashboard = () => {
             </tbody>
           </table>
         </div>
+      </div>
       )}
 
       {/* Tab 4: Master Bills & Invoices */}
