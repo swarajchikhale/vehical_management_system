@@ -22,6 +22,7 @@ export const Toast = ({ message, type = 'success', onClose }) => {
         padding: '0.85rem 1.25rem',
         borderRadius: 'var(--radius-sm)',
         boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.5)',
+        border: '1px solid rgba(255, 255, 255, 0.2)',
         display: 'flex',
         alignItems: 'center',
         gap: '0.75rem',
