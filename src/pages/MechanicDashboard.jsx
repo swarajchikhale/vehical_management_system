@@ -50,9 +50,10 @@ export const MechanicDashboard = () => {
 
         <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', padding: '0.75rem 1.25rem', borderRadius: 'var(--radius-md)', display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
           <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'block' }}>Current Status</span>
-          <div style={{ display: 'flex', gap: '0.5rem' }}>
+          <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
             <span className="badge badge-available">● On Duty</span>
             <span className="badge badge-maintenance" style={{ fontSize: '0.72rem' }}>● Emergency Ready</span>
+            <span className="badge badge-confirmed" style={{ fontSize: '0.72rem' }}>● Diagnostic Active</span>
           </div>
         </div>
       </div>
