@@ -182,10 +182,11 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## 📜 Recent Release Commits (v1.9.0)
+## 📜 Recent Release Commits (v2.0.0)
 
-1. `Add official GSTIN tax registration number badge to digital invoice template` - Adds official GSTIN registration number tag in digital invoice header.
-2. `Add active category matching vehicle count pill to rental inventory filters` - Renders live vehicle match count badges inside category filter pills.
-3. `Add emergency dispatch SLA guarantee badge to roadside service form` - Displays 5-minute technician assignment SLA guarantee note in roadside request form.
-4. `Update README architecture documentation and recent commit release log` - Documents v1.9.0 release updates, system component enhancements, and recent commit history.
+1. `Add active system status pulse indicator to brand navigation logo` - Renders system active pulse indicator tagline on brand logo header.
+2. `Add priority customer support badge pill to landing page hero section` - Adds 24/7 priority support badge pill in landing hero header.
+3. `Add printable invoice shortcut tooltip guidance to customer dashboard` - Adds printable tax receipt PDF tooltip guidance to customer portal.
+4. `Add repair diagnostic log summary pill to mechanic workbench header` - Displays active diagnostic logging badge tag in technician workbench status card.
+5. `Update README architecture documentation and recent commit release log` - Documents v2.0.0 release updates, system component enhancements, and recent commit history.
 
