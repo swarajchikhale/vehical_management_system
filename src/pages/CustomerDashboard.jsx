@@ -194,6 +194,7 @@ export const CustomerDashboard = ({ setActiveTab }) => {
                         </button>
                         <button 
                           className="btn btn-primary btn-sm"
+                          title="Print official tax receipt PDF"
                           onClick={() => {
                             setSelectedBill(matchedBill);
                             setTimeout(() => window.print(), 200);
