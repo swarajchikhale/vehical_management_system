@@ -80,7 +80,7 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
             <div style={{ fontFamily: 'Outfit, sans-serif', fontSize: '1.4rem', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1 }}>
               Drive<span className="text-gradient">Pulse</span>
             </div>
-            <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 500 }}>Vehicle & Service OS</div>
+            <div style={{ fontSize: '0.7rem', color: 'var(--accent-emerald)', fontWeight: 600 }}>● System Active • Vehicle OS</div>
           </div>
         </div>
 
