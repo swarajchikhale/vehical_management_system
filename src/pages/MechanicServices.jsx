@@ -183,6 +183,7 @@ export const MechanicServices = ({ setActiveTab }) => {
                     type="text"
                     className="form-control"
                     placeholder="Street, Landmark or Highway mile"
+                    title="Specify street address or highway GPS coordinates"
                     value={serviceLocation}
                     onChange={(e) => setServiceLocation(e.target.value)}
                     required
