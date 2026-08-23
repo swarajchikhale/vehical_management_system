@@ -114,7 +114,7 @@ export const Home = ({ setActiveTab, onBookVehicle }) => {
             <div style={{ fontSize: '2.5rem', fontWeight: 800, fontFamily: 'var(--font-heading)', color: 'var(--accent-amber)' }}>
               4.9 ★
             </div>
-            <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', fontWeight: 500 }}>Customer Satisfaction</div>
+            <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', fontWeight: 500 }}>Customer Rating • 1.2k+ Drivers</div>
           </div>
         </div>
       </section>
