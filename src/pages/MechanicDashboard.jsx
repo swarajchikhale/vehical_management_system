@@ -38,7 +38,7 @@ export const MechanicDashboard = () => {
       <div style={{ marginBottom: '2.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
         <div>
           <div className="badge badge-assigned" style={{ marginBottom: '0.5rem' }}>
-            <Wrench size={14} /> Certified Mechanic Workbench
+            <Wrench size={14} /> Certified Mechanic Workbench (ID: MECH-9948)
           </div>
           <h1 style={{ fontSize: '2.2rem' }}>
             Technician Dashboard: <span className="text-gradient">{currentUser.name}</span>
