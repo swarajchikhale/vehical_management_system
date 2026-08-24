@@ -85,7 +85,7 @@ export const Footer = ({ setActiveTab }) => {
                 <span>support@drivepulse.com</span>
               </div>
               <div style={{ fontSize: '0.75rem', color: 'var(--accent-emerald)', fontWeight: 600, marginTop: '0.2rem' }}>
-                ● Mon-Sun 24/7 Emergency Support Active
+                ● Mon-Sun 24/7 Support (Avg. Dispatch ETA &lt; 15 Mins)
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <MapPin size={16} color="var(--accent-rose)" />
