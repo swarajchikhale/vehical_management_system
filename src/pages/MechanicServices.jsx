@@ -206,7 +206,7 @@ export const MechanicServices = ({ setActiveTab }) => {
                 <Wrench size={18} /> {isEmergency ? 'DISPATCH EMERGENCY MECHANIC NOW' : 'Schedule Service Request'}
               </button>
               <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textAlign: 'center', marginTop: '0.65rem' }}>
-                Guaranteed response SLA: Certified technician assigned within 5 minutes.
+                Guaranteed response SLA: Certified technician assigned within 5 minutes. Standard labor includes 1-hr diagnostic.
               </div>
             </form>
           )}
