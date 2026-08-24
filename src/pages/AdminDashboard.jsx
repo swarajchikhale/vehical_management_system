@@ -237,7 +237,7 @@ export const AdminDashboard = () => {
             </div>
 
             <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 600 }}>
-              Showing {vehicles.filter(v => (fleetTypeFilter === 'all' || v.vehicle_type.toLowerCase() === fleetTypeFilter.toLowerCase()) && (v.vehicle_name.toLowerCase().includes(fleetSearchTerm.toLowerCase()) || v.license_plate.toLowerCase().includes(fleetSearchTerm.toLowerCase()))).length} of {vehicles.length} vehicles
+              Showing {vehicles.filter(v => (fleetTypeFilter === 'all' || v.vehicle_type.toLowerCase() === fleetTypeFilter.toLowerCase()) && (v.vehicle_name.toLowerCase().includes(fleetSearchTerm.toLowerCase()) || v.license_plate.toLowerCase().includes(fleetSearchTerm.toLowerCase()))).length} of {vehicles.length} active fleet units (100% Insured)
             </span>
           </div>
 
