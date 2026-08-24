@@ -74,7 +74,7 @@ export const CustomerDashboard = ({ setActiveTab }) => {
           </div>
         </div>
 
-        <div className="card" style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+        <div className="card" style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }} title="Cumulative gross expenditure for settled rentals and maintenance services">
           <div style={{ background: 'rgba(16, 185, 129, 0.15)', color: 'var(--accent-emerald)', width: '54px', height: '54px', borderRadius: 'var(--radius-sm)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <DollarSign size={26} />
           </div>
