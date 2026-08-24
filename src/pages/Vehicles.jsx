@@ -183,7 +183,7 @@ export const Vehicles = ({ setActiveTab }) => {
             </select>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-glass)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', padding: '0.25rem 0.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-glass)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', padding: '0.25rem 0.5rem' }} title="Sort rental vehicles by price or release year">
             <Filter size={14} color="var(--accent-primary)" style={{ marginRight: '0.35rem' }} />
             <select
               value={sortBy}
