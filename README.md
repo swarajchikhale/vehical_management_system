@@ -182,11 +182,14 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## 📜 Recent Release Commits (v2.0.0)
+## 📜 Recent Release Commits (v2.1.0)
 
-1. `Add active system status pulse indicator to brand navigation logo` - Renders system active pulse indicator tagline on brand logo header.
-2. `Add priority customer support badge pill to landing page hero section` - Adds 24/7 priority support badge pill in landing hero header.
-3. `Add printable invoice shortcut tooltip guidance to customer dashboard` - Adds printable tax receipt PDF tooltip guidance to customer portal.
-4. `Add repair diagnostic log summary pill to mechanic workbench header` - Displays active diagnostic logging badge tag in technician workbench status card.
-5. `Update README architecture documentation and recent commit release log` - Documents v2.0.0 release updates, system component enhancements, and recent commit history.
+1. `Add price filter sorting tooltip guidance to vehicle rental catalog` - Adds tooltip sorting guidance to rental inventory dropdown.
+2. `Add zero deposit requirement trust badge pill to landing page hero` - Displays zero deposit requirement trust badge pill in landing hero feature row.
+3. `Add emergency roadside response time indicator to footer hotline panel` - Documents 15-minute emergency roadside dispatch ETA tag in footer.
+4. `Add total spending summary breakdown tooltip to customer portal KPI card` - Adds expenditure breakdown tooltip guidance to customer portal total spent KPI card.
+5. `Add technician license identification tag to mechanic workbench header` - Displays technician license ID badge tag in mechanic workbench header.
+6. `Add active fleet unit counter indicator to admin management panel` - Renders insured active fleet unit count tag in admin control center.
+7. `Add labor diagnostic fee policy note to mechanic service request form` - Displays 1-hour diagnostic labor policy note in roadside assistance form.
+8. `Update README architecture documentation and recent commit release log` - Documents v2.1.0 release updates, system component enhancements, and recent commit history.
 
