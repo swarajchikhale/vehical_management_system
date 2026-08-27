@@ -90,7 +90,7 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
             className={`btn btn-sm ${activeTab === 'home' ? 'btn-primary' : 'btn-secondary'}`}
             onClick={() => setActiveTab('home')}
             style={{ borderRadius: '9999px', padding: '0.45rem 1rem' }}
-            title="Navigate to Home showcase"
+            title="Explore high-performance vehicle rentals and roadside services"
           >
             Home
           </button>
