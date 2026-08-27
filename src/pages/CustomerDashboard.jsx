@@ -172,6 +172,7 @@ export const CustomerDashboard = ({ setActiveTab }) => {
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.4rem' }}>
                       <h3 style={{ fontSize: '1.2rem' }}>{b.vehicle_name}</h3>
                       <span className={`badge ${getStatusBadgeClass(b.status)}`}>{getStatusLabel(b.status)}</span>
+                      {b.status === 'active' && <span className="badge badge-available" style={{ fontSize: '0.72rem' }}>● Verified Keyless Access</span>}
                     </div>
                     <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
                       Booking ID: #{b.id} • Dates: <strong>{formatDateIN(b.start_date)}</strong> to <strong>{formatDateIN(b.end_date)}</strong> ({b.total_days} Days)
