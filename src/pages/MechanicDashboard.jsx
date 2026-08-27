@@ -54,6 +54,7 @@ export const MechanicDashboard = () => {
             <span className="badge badge-available">● On Duty</span>
             <span className="badge badge-maintenance" style={{ fontSize: '0.72rem' }}>● Emergency Ready</span>
             <span className="badge badge-confirmed" style={{ fontSize: '0.72rem' }}>● Diagnostic Active</span>
+            <span className="badge badge-assigned" style={{ fontSize: '0.72rem' }}>● 24/7 On-Call Shift</span>
           </div>
         </div>
       </div>
