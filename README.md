@@ -182,14 +182,10 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## 📜 Recent Release Commits (v2.1.0)
+## 📜 Recent Release Commits (v2.2.0)
 
-1. `Add price filter sorting tooltip guidance to vehicle rental catalog` - Adds tooltip sorting guidance to rental inventory dropdown.
-2. `Add zero deposit requirement trust badge pill to landing page hero` - Displays zero deposit requirement trust badge pill in landing hero feature row.
-3. `Add emergency roadside response time indicator to footer hotline panel` - Documents 15-minute emergency roadside dispatch ETA tag in footer.
-4. `Add total spending summary breakdown tooltip to customer portal KPI card` - Adds expenditure breakdown tooltip guidance to customer portal total spent KPI card.
-5. `Add technician license identification tag to mechanic workbench header` - Displays technician license ID badge tag in mechanic workbench header.
-6. `Add active fleet unit counter indicator to admin management panel` - Renders insured active fleet unit count tag in admin control center.
-7. `Add labor diagnostic fee policy note to mechanic service request form` - Displays 1-hour diagnostic labor policy note in roadside assistance form.
-8. `Update README architecture documentation and recent commit release log` - Documents v2.1.0 release updates, system component enhancements, and recent commit history.
+1. `Add technician shift operational schedule tag to mechanic workbench header` - Displays 24/7 on-call shift status tag in technician workbench header.
+2. `Add descriptive navigation tooltips to navbar primary tab links` - Updates primary navbar tab links with descriptive tooltips.
+3. `Add vehicle reservation security verification tag to customer booking cards` - Renders keyless access security verification tag on customer active booking cards.
+4. `Update README architecture documentation and recent commit release log` - Documents v2.2.0 release updates, system component enhancements, and recent commit history.
 
