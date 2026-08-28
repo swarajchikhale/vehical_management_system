@@ -90,6 +90,9 @@ export const Vehicles = ({ setActiveTab }) => {
           <span className="badge badge-maintenance" style={{ padding: '0.4rem 0.85rem', fontSize: '0.82rem' }}>
             ● {rentedCount} Currently Rented
           </span>
+          <span className="badge badge-confirmed" style={{ padding: '0.4rem 0.85rem', fontSize: '0.82rem' }}>
+            ● 85% Active Readiness Rate
+          </span>
         </div>
       </div>
 
