@@ -61,6 +61,9 @@ export const Home = ({ setActiveTab, onBookVehicle }) => {
               <span style={{ background: 'var(--bg-glass)', border: '1px solid var(--border-color)', padding: '0.35rem 0.75rem', borderRadius: '9999px', display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
                 <Zap size={13} color="var(--accent-primary)" /> Zero Security Deposit
               </span>
+              <span style={{ background: 'var(--bg-glass)', border: '1px solid var(--border-color)', padding: '0.35rem 0.75rem', borderRadius: '9999px', display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
+                <CheckCircle2 size={13} color="var(--accent-cyan)" /> Instant SMS Confirmation
+              </span>
             </div>
           </div>
 
