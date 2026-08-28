@@ -86,7 +86,7 @@ export const AdminDashboard = () => {
       <div style={{ marginBottom: '2.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
         <div>
           <div className="badge badge-confirmed" style={{ marginBottom: '0.5rem' }}>
-            <Shield size={14} /> Master Admin Command Center
+            <Shield size={14} /> Master Admin Command Center • Audit Trail: Verified
           </div>
           <h1 style={{ fontSize: '2.2rem' }}>System Analytics & Operation Control</h1>
         </div>
