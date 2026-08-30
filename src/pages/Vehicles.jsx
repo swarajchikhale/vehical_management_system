@@ -164,7 +164,7 @@ export const Vehicles = ({ setActiveTab }) => {
             })}
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-glass)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', padding: '0.25rem 0.5rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-glass)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', padding: '0.25rem 0.5rem' }} title="Filter fleet catalog by vehicle availability status">
             <Filter size={14} color="var(--accent-primary)" style={{ marginRight: '0.35rem' }} />
             <select
               value={statusFilter}
