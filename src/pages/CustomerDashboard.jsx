@@ -253,7 +253,7 @@ export const CustomerDashboard = ({ setActiveTab }) => {
                     </div>
 
                     {matchedBill && (
-                      <button className="btn btn-secondary btn-sm" onClick={() => setSelectedBill(matchedBill)}>
+                      <button className="btn btn-secondary btn-sm" onClick={() => setSelectedBill(matchedBill)} title="Inspect digital service bill receipt">
                         <FileText size={14} /> Service Bill
                       </button>
                     )}
