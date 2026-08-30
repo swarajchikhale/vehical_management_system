@@ -182,13 +182,10 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## 📜 Recent Release Commits (v2.3.0)
+## 📜 Recent Release Commits (v2.4.0)
 
-1. `Add active fleet availability ratio metric to vehicle rental header` - Displays active fleet readiness ratio metric pill in rental inventory header.
-2. `Add instant booking receipt confirmation badge pill to landing hero` - Adds instant SMS confirmation trust badge pill in landing hero feature row.
-3. `Add ISO security compliance certification tag to footer component` - Documents ISO-27001 security compliance certification tag in footer copyright section.
-4. `Add rental date extension shortcut tooltip guidance to customer portal` - Adds digital tax receipt PDF layout tooltip guidance to customer portal.
-5. `Add technician SLA completion score tag to mechanic workbench header` - Renders 100% SLA completion score badge tag in technician workbench status card.
-6. `Add master audit trail verification status tag to admin control center` - Adds audit trail verification status tag to master admin command center badge.
-7. `Update README architecture documentation and recent commit release log` - Documents v2.3.0 release updates, system component enhancements, and recent commit history.
+1. `Add availability status filter tooltip guidance to rental vehicle catalog` - Adds tooltip guidance to vehicle availability status filter.
+2. `Add official tax invoice download title guidance to customer portal` - Adds title tooltip guidance to customer service bill receipt actions.
+3. `Add mechanic service zone coverage area tag to workbench header` - Displays Metro Central zone coverage badge tag in technician workbench status card.
+4. `Update README architecture documentation and recent commit release log` - Documents v2.4.0 release updates, system component enhancements, and recent commit history.
 
