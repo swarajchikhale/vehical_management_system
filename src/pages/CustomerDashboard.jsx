@@ -128,7 +128,7 @@ export const CustomerDashboard = ({ setActiveTab }) => {
                 className="btn btn-secondary btn-sm"
                 onClick={() => setBookingFilter('all')}
                 style={{ padding: '0.35rem 0.65rem', fontSize: '0.75rem', borderRadius: 'var(--radius-xs)', display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}
-                title="Reset filter standard"
+                title="Reset booking reservation filter criteria to show all bookings"
               >
                 <RotateCcw size={12} /> Clear Filter
               </button>
