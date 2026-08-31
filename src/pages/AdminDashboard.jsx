@@ -106,7 +106,7 @@ export const AdminDashboard = () => {
 
       {/* Analytics KPI Row */}
       <div className="grid grid-cols-4" style={{ marginBottom: '2.5rem' }}>
-        <div className="card">
+        <div className="card" title="Cumulative gross revenue from vehicle rentals and mechanic services">
           <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.25rem' }}>Total Gross Revenue</div>
           <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--accent-emerald)' }}>{formatINR(totalRevenue)}</div>
           <div style={{ marginTop: '0.5rem', background: 'var(--bg-glass)', height: '6px', borderRadius: '3px', overflow: 'hidden' }}>
