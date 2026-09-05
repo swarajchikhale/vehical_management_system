@@ -40,6 +40,9 @@ export const Footer = ({ setActiveTab }) => {
               <span className="badge badge-confirmed" style={{ fontSize: '0.75rem' }}>
                 ● 99.98% System Uptime
               </span>
+              <span className="badge badge-pending" style={{ fontSize: '0.75rem' }} title="Average technician dispatch response time across registered urban zones">
+                ⏱ Avg. Dispatch &lt; 15m
+              </span>
             </div>
           </div>
 
