@@ -93,6 +93,9 @@ export const Vehicles = ({ setActiveTab }) => {
           <span className="badge badge-confirmed" style={{ padding: '0.4rem 0.85rem', fontSize: '0.82rem' }}>
             ● 85% Active Readiness Rate
           </span>
+          <span className="badge badge-pending" title="Real-time search query matching active fleet criteria" style={{ padding: '0.4rem 0.85rem', fontSize: '0.82rem', cursor: 'help' }}>
+            ⚡ Instant Search Filter Active
+          </span>
         </div>
       </div>
 
