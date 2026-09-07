@@ -182,11 +182,10 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## 📜 Recent Release Commits (v2.5.0)
+## 📜 Recent Release Commits (v2.6.0)
 
-1. `Add vehicle availability search tooltip guidance to rental catalog` - Adds instant search filter query tooltip guidance to rental vehicle catalog.
-2. `Add instant digital booking confirmation trust pill to landing hero` - Adds instant digital booking confirmation trust badge to main landing hero section.
-3. `Add 24/7 hotline response time indicator tag to site footer` - Displays average 15-minute dispatch response time tag in site footer.
-4. `Add printable tax receipt tooltip guidance to customer portal` - Adds tax-compliant GST receipt readiness tooltip guidance to customer dashboard header.
-5. `Update README architecture documentation and recent commit release log` - Documents v2.5.0 release updates, component enhancements, and recent commit history.
+1. `Add roadside emergency hotline tooltip guidance to mechanic portal` - Adds direct priority hotline tooltip guidance to roadside mechanic dispatch page header.
+2. `Add real-time revenue analytics status pill tag to admin header` - Displays real-time ledger sync status pill tag in admin command center.
+3. `Add diagnostic task completion status badge to mechanic workbench` - Displays calibrated diagnostic tools status badge tag in mechanic workbench status card.
+4. `Update README architecture documentation and recent commit release log` - Documents v2.6.0 release updates, component enhancements, and recent commit history.
 
