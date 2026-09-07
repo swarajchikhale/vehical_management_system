@@ -85,8 +85,13 @@ export const AdminDashboard = () => {
       {/* Admin Title */}
       <div style={{ marginBottom: '2.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
         <div>
-          <div className="badge badge-confirmed" style={{ marginBottom: '0.5rem' }}>
-            <Shield size={14} /> Master Admin Command Center • Audit Trail: Verified
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '0.5rem' }}>
+            <div className="badge badge-confirmed">
+              <Shield size={14} /> Master Admin Command Center • Audit Trail: Verified
+            </div>
+            <div className="badge badge-pending" style={{ fontSize: '0.78rem', cursor: 'help' }} title="Real-time revenue stream synced with payment gateway ledger">
+              ⚡ Ledger Live
+            </div>
           </div>
           <h1 style={{ fontSize: '2.2rem' }}>System Analytics & Operation Control</h1>
         </div>
