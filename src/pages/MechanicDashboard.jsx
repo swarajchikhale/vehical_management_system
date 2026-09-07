@@ -57,6 +57,7 @@ export const MechanicDashboard = () => {
             <span className="badge badge-assigned" style={{ fontSize: '0.72rem' }}>● 24/7 On-Call Shift</span>
             <span className="badge badge-available" style={{ fontSize: '0.72rem' }}>● 100% SLA Score</span>
             <span className="badge badge-confirmed" style={{ fontSize: '0.72rem' }}>● Zone: Metro Central</span>
+            <span className="badge badge-pending" style={{ fontSize: '0.72rem' }} title="Verified diagnostic tools and safety equipment calibrated">🛠 Tools Calibrated</span>
           </div>
         </div>
       </div>
