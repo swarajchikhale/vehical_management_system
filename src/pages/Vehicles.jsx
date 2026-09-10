@@ -96,6 +96,9 @@ export const Vehicles = ({ setActiveTab }) => {
           <span className="badge badge-pending" title="Real-time search query matching active fleet criteria" style={{ padding: '0.4rem 0.85rem', fontSize: '0.82rem', cursor: 'help' }}>
             ⚡ Instant Search Filter Active
           </span>
+          <span className="badge badge-available" title="No security deposit required for verified platform members" style={{ padding: '0.4rem 0.85rem', fontSize: '0.82rem', cursor: 'help' }}>
+            🛡 Zero Security Deposit
+          </span>
         </div>
       </div>
 
