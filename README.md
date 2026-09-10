@@ -182,10 +182,14 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## 📜 Recent Release Commits (v2.6.0)
+## 📜 Recent Release Commits (v2.7.0)
 
-1. `Add roadside emergency hotline tooltip guidance to mechanic portal` - Adds direct priority hotline tooltip guidance to roadside mechanic dispatch page header.
-2. `Add real-time revenue analytics status pill tag to admin header` - Displays real-time ledger sync status pill tag in admin command center.
-3. `Add diagnostic task completion status badge to mechanic workbench` - Displays calibrated diagnostic tools status badge tag in mechanic workbench status card.
-4. `Update README architecture documentation and recent commit release log` - Documents v2.6.0 release updates, component enhancements, and recent commit history.
+1. `Add interactive navigation brand identity tooltip guidance to navbar` - Adds tooltip guidance to navbar system status branding badge.
+2. `Add zero security deposit trust badge tag to rental catalog` - Adds zero security deposit trust badge tag to vehicle catalog header.
+3. `Add quick category navigation filter pill cluster to landing hero` - Adds luxury sedan category filter pill tag to main landing hero section.
+4. `Add live account booking status indicator tag to customer portal` - Displays live account sync monitor status tag in customer portal header.
+5. `Add certified technician identity verification tag to mechanic form` - Adds certified master technician verification badge to mechanic dispatch header.
+6. `Add automated invoice reconciliation status badge to admin center` - Displays automated GST invoice reconciliation status badge in admin center.
+7. `Add spare parts inventory readiness status badge to mechanic workbench` - Displays OEM spare parts readiness status badge in mechanic workbench.
+8. `Update README architecture documentation and recent commit release log` - Documents v2.7.0 release updates, component enhancements, and recent commit history.
 
