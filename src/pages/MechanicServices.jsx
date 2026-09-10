@@ -63,6 +63,9 @@ export const MechanicServices = ({ setActiveTab }) => {
           <span className="badge badge-pending" title="Direct priority dispatch hotline line for instant emergency technician routing" style={{ padding: '0.4rem 0.85rem', fontSize: '0.82rem', cursor: 'help' }}>
             📞 Priority Dispatch Online
           </span>
+          <span className="badge badge-available" title="All dispatched mechanics undergo background checks and trade certifications" style={{ padding: '0.4rem 0.85rem', fontSize: '0.82rem', cursor: 'help' }}>
+            🛡 Master Tech Verified
+          </span>
           <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Live GPS Location Tracking Included</span>
         </div>
       </div>
