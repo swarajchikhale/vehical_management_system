@@ -92,6 +92,9 @@ export const AdminDashboard = () => {
             <div className="badge badge-pending" style={{ fontSize: '0.78rem', cursor: 'help' }} title="Real-time revenue stream synced with payment gateway ledger">
               ⚡ Ledger Live
             </div>
+            <div className="badge badge-available" style={{ fontSize: '0.78rem', cursor: 'help' }} title="Automated daily GST tax invoice reconciliation complete">
+              ✔ Invoices Reconciled
+            </div>
           </div>
           <h1 style={{ fontSize: '2.2rem' }}>System Analytics & Operation Control</h1>
         </div>
