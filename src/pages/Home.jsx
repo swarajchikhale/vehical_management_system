@@ -67,6 +67,9 @@ export const Home = ({ setActiveTab, onBookVehicle }) => {
               <span style={{ background: 'var(--bg-glass)', border: '1px solid var(--border-color)', padding: '0.35rem 0.75rem', borderRadius: '9999px', display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
                 <CheckCircle2 size={13} color="var(--accent-cyan)" /> Instant SMS Confirmation
               </span>
+              <span onClick={() => setActiveTab('vehicles')} style={{ cursor: 'pointer', background: 'var(--bg-glass)', border: '1px solid var(--border-color)', padding: '0.35rem 0.75rem', borderRadius: '9999px', display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }} title="Browse luxury SUV and sedan fleet category">
+                <Award size={13} color="var(--accent-amber)" /> Luxury SUV &amp; Sedans
+              </span>
             </div>
           </div>
 
