@@ -34,6 +34,9 @@ export const CustomerDashboard = ({ setActiveTab }) => {
             <span className="badge badge-pending" style={{ fontSize: '0.72rem' }} title="Click printable invoice icons below to generate tax-compliant GST receipts">
               📄 GST Tax Receipts Ready
             </span>
+            <span className="badge badge-available" style={{ fontSize: '0.72rem' }} title="Active reservation sync monitor running">
+              ⚡ Live Sync Active
+            </span>
             {userServices.length > 0 && (
               <span className="badge badge-assigned" style={{ fontSize: '0.72rem' }}>
                 ● {userServices.length} Service Tickets
