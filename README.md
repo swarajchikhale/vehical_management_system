@@ -182,14 +182,16 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## 📜 Recent Release Commits (v2.7.0)
+## 📜 Recent Release Commits (v2.8.0)
 
-1. `Add interactive navigation brand identity tooltip guidance to navbar` - Adds tooltip guidance to navbar system status branding badge.
-2. `Add zero security deposit trust badge tag to rental catalog` - Adds zero security deposit trust badge tag to vehicle catalog header.
-3. `Add quick category navigation filter pill cluster to landing hero` - Adds luxury sedan category filter pill tag to main landing hero section.
-4. `Add live account booking status indicator tag to customer portal` - Displays live account sync monitor status tag in customer portal header.
-5. `Add certified technician identity verification tag to mechanic form` - Adds certified master technician verification badge to mechanic dispatch header.
-6. `Add automated invoice reconciliation status badge to admin center` - Displays automated GST invoice reconciliation status badge in admin center.
-7. `Add spare parts inventory readiness status badge to mechanic workbench` - Displays OEM spare parts readiness status badge in mechanic workbench.
-8. `Update README architecture documentation and recent commit release log` - Documents v2.7.0 release updates, component enhancements, and recent commit history.
+1. `Add live vehicle fleet availability counter pill tag to navbar` - Displays live vehicle fleet availability counter status tag in main navbar.
+2. `Add 24/7 priority customer helpline badge tag to landing hero` - Adds 24/7 toll-free priority helpline badge tag to landing page hero section.
+3. `Add instant invoice preview tooltip guidance to rental booking modal` - Displays automated GST voucher tooltip guidance in vehicle catalog header.
+4. `Add verified payment status badge tag to customer dashboard billing` - Adds payment gateway connection verification tag to customer dashboard header.
+5. `Add emergency service dispatch ETA indicator pill to mechanic request` - Displays 99.8% on-time dispatch SLA indicator tag in mechanic service portal.
+6. `Add system telemetry sync status badge tag to admin KPI overview` - Displays live telemetry stream active badge tag in admin command center.
+7. `Add assigned service job counter badge tag to mechanic workbench` - Displays active service job queue indicator tag in technician workbench.
+8. `Add ISO-27001 security compliance badge tag to site footer` - Adds SOC-2 Type II verification badge tag to site footer copyright bar.
+9. `Add GST tax invoice download guidance tooltip to modal header` - Displays GST Tax Compliant badge tag in digital tax invoice modal header.
+10. `Update README architecture documentation and recent commit release log` - Documents v2.8.0 release updates, component enhancements, and recent commit history.
 
