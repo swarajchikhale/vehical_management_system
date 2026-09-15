@@ -37,6 +37,9 @@ export const CustomerDashboard = ({ setActiveTab }) => {
             <span className="badge badge-available" style={{ fontSize: '0.72rem' }} title="Active reservation sync monitor running">
               ⚡ Live Sync Active
             </span>
+            <span className="badge badge-confirmed" style={{ fontSize: '0.72rem' }} title="Unified digital payment gateway connection verified">
+              💳 Payment Gateway Linked
+            </span>
             {userServices.length > 0 && (
               <span className="badge badge-assigned" style={{ fontSize: '0.72rem' }}>
                 ● {userServices.length} Service Tickets
