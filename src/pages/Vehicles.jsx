@@ -99,6 +99,9 @@ export const Vehicles = ({ setActiveTab }) => {
           <span className="badge badge-available" title="No security deposit required for verified platform members" style={{ padding: '0.4rem 0.85rem', fontSize: '0.82rem', cursor: 'help' }}>
             🛡 Zero Security Deposit
           </span>
+          <span className="badge badge-confirmed" title="Tax invoices automatically generated upon reservation completion" style={{ padding: '0.4rem 0.85rem', fontSize: '0.82rem', cursor: 'help' }}>
+            📄 Automated GST Voucher
+          </span>
         </div>
       </div>
 
