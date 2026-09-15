@@ -25,8 +25,8 @@ export const Home = ({ setActiveTab, onBookVehicle }) => {
               <div className="badge badge-confirmed" style={{ fontSize: '0.78rem', background: 'rgba(245, 158, 11, 0.15)', color: 'var(--accent-amber)', borderColor: 'rgba(245, 158, 11, 0.3)' }}>
                 <Star size={13} fill="var(--accent-amber)" color="var(--accent-amber)" /> 4.98 (2,400+ Customer Reviews)
               </div>
-              <div className="badge badge-assigned" style={{ fontSize: '0.78rem' }}>
-                ● 24/7 Priority Support
+              <div className="badge badge-assigned" style={{ fontSize: '0.78rem' }} title="Priority emergency toll-free assistance line open 24/7">
+                ● 24/7 Priority Support (Toll-Free)
               </div>
             </div>
             <h1 style={{ fontSize: '3.2rem', lineHeight: 1.1, marginBottom: '1.5rem', fontWeight: 800 }}>
