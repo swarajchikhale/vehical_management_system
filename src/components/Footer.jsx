@@ -101,7 +101,7 @@ export const Footer = ({ setActiveTab }) => {
 
         <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', fontSize: '0.85rem', color: 'var(--text-subtle)' }}>
           <div>
-            © {new Date().getFullYear()} DrivePulse Vehicle Management System • ISO-27001 Security Certified • MIT Licensed.
+            © {new Date().getFullYear()} DrivePulse Vehicle Management System • ISO-27001 Security Certified • SOC-2 Type II Verified • MIT Licensed.
           </div>
           <button
             onClick={scrollToTop}
