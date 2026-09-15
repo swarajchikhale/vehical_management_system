@@ -41,6 +41,9 @@ export const InvoiceModal = ({ bill, onClose }) => {
               <FileText size={22} />
               <span>DIGITAL TAX INVOICE</span>
             </div>
+            <span style={{ fontSize: '0.72rem', background: '#ecfdf5', color: '#047857', padding: '0.15rem 0.5rem', borderRadius: '4px', fontWeight: 600 }} title="GSTIN Compliant Tax Document">
+              GST Tax Compliant
+            </span>
             <span style={{ fontSize: '0.72rem', background: '#f3f4f6', color: '#6b7280', padding: '0.15rem 0.5rem', borderRadius: '4px', fontWeight: 600 }}>
               Press Esc to close
             </span>
