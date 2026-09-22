@@ -168,6 +168,7 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
             <Sparkles size={14} color="var(--accent-amber)" style={{ marginRight: '0.35rem' }} />
             <select 
               value={currentUser.role === 'user' ? 'customer' : currentUser.role}
+              title="Switch portal view between Customer, Admin, and Mechanic modes"
               onChange={(e) => {
                 switchRole(e.target.value);
                 if (e.target.value === 'admin') setActiveTab('admin');
