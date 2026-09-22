@@ -102,6 +102,9 @@ export const Vehicles = ({ setActiveTab }) => {
           <span className="badge badge-confirmed" title="Tax invoices automatically generated upon reservation completion" style={{ padding: '0.4rem 0.85rem', fontSize: '0.82rem', cursor: 'help' }}>
             📄 Automated GST Voucher
           </span>
+          <span className="badge badge-assigned" title="Current matching vehicles displayed in catalog below" style={{ padding: '0.4rem 0.85rem', fontSize: '0.82rem', cursor: 'help' }}>
+            🔍 {filteredVehicles.length} Matching Results
+          </span>
         </div>
       </div>
 
