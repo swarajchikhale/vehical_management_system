@@ -40,6 +40,9 @@ export const CustomerDashboard = ({ setActiveTab }) => {
             <span className="badge badge-confirmed" style={{ fontSize: '0.72rem' }} title="Unified digital payment gateway connection verified">
               💳 Payment Gateway Linked
             </span>
+            <span className="badge badge-pending" style={{ fontSize: '0.72rem' }} title="Click printable invoice icons under billing section to export JSON or print PDF">
+              📥 Instant Receipt Export
+            </span>
             {userServices.length > 0 && (
               <span className="badge badge-assigned" style={{ fontSize: '0.72rem' }}>
                 ● {userServices.length} Service Tickets
