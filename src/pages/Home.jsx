@@ -28,6 +28,9 @@ export const Home = ({ setActiveTab, onBookVehicle }) => {
               <div className="badge badge-assigned" style={{ fontSize: '0.78rem' }} title="Priority emergency toll-free assistance line open 24/7">
                 ● 24/7 Priority Support (Toll-Free)
               </div>
+              <div className="badge badge-available" style={{ fontSize: '0.78rem' }} title="Certified mobile mechanics active across all metro service sectors">
+                🔧 Mobile Mechanics Active
+              </div>
             </div>
             <h1 style={{ fontSize: '3.2rem', lineHeight: 1.1, marginBottom: '1.5rem', fontWeight: 800 }}>
               Premium Vehicle Rental & <span className="text-gradient">Instant Mechanic Service</span>
