@@ -182,16 +182,11 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## 📜 Recent Release Commits (v2.8.0)
+## 📜 Recent Release Commits (v2.9.0)
 
-1. `Add live vehicle fleet availability counter pill tag to navbar` - Displays live vehicle fleet availability counter status tag in main navbar.
-2. `Add 24/7 priority customer helpline badge tag to landing hero` - Adds 24/7 toll-free priority helpline badge tag to landing page hero section.
-3. `Add instant invoice preview tooltip guidance to rental booking modal` - Displays automated GST voucher tooltip guidance in vehicle catalog header.
-4. `Add verified payment status badge tag to customer dashboard billing` - Adds payment gateway connection verification tag to customer dashboard header.
-5. `Add emergency service dispatch ETA indicator pill to mechanic request` - Displays 99.8% on-time dispatch SLA indicator tag in mechanic service portal.
-6. `Add system telemetry sync status badge tag to admin KPI overview` - Displays live telemetry stream active badge tag in admin command center.
-7. `Add assigned service job counter badge tag to mechanic workbench` - Displays active service job queue indicator tag in technician workbench.
-8. `Add ISO-27001 security compliance badge tag to site footer` - Adds SOC-2 Type II verification badge tag to site footer copyright bar.
-9. `Add GST tax invoice download guidance tooltip to modal header` - Displays GST Tax Compliant badge tag in digital tax invoice modal header.
-10. `Update README architecture documentation and recent commit release log` - Documents v2.8.0 release updates, component enhancements, and recent commit history.
+1. `Add user role switcher guidance tooltip to navbar profile header` - Adds role switcher mode tooltip guidance to main navigation header.
+2. `Add live vehicle filter match count indicator to rental catalog` - Displays matching vehicle count indicator badge in rental fleet catalog header.
+3. `Add mobile mechanic availability pill tag to landing hero section` - Adds active mobile mechanic status pill tag to main landing page hero.
+4. `Add digital bill download shortcut tooltip to customer dashboard` - Displays instant receipt export shortcut tooltip in customer billing overview.
+5. `Update README architecture documentation and recent commit release log` - Documents v2.9.0 release updates, component enhancements, and recent commit history.
 
