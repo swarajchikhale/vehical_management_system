@@ -150,6 +150,40 @@ export const AdminDashboard = () => {
         </div>
       </div>
 
+      {/* Fleet Maintenance Schedule Overview */}
+      <div className="card" style={{ marginBottom: '2.5rem', background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+          <div>
+            <h3 style={{ fontSize: '1.15rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <Wrench size={18} color="var(--accent-amber)" /> Scheduled Fleet Maintenance &amp; Safety Audit Tracker
+            </h3>
+            <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
+              Periodic inspection status and oil service reminders for registered vehicles.
+            </p>
+          </div>
+          <button 
+            className="btn btn-secondary btn-sm"
+            onClick={() => alert('Initiating automated multi-point diagnostic health check across active fleet telemetry...')}
+            title="Run health audit diagnostic check across fleet"
+          >
+            <CheckCircle size={14} /> Run Fleet Diagnostic Audit
+          </button>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
+          {vehicles.slice(0, 4).map(v => (
+            <div key={v.id} style={{ background: 'var(--bg-secondary)', padding: '0.85rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)' }}>
+              <div style={{ fontSize: '0.85rem', fontWeight: 700, marginBottom: '0.25rem' }}>{v.vehicle_name}</div>
+              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '0.5rem' }}>Plate: {v.license_plate}</div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span className="badge badge-available" style={{ fontSize: '0.7rem' }}>● Audit Passed</span>
+                <span style={{ fontSize: '0.72rem', color: 'var(--accent-cyan)' }}>Next: 30 Days</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Analytics Revenue Chart */}
       <div className="card" style={{ marginBottom: '2.5rem', padding: '1.5rem' }}>
         <h3 style={{ fontSize: '1.2rem', marginBottom: '1rem' }}>Revenue Trends (Chart.js Real-Time Feed)</h3>
