@@ -365,6 +365,17 @@ export const DataProvider = ({ children }) => {
     }));
   };
 
+  const rateVehicle = (vehicleId, newRating) => {
+    setVehicles(vehicles.map(v => {
+      if (v.id === vehicleId) {
+        const currentRating = v.rating || 4.5;
+        const updatedRating = Math.round(((currentRating + newRating) / 2) * 10) / 10;
+        return { ...v, rating: updatedRating };
+      }
+      return v;
+    }));
+  };
+
   const resetToDefault = () => {
     setVehicles(INITIAL_VEHICLES);
     setMechanics(INITIAL_MECHANICS);
@@ -389,6 +400,7 @@ export const DataProvider = ({ children }) => {
       assignMechanicToService,
       updateServiceStatus,
       updateBookingStatus,
+      rateVehicle,
       resetToDefault
     }}>
       {children}
