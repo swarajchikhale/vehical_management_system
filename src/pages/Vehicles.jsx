@@ -6,7 +6,7 @@ import { formatINR, getStatusBadgeClass, getStatusLabel } from '../utils/formatt
 import { Search, Filter, Calendar, CheckCircle, Shield, AlertCircle, X, DollarSign, Star } from 'lucide-react';
 
 export const Vehicles = ({ setActiveTab }) => {
-  const { vehicles, createBooking } = useData();
+  const { vehicles, createBooking, rateVehicle } = useData();
   const { currentUser } = useAuth();
 
   const [searchTerm, setSearchTerm] = useState('');
@@ -264,7 +264,17 @@ export const Vehicles = ({ setActiveTab }) => {
                 <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--accent-primary)', textTransform: 'uppercase' }}>
                   {vehicle.brand} • {vehicle.year}
                 </span>
-                <span style={{ fontSize: '0.78rem', color: 'var(--accent-amber)', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '0.2rem' }}>
+                <span 
+                  onClick={() => {
+                    const score = prompt(`Rate ${vehicle.vehicle_name} (1 to 5 stars):`, '5');
+                    if (score && !isNaN(score) && Number(score) >= 1 && Number(score) <= 5) {
+                      rateVehicle(vehicle.id, Number(score));
+                      alert(`Thank you! Your ${score}-star rating for ${vehicle.vehicle_name} has been submitted.`);
+                    }
+                  }}
+                  title="Click to rate this vehicle"
+                  style={{ fontSize: '0.78rem', color: 'var(--accent-amber)', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '0.2rem', cursor: 'pointer', background: 'rgba(245, 158, 11, 0.1)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}
+                >
                   <Star size={12} fill="var(--accent-amber)" color="var(--accent-amber)" /> {vehicle.rating || 4.9} ({vehicle.trips_completed || 24} trips)
                 </span>
               </div>
