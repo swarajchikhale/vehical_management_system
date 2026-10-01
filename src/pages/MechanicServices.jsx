@@ -211,6 +211,22 @@ export const MechanicServices = ({ setActiveTab }) => {
                 </div>
               </div>
 
+              {/* Estimated Fee Preview Card */}
+              <div style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', padding: '0.85rem 1rem', borderRadius: 'var(--radius-sm)', margin: '1rem 0 0.5rem 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Estimated Dispatch Base Fee</div>
+                  <div style={{ fontSize: '0.72rem', color: isEmergency ? 'var(--accent-rose)' : 'var(--accent-emerald)', fontWeight: 600 }}>
+                    {isEmergency ? '⚡ Emergency Priority Tariff (+₹500)' : '● Standard Scheduled Fee'}
+                  </div>
+                </div>
+                <div style={{ textAlign: 'right' }}>
+                  <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--accent-amber)' }}>
+                    {formatINR(isEmergency ? 1800 : 1200)}
+                  </div>
+                  <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>+ Parts (If replaced)</div>
+                </div>
+              </div>
+
               <button type="submit" className={`btn ${isEmergency ? 'btn-danger' : 'btn-primary'}`} style={{ width: '100%', marginTop: '0.5rem' }}>
                 <Wrench size={18} /> {isEmergency ? 'DISPATCH EMERGENCY MECHANIC NOW' : 'Schedule Service Request'}
               </button>
