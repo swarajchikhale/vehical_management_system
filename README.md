@@ -182,11 +182,12 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## 📜 Recent Release Commits (v2.9.0)
+## 📜 Recent Release Commits (v3.0.0 - Major Feature Release)
 
-1. `Add user role switcher guidance tooltip to navbar profile header` - Adds role switcher mode tooltip guidance to main navigation header.
-2. `Add live vehicle filter match count indicator to rental catalog` - Displays matching vehicle count indicator badge in rental fleet catalog header.
-3. `Add mobile mechanic availability pill tag to landing hero section` - Adds active mobile mechanic status pill tag to main landing page hero.
-4. `Add digital bill download shortcut tooltip to customer dashboard` - Displays instant receipt export shortcut tooltip in customer billing overview.
-5. `Update README architecture documentation and recent commit release log` - Documents v2.9.0 release updates, component enhancements, and recent commit history.
+1. `Implement dynamic vehicle rating and customer feedback review system` - Implements `rateVehicle` state provider method and local storage state persistence.
+2. `Add interactive vehicle review modal and rating submission to catalog` - Enables interactive 1-5 star customer ratings and review prompt directly in vehicle catalog.
+3. `Add booking cancellation request modal and refund estimator to dashboard` - Adds instant cancellation flow with 90% refund policy estimation credit in customer dashboard.
+4. `Add interactive roadside service estimate calculator to mechanic portal` - Adds real-time emergency priority tariff cost estimator card to mechanic service dispatch form.
+5. `Add maintenance schedule tracking card and service reminders to admin` - Adds fleet vehicle periodic inspection status & automated safety audit tracker card to admin center.
+6. `Update README architecture documentation and recent commit release log` - Documents v3.0.0 major release updates, component enhancements, and commit history.
 
