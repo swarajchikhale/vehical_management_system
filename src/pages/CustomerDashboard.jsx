@@ -6,7 +6,7 @@ import { formatINR, formatDateIN, getStatusBadgeClass, getStatusLabel } from '..
 import { Car, Wrench, FileText, Calendar, DollarSign, CheckCircle2, Clock, AlertCircle, Printer, RotateCcw, X } from 'lucide-react';
 
 export const CustomerDashboard = ({ setActiveTab }) => {
-  const { bookings, services, bills } = useData();
+  const { bookings, services, bills, updateBookingStatus } = useData();
   const { currentUser } = useAuth();
   const [selectedBill, setSelectedBill] = useState(null);
   const [bookingFilter, setBookingFilter] = useState('all');
@@ -215,6 +215,22 @@ export const CustomerDashboard = ({ setActiveTab }) => {
                         >
                           <Printer size={14} /> Print
                         </button>
+                        {(b.status === 'active' || b.status === 'confirmed') && (
+                          <button
+                            className="btn btn-secondary btn-sm"
+                            style={{ color: 'var(--accent-rose)', borderColor: 'rgba(239, 68, 68, 0.4)' }}
+                            title="Cancel reservation & process estimated 90% refund credit"
+                            onClick={() => {
+                              const estRefund = Math.round(b.total_cost * 0.9);
+                              if (confirm(`Cancel reservation #${b.id} for ${b.vehicle_name}?\nEstimated refund amount: ${formatINR(estRefund)} (90% Policy Credit)`)) {
+                                updateBookingStatus(b.id, 'cancelled');
+                                alert(`Reservation #${b.id} cancelled successfully. Refund credit of ${formatINR(estRefund)} initiated to original payment source.`);
+                              }
+                            }}
+                          >
+                            <X size={14} /> Cancel &amp; Refund
+                          </button>
+                        )}
                       </div>
                     )}
                   </div>
