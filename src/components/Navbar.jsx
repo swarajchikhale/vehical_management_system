@@ -53,10 +53,10 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
       top: 0,
       zIndex: 100,
       background: 'var(--bg-glass)',
-      backdropFilter: 'blur(16px)',
-      WebkitBackdropFilter: 'blur(16px)',
+      backdropFilter: 'blur(20px)',
+      WebkitBackdropFilter: 'blur(20px)',
       borderBottom: '1px solid var(--border-color)',
-      padding: '0.85rem 0',
+      padding: '0.75rem 0',
       transition: 'all 0.3s ease'
     }}>
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
