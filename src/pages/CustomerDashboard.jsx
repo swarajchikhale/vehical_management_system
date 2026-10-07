@@ -24,7 +24,7 @@ export const CustomerDashboard = ({ setActiveTab }) => {
       {/* Header */}
       <div style={{ marginBottom: '2.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
         <div>
-          <h1 style={{ fontSize: '2.2rem', marginBottom: '0.4rem' }}>
+          <h1 style={{ fontSize: '2.1rem', marginBottom: '0.4rem', letterSpacing: '-0.03em' }}>
             Welcome back, <span className="text-gradient">{currentUser.name}</span>
           </h1>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.4rem', flexWrap: 'wrap' }}>
