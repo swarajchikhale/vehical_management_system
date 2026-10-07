@@ -75,7 +75,7 @@ export const Vehicles = ({ setActiveTab }) => {
       {/* Page Header */}
       <div style={{ marginBottom: '2.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem' }}>
         <div>
-          <h1 style={{ fontSize: '2.4rem', marginBottom: '0.5rem' }}>
+          <h1 style={{ fontSize: '2.2rem', marginBottom: '0.4rem', letterSpacing: '-0.03em' }}>
             Vehicle <span className="text-gradient">Rental Fleet</span>
           </h1>
           <p style={{ color: 'var(--text-muted)' }}>
