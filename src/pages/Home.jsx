@@ -32,8 +32,8 @@ export const Home = ({ setActiveTab, onBookVehicle }) => {
                 🔧 Mobile Mechanics Active
               </div>
             </div>
-            <h1 style={{ fontSize: '3.2rem', lineHeight: 1.1, marginBottom: '1.5rem', fontWeight: 800 }}>
-              Premium Vehicle Rental & <span className="text-gradient">Instant Mechanic Service</span>
+            <h1 style={{ fontSize: '3.1rem', lineHeight: 1.15, marginBottom: '1.25rem', fontWeight: 800, letterSpacing: '-0.04em' }}>
+              Premium Vehicle Rental &amp; <span className="text-gradient">Instant Mechanic Service</span>
             </h1>
             <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', marginBottom: '2.5rem', maxWidth: '540px' }}>
               Book high-performance cars, bikes, and vans with transparent daily pricing, or dispatch certified mechanics to your breakdown location in minutes.
