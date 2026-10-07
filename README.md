@@ -182,12 +182,14 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## 📜 Recent Release Commits (v3.0.0 - Major Feature Release)
+## 📜 Recent Release Commits (v3.1.0 - Minimalist UI Redesign)
 
-1. `Implement dynamic vehicle rating and customer feedback review system` - Implements `rateVehicle` state provider method and local storage state persistence.
-2. `Add interactive vehicle review modal and rating submission to catalog` - Enables interactive 1-5 star customer ratings and review prompt directly in vehicle catalog.
-3. `Add booking cancellation request modal and refund estimator to dashboard` - Adds instant cancellation flow with 90% refund policy estimation credit in customer dashboard.
-4. `Add interactive roadside service estimate calculator to mechanic portal` - Adds real-time emergency priority tariff cost estimator card to mechanic service dispatch form.
-5. `Add maintenance schedule tracking card and service reminders to admin` - Adds fleet vehicle periodic inspection status & automated safety audit tracker card to admin center.
-6. `Update README architecture documentation and recent commit release log` - Documents v3.0.0 major release updates, component enhancements, and commit history.
+1. `Refine design system tokens for minimalist layout and sleek typography` - Refines global design system typography tracking and sleek background tokens.
+2. `Apply minimalist layout aesthetics and sleek spacing to top navbar` - Applies sleek backdrop blur and minimalist container padding to navigation header.
+3. `Simplify hero section with minimalist typography and clean CTA layout` - Streamlines landing page hero section with clean typography and balanced CTA buttons.
+4. `Streamline vehicle catalog cards with sleek minimalist card layout` - Applies minimalist heading hierarchy and clean letter-spacing to rental catalog.
+5. `Refine customer dashboard portal with minimalist KPI card layout` - Enhances customer dashboard layout with sleek stats cards and clean typography.
+6. `Apply minimalist design language to roadside mechanic dispatch form` - Refines roadside mechanic request header with clean typography spacing.
+7. `Refine admin control center with sleek minimalist dashboard panels` - Streamlines admin command center title and panel layout for minimalist aesthetics.
+8. `Update README architecture documentation and recent commit release log` - Documents v3.1.0 minimalist UI redesign release updates and commit log.
 
