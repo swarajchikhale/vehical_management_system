@@ -184,12 +184,12 @@ This project is licensed under the **MIT License**.
 
 ## 📜 Recent Release Commits (v3.1.0 - Minimalist UI Redesign)
 
-1. `Refine design system tokens for minimalist layout and sleek typography` - Refines global design system typography tracking and sleek background tokens.
-2. `Apply minimalist layout aesthetics and sleek spacing to top navbar` - Applies sleek backdrop blur and minimalist container padding to navigation header.
-3. `Simplify hero section with minimalist typography and clean CTA layout` - Streamlines landing page hero section with clean typography and balanced CTA buttons.
-4. `Streamline vehicle catalog cards with sleek minimalist card layout` - Applies minimalist heading hierarchy and clean letter-spacing to rental catalog.
-5. `Refine customer dashboard portal with minimalist KPI card layout` - Enhances customer dashboard layout with sleek stats cards and clean typography.
-6. `Apply minimalist design language to roadside mechanic dispatch form` - Refines roadside mechanic request header with clean typography spacing.
-7. `Refine admin control center with sleek minimalist dashboard panels` - Streamlines admin command center title and panel layout for minimalist aesthetics.
-8. `Update README architecture documentation and recent commit release log` - Documents v3.1.0 minimalist UI redesign release updates and commit log.
+1. `Refine design system tokens for minimalist layout and sleek typography` - Refines global CSS font smoothing, subtle letter-spacing, and design tokens in `src/index.css`.
+2. `Apply minimalist layout aesthetics and sleek spacing to top navbar` - Updates `src/components/Navbar.jsx` header padding and 20px backdrop blur filter.
+3. `Simplify hero section with minimalist typography and clean CTA layout` - Refines `src/pages/Home.jsx` hero headline typography, line-height, and CTA button alignment.
+4. `Streamline vehicle catalog cards with sleek minimalist card layout` - Adjusts `src/pages/Vehicles.jsx` header font sizing and catalog letter-spacing.
+5. `Refine customer dashboard portal with minimalist KPI card layout` - Streamlines `src/pages/CustomerDashboard.jsx` header title typography and KPI container alignment.
+6. `Apply minimalist design language to roadside mechanic dispatch form` - Refines `src/pages/MechanicServices.jsx` section header font size and input spacing.
+7. `Refine admin control center with sleek minimalist dashboard panels` - Updates `src/pages/AdminDashboard.jsx` title typography tracking and dashboard card margins.
+8. `Update README architecture documentation and recent commit release log` - Documents v3.1.0 release changes across all updated system components.
 
