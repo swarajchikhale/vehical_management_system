@@ -99,7 +99,7 @@ export const AdminDashboard = () => {
               📡 Telemetry Stream Active
             </div>
           </div>
-          <h1 style={{ fontSize: '2.2rem' }}>System Analytics & Operation Control</h1>
+          <h1 style={{ fontSize: '2.1rem', letterSpacing: '-0.03em' }}>System Analytics &amp; Operation Control</h1>
         </div>
 
         <div style={{ display: 'flex', gap: '0.75rem' }}>
