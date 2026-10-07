@@ -48,7 +48,7 @@ export const MechanicServices = ({ setActiveTab }) => {
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(245, 158, 11, 0.15)', color: 'var(--accent-amber)', padding: '0.35rem 0.85rem', borderRadius: 'var(--radius-full)', fontSize: '0.8rem', fontWeight: 700, marginBottom: '0.85rem' }}>
             <AlertTriangle size={14} /> 24/7 Mobile Mechanic Hotline Active
           </div>
-          <h1 style={{ fontSize: '2.4rem', marginBottom: '0.5rem' }}>
+          <h1 style={{ fontSize: '2.2rem', marginBottom: '0.4rem', letterSpacing: '-0.03em' }}>
             Request Roadside <span className="text-gradient">Mechanic Dispatch</span>
           </h1>
           <p style={{ color: 'var(--text-muted)' }}>
