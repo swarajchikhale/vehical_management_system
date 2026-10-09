@@ -182,14 +182,12 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## 📜 Recent Release Commits (v3.1.0 - Minimalist UI Redesign)
+## 📜 Recent Release Commits (v3.2.0 - Dedicated Dark & Light Theme Toggle)
 
-1. `Refine design system tokens for minimalist layout and sleek typography` - Refines global CSS font smoothing, subtle letter-spacing, and design tokens in `src/index.css`.
-2. `Apply minimalist layout aesthetics and sleek spacing to top navbar` - Updates `src/components/Navbar.jsx` header padding and 20px backdrop blur filter.
-3. `Simplify hero section with minimalist typography and clean CTA layout` - Refines `src/pages/Home.jsx` hero headline typography, line-height, and CTA button alignment.
-4. `Streamline vehicle catalog cards with sleek minimalist card layout` - Adjusts `src/pages/Vehicles.jsx` header font sizing and catalog letter-spacing.
-5. `Refine customer dashboard portal with minimalist KPI card layout` - Streamlines `src/pages/CustomerDashboard.jsx` header title typography and KPI container alignment.
-6. `Apply minimalist design language to roadside mechanic dispatch form` - Refines `src/pages/MechanicServices.jsx` section header font size and input spacing.
-7. `Refine admin control center with sleek minimalist dashboard panels` - Updates `src/pages/AdminDashboard.jsx` title typography tracking and dashboard card margins.
-8. `Update README architecture documentation and recent commit release log` - Documents v3.1.0 release changes across all updated system components.
+1. `Refactor CSS design system tokens into dedicated dark and light themes` - Simplifies CSS tokens into clean `:root` (Dark) and `[data-theme='light']` modes in `src/index.css`.
+2. `Replace theme dropdown with interactive Dark and Light mode toggle button` - Replaces palette dropdown with a clean Sun/Moon theme toggle button in `src/components/Navbar.jsx`.
+3. `Add active theme mode indicator tag to footer metadata section` - Adds Dual Theme Engine status badge tag to `src/components/Footer.jsx`.
+4. `Refine hero section gradient styling for seamless Dark and Light themes` - Updates radial-gradient contrast transparency in `src/pages/Home.jsx`.
+5. `Add theme-aware contrast styling to admin analytics and control cards` - Updates Chart.js grid & tick color variables in `src/pages/AdminDashboard.jsx`.
+6. `Update README architecture documentation and recent commit release log` - Documents v3.2.0 dedicated Dark/Light theme mode implementation and commit log.
 
