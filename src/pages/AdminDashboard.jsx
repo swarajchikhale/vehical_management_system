@@ -55,11 +55,11 @@ export const AdminDashboard = () => {
   const chartOptions = {
     responsive: true,
     plugins: {
-      legend: { labels: { color: '#9ca3af' } }
+      legend: { labels: { color: 'var(--text-muted)' } }
     },
     scales: {
-      x: { ticks: { color: '#9ca3af' }, grid: { color: 'rgba(255,255,255,0.05)' } },
-      y: { ticks: { color: '#9ca3af' }, grid: { color: 'rgba(255,255,255,0.05)' } }
+      x: { ticks: { color: 'var(--text-muted)' }, grid: { color: 'rgba(150,150,150,0.12)' } },
+      y: { ticks: { color: 'var(--text-muted)' }, grid: { color: 'rgba(150,150,150,0.12)' } }
     }
   };
 
