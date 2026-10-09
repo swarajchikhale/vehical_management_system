@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useData } from '../context/DataContext';
-import { Car, Wrench, Shield, User, Sparkles, Palette, Clock } from 'lucide-react';
+import { Car, Wrench, Shield, User, Sparkles, Sun, Moon, Clock } from 'lucide-react';
 
 export const Navbar = ({ activeTab, setActiveTab }) => {
   const { currentUser, switchRole } = useAuth();
   const { bookings = [], services = [] } = useData() || {};
   
-  const [currentPalette, setCurrentPalette] = useState(() => {
-    return localStorage.getItem('dp_palette') || 'midnight';
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('dp_theme') || 'dark';
   });
 
   const [timeStr, setTimeStr] = useState('');
@@ -31,9 +31,10 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
   };
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-palette', currentPalette);
-    localStorage.setItem('dp_palette', currentPalette);
-  }, [currentPalette]);
+    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.setAttribute('data-palette', theme === 'light' ? 'sapphire' : 'midnight');
+    localStorage.setItem('dp_theme', theme);
+  }, [theme]);
 
   const getPendingNotificationCount = () => {
     if (currentUser.role === 'admin') {
@@ -138,30 +139,30 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
           </button>
         </nav>
 
-        {/* Palette Selector & Role Switcher */}
+        {/* Dark / Light Theme Toggle & Role Switcher */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
-          {/* UI Color Palette Switcher */}
-          <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '0.25rem 0.5rem' }}>
-            <Palette size={14} color="var(--accent-primary)" style={{ marginRight: '0.35rem' }} />
-            <select 
-              value={currentPalette}
-              onChange={(e) => setCurrentPalette(e.target.value)}
-              style={{
-                background: 'transparent',
-                color: 'var(--text-main)',
-                border: 'none',
-                outline: 'none',
-                fontWeight: 600,
-                fontSize: '0.82rem',
-                cursor: 'pointer'
-              }}
-            >
-              <option value="midnight">Theme: Midnight Cyber</option>
-              <option value="emerald">Theme: Royal Emerald</option>
-              <option value="crimson">Theme: Crimson Sport</option>
-              <option value="sapphire">Theme: Sapphire Light</option>
-            </select>
-          </div>
+          {/* Dark/Light Theme Toggle Button */}
+          <button
+            onClick={() => setTheme(prev => prev === 'dark' ? 'light' : 'dark')}
+            title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Theme`}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.45rem',
+              background: 'var(--bg-secondary)',
+              border: '1px solid var(--border-color)',
+              borderRadius: '9999px',
+              padding: '0.4rem 0.85rem',
+              color: 'var(--text-main)',
+              fontSize: '0.82rem',
+              fontWeight: 600,
+              cursor: 'pointer',
+              transition: 'all 0.2s ease'
+            }}
+          >
+            {theme === 'dark' ? <Sun size={15} color="var(--accent-amber)" /> : <Moon size={15} color="var(--accent-primary)" />}
+            <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
+          </button>
 
           {/* Role Switcher */}
           <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '0.25rem 0.5rem' }}>
