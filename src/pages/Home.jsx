@@ -13,7 +13,7 @@ export const Home = ({ setActiveTab, onBookVehicle }) => {
       <section style={{
         position: 'relative',
         padding: '5rem 0 6rem 0',
-        background: 'radial-gradient(circle at 50% 20%, rgba(99, 102, 241, 0.15) 0%, rgba(11, 15, 25, 0) 70%)',
+        background: 'radial-gradient(circle at 50% 20%, rgba(124, 58, 237, 0.12) 0%, transparent 70%)',
         overflow: 'hidden'
       }}>
         <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', alignItems: 'center' }}>
