@@ -43,6 +43,9 @@ export const Footer = ({ setActiveTab }) => {
               <span className="badge badge-pending" style={{ fontSize: '0.75rem' }} title="Average technician dispatch response time across registered urban zones">
                 ⏱ Avg. Dispatch &lt; 15m
               </span>
+              <span className="badge badge-assigned" style={{ fontSize: '0.75rem' }} title="Dark &amp; Light dual theme engine active">
+                🌓 Dual Theme Engine
+              </span>
             </div>
           </div>
 
