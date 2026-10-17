@@ -280,9 +280,10 @@ export const Vehicles = ({ setActiveTab }) => {
               </div>
 
               <h3 style={{ fontSize: '1.25rem', marginBottom: '0.35rem' }}>{vehicle.vehicle_name}</h3>
-              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '0.65rem', display: 'flex', gap: '0.5rem' }}>
+              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '0.65rem', display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
                 <span style={{ background: 'var(--bg-secondary)', padding: '0.1rem 0.45rem', borderRadius: '4px', border: '1px solid var(--border-color)' }}>Automatic</span>
-                <span style={{ background: 'var(--bg-secondary)', padding: '0.1rem 0.45rem', borderRadius: '4px', border: '1px solid var(--border-color)' }} title="Vehicles disinfected & multi-point inspected prior to key handover">Insured & Sanitized</span>
+                <span style={{ background: 'var(--bg-secondary)', padding: '0.1rem 0.45rem', borderRadius: '4px', border: '1px solid var(--border-color)' }} title="Vehicles disinfected & multi-point inspected prior to key handover">Insured &amp; Sanitized</span>
+                <span style={{ background: 'var(--bg-secondary)', padding: '0.1rem 0.45rem', borderRadius: '4px', border: '1px solid var(--border-color)', color: 'var(--accent-emerald)' }} title="Verified low emissions compliant vehicle standard">🌿 Low Emission</span>
               </div>
               <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '1.25rem', minHeight: '42px', lineHeight: 1.5 }}>
                 {vehicle.description}
