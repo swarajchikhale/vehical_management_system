@@ -37,7 +37,9 @@ export const MechanicServices = ({ setActiveTab }) => {
     'Dead Battery / Alternator Issue',
     'Flat Tire / Puncture Repair',
     'Brake Squeal / Fluid Leak',
-    'AC & Electrical Failure'
+    'AC & Electrical Failure',
+    'Transmission & Clutch Slip',
+    'Key Lockout / Ignition Fault'
   ];
 
   return (
@@ -309,7 +311,10 @@ export const MechanicServices = ({ setActiveTab }) => {
             <PhoneCall size={32} color="var(--accent-cyan)" style={{ marginBottom: '0.75rem' }} />
             <h4 style={{ fontSize: '1.1rem', marginBottom: '0.25rem' }}>Direct Dispatch Hotline</h4>
             <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '1rem' }}>Speak directly with a master technician 24/7</p>
-            <div style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--accent-cyan)' }}>+1 (800) 555-3748</div>
+            <div style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--accent-cyan)', marginBottom: '0.5rem' }}>+1 (800) 555-3748</div>
+            <span className="badge badge-confirmed" style={{ fontSize: '0.75rem' }}>
+              🛡 30-Day Repair Warranty Included
+            </span>
           </div>
         </div>
 
