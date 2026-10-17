@@ -185,6 +185,11 @@ export const CustomerDashboard = ({ setActiveTab }) => {
                       <h3 style={{ fontSize: '1.2rem' }}>{b.vehicle_name}</h3>
                       <span className={`badge ${getStatusBadgeClass(b.status)}`}>{getStatusLabel(b.status)}</span>
                       {b.status === 'active' && <span className="badge badge-available" style={{ fontSize: '0.72rem' }}>● Verified Keyless Access</span>}
+                      {b.status !== 'cancelled' && (
+                        <span className="badge badge-confirmed" style={{ fontSize: '0.72rem' }} title="24/7 roadside assistance included throughout this reservation">
+                          🛡 24/7 Roadside Covered
+                        </span>
+                      )}
                     </div>
                     <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
                       Booking ID: #{b.id} • Dates: <strong>{formatDateIN(b.start_date)}</strong> to <strong>{formatDateIN(b.end_date)}</strong> ({b.total_days} Days)
