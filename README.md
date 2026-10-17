@@ -182,12 +182,14 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## 📜 Recent Release Commits (v3.2.0 - Dedicated Dark & Light Theme Toggle)
+## 📜 Recent Release Commits (v3.3.0 - Platform Reliability & UX Enhancements)
 
-1. `Refactor CSS design system tokens into dedicated dark and light themes` - Simplifies CSS tokens into clean `:root` (Dark) and `[data-theme='light']` modes in `src/index.css`.
-2. `Replace theme dropdown with interactive Dark and Light mode toggle button` - Replaces palette dropdown with a clean Sun/Moon theme toggle button in `src/components/Navbar.jsx`.
-3. `Add active theme mode indicator tag to footer metadata section` - Adds Dual Theme Engine status badge tag to `src/components/Footer.jsx`.
-4. `Refine hero section gradient styling for seamless Dark and Light themes` - Updates radial-gradient contrast transparency in `src/pages/Home.jsx`.
-5. `Add theme-aware contrast styling to admin analytics and control cards` - Updates Chart.js grid & tick color variables in `src/pages/AdminDashboard.jsx`.
-6. `Update README architecture documentation and recent commit release log` - Documents v3.2.0 dedicated Dark/Light theme mode implementation and commit log.
+1. `Add eco-friendly carbon emission badge tag to vehicle catalog cards` - Adds low emission badge tag to vehicle card details in `src/pages/Vehicles.jsx`.
+2. `Add keyboard shortcut toggle support and indicator to theme switch button` - Implements 'T' hotkey toggle and keyboard badge in `src/components/Navbar.jsx`.
+3. `Add platform reliability trust highlights strip to landing page` - Displays zero deposit and 15-minute roadside dispatch highlights in `src/pages/Home.jsx`.
+4. `Add roadside assistance coverage badge to customer rental reservations` - Displays 24/7 breakdown assistance coverage badge in `src/pages/CustomerDashboard.jsx`.
+5. `Add roadside repair warranty badge and additional quick diagnostic tags` - Adds clutch & lockout issue tags and 30-day warranty badge in `src/pages/MechanicServices.jsx`.
+6. `Implement automated fleet inventory CSV report download in admin center` - Adds automatic client-side CSV spreadsheet generator in `src/pages/AdminDashboard.jsx`.
+7. `Add electronic GST verification seal to digital tax invoice modal` - Adds electronic GST verification seal stamp in `src/components/InvoiceModal.jsx`.
+8. `Update README architecture documentation and recent commit release log` - Documents v3.3.0 release updates and commit log.
 
