@@ -134,6 +134,28 @@ export const Home = ({ setActiveTab, onBookVehicle }) => {
         </div>
       </section>
 
+      {/* Platform Reliability Banner */}
+      <section style={{ padding: '1.25rem 0', background: 'var(--bg-secondary)', borderBottom: '1px solid var(--border-color)' }}>
+        <div className="container" style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', flexWrap: 'wrap', gap: '1.5rem', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <ShieldCheck size={18} color="var(--accent-emerald)" />
+            <span><strong>Zero Deposit:</strong> No upfront hold on cards</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <Clock size={18} color="var(--accent-amber)" />
+            <span><strong>Rapid Dispatch:</strong> 15-min urban roadside SLA</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <Zap size={18} color="var(--accent-primary)" />
+            <span><strong>Instant Access:</strong> Digital key verification</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <FileText size={18} color="var(--accent-cyan)" />
+            <span><strong>Tax Invoices:</strong> Automated GST receipts</span>
+          </div>
+        </div>
+      </section>
+
       {/* Core Services Section */}
       <section style={{ padding: '5rem 0' }}>
         <div className="container">
