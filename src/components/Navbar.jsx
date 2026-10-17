@@ -36,6 +36,17 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
     localStorage.setItem('dp_theme', theme);
   }, [theme]);
 
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) return;
+      if (e.key === 't' || e.key === 'T') {
+        setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   const getPendingNotificationCount = () => {
     if (currentUser.role === 'admin') {
       return services.filter(s => s.status === 'pending').length;
@@ -144,7 +155,7 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
           {/* Dark/Light Theme Toggle Button */}
           <button
             onClick={() => setTheme(prev => prev === 'dark' ? 'light' : 'dark')}
-            title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Theme`}
+            title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Theme (Press 'T')`}
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -162,6 +173,7 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
           >
             {theme === 'dark' ? <Sun size={15} color="var(--accent-amber)" /> : <Moon size={15} color="var(--accent-primary)" />}
             <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
+            <kbd style={{ fontSize: '0.65rem', opacity: 0.65, border: '1px solid var(--border-color)', borderRadius: '3px', padding: '0.05rem 0.3rem', marginLeft: '0.15rem' }}>T</kbd>
           </button>
 
           {/* Role Switcher */}
