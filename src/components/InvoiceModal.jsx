@@ -149,9 +149,12 @@ export const InvoiceModal = ({ bill, onClose }) => {
             </div>
           </div>
 
-          {/* Footer note */}
-          <div style={{ borderTop: '1px dashed #d1d5db', paddingTop: '1rem', textAlign: 'center', fontSize: '0.78rem', color: '#9ca3af' }}>
-            Thank you for choosing DrivePulse. For billing inquiries, contact billing@drivepulse.com.
+          {/* Footer note & Verification Seal */}
+          <div style={{ borderTop: '1px dashed #d1d5db', paddingTop: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', fontSize: '0.78rem', color: '#6b7280' }}>
+            <span>Thank you for choosing DrivePulse. Inquiries: billing@drivepulse.com</span>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', color: '#059669', fontWeight: 600, background: '#ecfdf5', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>
+              <CheckCircle size={12} color="#059669" /> Digitally Verified GST Tax Invoice
+            </span>
           </div>
         </div>
       </div>
