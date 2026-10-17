@@ -80,6 +80,21 @@ export const AdminDashboard = () => {
     });
   };
 
+  const handleExportCSV = () => {
+    const csvRows = [
+      ['ID', 'Vehicle Name', 'Type', 'Brand', 'Plate', 'Daily Rate (INR)', 'Status'],
+      ...vehicles.map(v => [v.id, `"${v.vehicle_name}"`, v.vehicle_type, v.brand, v.license_plate, v.rent_price, v.status])
+    ];
+    const csvContent = "data:text/csv;charset=utf-8," + csvRows.map(e => e.join(",")).join("\n");
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", `drivepulse_fleet_report_${new Date().toISOString().split('T')[0]}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  };
+
   return (
     <div className="container fade-in" style={{ padding: '3rem 1.5rem' }}>
       {/* Admin Title */}
@@ -106,7 +121,7 @@ export const AdminDashboard = () => {
           <button className="btn btn-secondary" onClick={() => alert('Data feed synced with latest active telemetry.')} title="Sync real-time data feed">
             <RotateCcw size={15} /> Refresh Feed
           </button>
-          <button className="btn btn-secondary" onClick={() => alert('Exporting system analytics & invoice summary report as CSV blob...')} title="Export system metrics as CSV summary">
+          <button className="btn btn-secondary" onClick={handleExportCSV} title="Export system fleet metrics as downloadable CSV summary">
             <Download size={16} /> Export Report
           </button>
           <button className="btn btn-primary" onClick={() => setShowAddVehicleModal(true)}>
