@@ -12,6 +12,7 @@ export const MechanicDashboard = () => {
   const [costInput, setCostInput] = useState('');
   const [notesInput, setNotesInput] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
+  const [copiedPhoneId, setCopiedPhoneId] = useState(null);
 
   // Get assigned services for this mechanic
   const assignedJobs = services.filter(s => s.mechanic_id === currentUser.id || s.mechanic_name === currentUser.name);
@@ -151,18 +152,33 @@ export const MechanicDashboard = () => {
             <div key={job.id} className="card" style={{ padding: '1.5rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem', marginBottom: '1rem' }}>
                 <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.4rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.4rem', flexWrap: 'wrap' }}>
                     <h3 style={{ fontSize: '1.25rem' }}>Dispatch Ticket #{job.id} - {job.vehicle_model}</h3>
                     <span className={`badge ${getStatusBadgeClass(job.status)}`}>{getStatusLabel(job.status)}</span>
                     {job.status === 'in_progress' && <span className="badge badge-assigned" style={{ fontSize: '0.72rem' }}>● Repair Active</span>}
                     {job.is_emergency && <span className="badge badge-maintenance">EMERGENCY DISPATCH</span>}
+                    <span className="badge badge-available" style={{ fontSize: '0.72rem' }}>⏱ Target Arrival: &lt; 20m</span>
                   </div>
                   <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', marginBottom: '0.5rem' }}>
                     <strong>Problem:</strong> {job.problem_description}
                   </p>
-                  <div style={{ display: 'flex', gap: '1.5rem', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                  <div style={{ display: 'flex', gap: '1.5rem', fontSize: '0.85rem', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
                     <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><MapPin size={14} color="var(--accent-rose)" /> {job.service_location}</span>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><Phone size={14} color="var(--accent-cyan)" /> {job.user_name} ({job.user_phone})</span>
+                    <span 
+                      onClick={() => {
+                        if (job.user_phone) {
+                          navigator.clipboard.writeText(job.user_phone);
+                          setCopiedPhoneId(job.id);
+                          setTimeout(() => setCopiedPhoneId(null), 2000);
+                        }
+                      }}
+                      title="Click to copy customer phone number"
+                      style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', cursor: 'pointer', userSelect: 'none' }}
+                    >
+                      <Phone size={14} color="var(--accent-cyan)" /> 
+                      <span style={{ textDecoration: 'underline dotted' }}>{job.user_name} ({job.user_phone})</span>
+                      {copiedPhoneId === job.id && <span style={{ color: 'var(--accent-emerald)', fontWeight: 700, fontSize: '0.72rem' }}>✓ Copied</span>}
+                    </span>
                   </div>
                 </div>
 
