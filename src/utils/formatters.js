@@ -84,3 +84,39 @@ export const formatTimeAgo = (dateVal) => {
   return `${Math.floor(diffSecs / 86400)}d ago`;
 };
 
+/**
+ * Returns formatted mileage rating for vehicle specifications display.
+ * @param {number|string} val - Mileage number or default string
+ * @param {string} unit - 'kmpl' or 'km/charge' (default: 'km/l')
+ * @returns {string} Formatted mileage string
+ */
+export const formatMileage = (val, unit = 'km/l') => {
+  if (!val) return '16.5 km/l';
+  const num = Number(val);
+  return isNaN(num) ? `${val}` : `${num.toFixed(1)} ${unit}`;
+};
+
+/**
+ * Normalizes and formats fuel / powertrain type label.
+ * @param {string} type - 'petrol', 'diesel', 'electric', 'hybrid'
+ * @returns {string} Capitalized fuel type string
+ */
+export const formatFuelType = (type) => {
+  if (!type) return 'Petrol';
+  const normalized = type.toLowerCase().trim();
+  switch (normalized) {
+    case 'ev':
+    case 'electric':
+      return 'Electric (Zero Emission)';
+    case 'hybrid':
+      return 'Hybrid Petrol';
+    case 'diesel':
+      return 'Turbo Diesel';
+    case 'cng':
+      return 'Eco CNG';
+    default:
+      return 'Premium Petrol';
+  }
+};
+
+
