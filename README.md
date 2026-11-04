@@ -182,14 +182,15 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## 📜 Recent Release Commits (v3.3.0 - Platform Reliability & UX Enhancements)
+## 📜 Recent Release Commits (v3.4.0 - Fleet Efficiency & Interactive UX Improvements)
 
-1. `Add eco-friendly carbon emission badge tag to vehicle catalog cards` - Adds low emission badge tag to vehicle card details in `src/pages/Vehicles.jsx`.
-2. `Add keyboard shortcut toggle support and indicator to theme switch button` - Implements 'T' hotkey toggle and keyboard badge in `src/components/Navbar.jsx`.
-3. `Add platform reliability trust highlights strip to landing page` - Displays zero deposit and 15-minute roadside dispatch highlights in `src/pages/Home.jsx`.
-4. `Add roadside assistance coverage badge to customer rental reservations` - Displays 24/7 breakdown assistance coverage badge in `src/pages/CustomerDashboard.jsx`.
-5. `Add roadside repair warranty badge and additional quick diagnostic tags` - Adds clutch & lockout issue tags and 30-day warranty badge in `src/pages/MechanicServices.jsx`.
-6. `Implement automated fleet inventory CSV report download in admin center` - Adds automatic client-side CSV spreadsheet generator in `src/pages/AdminDashboard.jsx`.
-7. `Add electronic GST verification seal to digital tax invoice modal` - Adds electronic GST verification seal stamp in `src/components/InvoiceModal.jsx`.
-8. `Update README architecture documentation and recent commit release log` - Documents v3.3.0 release updates and commit log.
+1. `Add mileage and fuel powertrain formatting utilities to formatters` - Adds formatMileage and formatFuelType helpers in `src/utils/formatters.js`.
+2. `Add fuel efficiency and powertrain specification tags to vehicle cards` - Displays mileage and fuel tags in `src/pages/Vehicles.jsx`.
+3. `Add animated duration countdown indicator bar to toast notifications` - Implements countdown timer indicator and auto-dismiss in `src/components/Toast.jsx`.
+4. `Add API latency monitor pill and stable release badge to footer` - Adds real-time 24ms API status pill and v3.4.0 badge in `src/components/Footer.jsx`.
+5. `Add interactive vehicle category filter pills to landing page fleet preview` - Adds Sedans, SUVs, Bikes, and Vans filter buttons in `src/pages/Home.jsx`.
+6. `Add booking reference copy action with inline feedback to customer dashboard` - Implements one-click reference copy with inline feedback in `src/pages/CustomerDashboard.jsx`.
+7. `Add target arrival ETA badge and customer phone copy action to dispatch tickets` - Adds ETA badge and clickable phone copy in `src/pages/MechanicDashboard.jsx`.
+8. `Update README architecture documentation and recent commit release log` - Documents v3.4.0 release commits and architecture notes.
+
 
