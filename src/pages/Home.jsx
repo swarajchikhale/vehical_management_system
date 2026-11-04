@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useData } from '../context/DataContext';
 import { formatINR, getStatusBadgeClass, getStatusLabel } from '../utils/formatters';
 import { Car, Wrench, ShieldCheck, Zap, Award, Star, ArrowRight, CheckCircle2, Clock, FileText } from 'lucide-react';
 
 export const Home = ({ setActiveTab, onBookVehicle }) => {
   const { vehicles, bookings, services } = useData();
+  const [categoryFilter, setCategoryFilter] = useState('all');
   const availableVehicles = vehicles.filter(v => v.status === 'available');
+
+  const displayedVehicles = vehicles
+    .filter(v => categoryFilter === 'all' || v.vehicle_type.toLowerCase() === categoryFilter.toLowerCase())
+    .slice(0, 3);
 
   return (
     <div className="fade-in">
@@ -228,7 +233,7 @@ export const Home = ({ setActiveTab, onBookVehicle }) => {
       {/* Featured Fleet Preview */}
       <section style={{ padding: '4rem 0', background: 'var(--bg-secondary)' }}>
         <div className="container">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '2.5rem', flexWrap: 'wrap', gap: '1rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
             <div>
               <h2 style={{ fontSize: '2rem', marginBottom: '0.4rem' }}>Featured Vehicle Fleet</h2>
               <p style={{ color: 'var(--text-muted)' }}>Popular rentals ready for immediate reservation</p>
@@ -238,8 +243,37 @@ export const Home = ({ setActiveTab, onBookVehicle }) => {
             </button>
           </div>
 
+          {/* Minimalist Fleet Category Quick Tabs */}
+          <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
+            {[
+              { id: 'all', label: 'All Fleet' },
+              { id: 'car', label: 'Sedans & SUVs' },
+              { id: 'bike', label: 'Cruisers & Bikes' },
+              { id: 'van', label: 'Utility Vans' }
+            ].map(cat => (
+              <button
+                key={cat.id}
+                onClick={() => setCategoryFilter(cat.id)}
+                style={{
+                  padding: '0.4rem 0.95rem',
+                  borderRadius: '9999px',
+                  fontSize: '0.82rem',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  border: '1px solid',
+                  borderColor: categoryFilter === cat.id ? 'var(--accent-primary)' : 'var(--border-color)',
+                  background: categoryFilter === cat.id ? 'var(--accent-primary)' : 'var(--bg-card)',
+                  color: categoryFilter === cat.id ? '#ffffff' : 'var(--text-muted)',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
+
           <div className="grid grid-cols-3">
-            {vehicles.slice(0, 3).map(v => (
+            {displayedVehicles.map(v => (
               <div className="card" key={v.id} style={{ padding: 0, overflow: 'hidden' }}>
                 <div style={{ position: 'relative' }}>
                   <img src={v.image} alt={v.vehicle_name} style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
@@ -257,7 +291,7 @@ export const Home = ({ setActiveTab, onBookVehicle }) => {
                   </p>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid var(--border-color)', paddingTop: '0.85rem' }}>
                     <div>
-                      <span style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-main)' }}>₹{v.rent_price}</span>
+                      <span style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-main)' }}>{formatINR(v.rent_price, false)}</span>
                       <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}> / day</span>
                     </div>
                     <button 
