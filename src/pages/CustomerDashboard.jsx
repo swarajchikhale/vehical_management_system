@@ -10,6 +10,7 @@ export const CustomerDashboard = ({ setActiveTab }) => {
   const { currentUser } = useAuth();
   const [selectedBill, setSelectedBill] = useState(null);
   const [bookingFilter, setBookingFilter] = useState('all');
+  const [copiedBookingId, setCopiedBookingId] = useState(null);
 
   // Filter items for current user
   const userBookings = bookings.filter(b => b.user_id === currentUser.id);
@@ -191,8 +192,30 @@ export const CustomerDashboard = ({ setActiveTab }) => {
                         </span>
                       )}
                     </div>
-                    <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                      Booking ID: #{b.id} • Dates: <strong>{formatDateIN(b.start_date)}</strong> to <strong>{formatDateIN(b.end_date)}</strong> ({b.total_days} Days)
+                    <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.35rem' }}>
+                      <span>Booking ID: #{b.id}</span>
+                      <span
+                        onClick={() => {
+                          navigator.clipboard.writeText(`DP-BK-${b.id}`);
+                          setCopiedBookingId(b.id);
+                          setTimeout(() => setCopiedBookingId(null), 2000);
+                        }}
+                        title="Click to copy booking reference code"
+                        style={{
+                          cursor: 'pointer',
+                          background: 'var(--bg-secondary)',
+                          padding: '0.12rem 0.45rem',
+                          borderRadius: '4px',
+                          border: '1px solid var(--border-color)',
+                          fontSize: '0.72rem',
+                          color: copiedBookingId === b.id ? 'var(--accent-emerald)' : 'var(--text-muted)',
+                          userSelect: 'none',
+                          transition: 'all 0.2s ease'
+                        }}
+                      >
+                        {copiedBookingId === b.id ? '✓ Ref Copied' : 'Copy Ref'}
+                      </span>
+                      <span>• Dates: <strong>{formatDateIN(b.start_date)}</strong> to <strong>{formatDateIN(b.end_date)}</strong> ({b.total_days} Days)</span>
                     </p>
                     {b.notes && <div style={{ fontSize: '0.8rem', color: 'var(--text-subtle)', marginTop: '0.25rem' }}>Note: {b.notes}</div>}
                   </div>
