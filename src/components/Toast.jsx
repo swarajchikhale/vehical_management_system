@@ -1,7 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { CheckCircle2, AlertCircle, Info, X } from 'lucide-react';
 
-export const Toast = ({ message, type = 'success', onClose }) => {
+export const Toast = ({ message, type = 'success', onClose, duration = 4000 }) => {
+  const [progress, setProgress] = useState(100);
+
+  useEffect(() => {
+    if (!message || !onClose) return;
+    const interval = 50;
+    const step = (interval / duration) * 100;
+    const timer = setInterval(() => {
+      setProgress((prev) => {
+        if (prev <= 0) {
+          clearInterval(timer);
+          onClose();
+          return 0;
+        }
+        return Math.max(0, prev - step);
+      });
+    }, interval);
+
+    return () => clearInterval(timer);
+  }, [message, onClose, duration]);
+
   if (!message) return null;
 
   const bgMap = {
@@ -29,7 +49,8 @@ export const Toast = ({ message, type = 'success', onClose }) => {
         fontSize: '0.9rem',
         fontWeight: 600,
         backdropFilter: 'blur(8px)',
-        animation: 'slideUp 0.3s ease-out'
+        animation: 'slideUp 0.3s ease-out',
+        overflow: 'hidden'
       }}
     >
       {type === 'success' && <CheckCircle2 size={18} />}
@@ -55,6 +76,18 @@ export const Toast = ({ message, type = 'success', onClose }) => {
           <X size={15} />
         </button>
       )}
+      {/* Progress countdown indicator bar */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          height: '3px',
+          width: `${progress}%`,
+          background: 'rgba(255, 255, 255, 0.65)',
+          transition: 'width 50ms linear'
+        }}
+      />
     </div>
   );
 };
