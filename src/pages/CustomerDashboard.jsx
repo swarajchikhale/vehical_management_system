@@ -243,6 +243,16 @@ export const CustomerDashboard = ({ setActiveTab }) => {
                         >
                           <Printer size={14} /> Print
                         </button>
+                        {b.status === 'completed' && (
+                          <button
+                            className="btn btn-secondary btn-sm"
+                            title="Rent this vehicle model again from fleet catalog"
+                            onClick={() => setActiveTab('vehicles')}
+                            style={{ color: 'var(--accent-primary)', borderColor: 'var(--accent-primary)', display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}
+                          >
+                            <RotateCcw size={14} /> Re-book
+                          </button>
+                        )}
                         {(b.status === 'active' || b.status === 'confirmed') && (
                           <button
                             className="btn btn-secondary btn-sm"
