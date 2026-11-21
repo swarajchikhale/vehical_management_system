@@ -17,6 +17,7 @@ export const AdminDashboard = () => {
   const [billSearchTerm, setBillSearchTerm] = useState('');
   const [billTypeFilter, setBillTypeFilter] = useState('all');
   const [fleetTypeFilter, setFleetTypeFilter] = useState('all');
+  const [fleetStatusFilter, setFleetStatusFilter] = useState('all');
   const [fleetSearchTerm, setFleetSearchTerm] = useState('');
 
   // New vehicle form state
@@ -294,10 +295,33 @@ export const AdminDashboard = () => {
                   );
                 })}
               </div>
+
+              {/* Status Filter Pills */}
+              <div style={{ display: 'flex', gap: '0.35rem', flexWrap: 'wrap', borderLeft: '1px solid var(--border-color)', paddingLeft: '0.75rem' }}>
+                {['all', 'available', 'rented', 'maintenance'].map(st => (
+                  <button
+                    key={st}
+                    onClick={() => setFleetStatusFilter(st)}
+                    style={{
+                      padding: '0.25rem 0.65rem',
+                      borderRadius: 'var(--radius-sm)',
+                      border: '1px solid var(--border-color)',
+                      background: fleetStatusFilter === st ? 'var(--accent-primary)' : 'transparent',
+                      color: fleetStatusFilter === st ? '#ffffff' : 'var(--text-muted)',
+                      fontSize: '0.78rem',
+                      fontWeight: 600,
+                      textTransform: 'capitalize',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    {st}
+                  </button>
+                ))}
+              </div>
             </div>
 
             <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 600 }}>
-              Showing {vehicles.filter(v => (fleetTypeFilter === 'all' || v.vehicle_type.toLowerCase() === fleetTypeFilter.toLowerCase()) && (v.vehicle_name.toLowerCase().includes(fleetSearchTerm.toLowerCase()) || v.license_plate.toLowerCase().includes(fleetSearchTerm.toLowerCase()))).length} of {vehicles.length} active fleet units (100% Insured)
+              Showing {vehicles.filter(v => (fleetTypeFilter === 'all' || v.vehicle_type.toLowerCase() === fleetTypeFilter.toLowerCase()) && (fleetStatusFilter === 'all' || v.status.toLowerCase() === fleetStatusFilter.toLowerCase()) && (v.vehicle_name.toLowerCase().includes(fleetSearchTerm.toLowerCase()) || v.license_plate.toLowerCase().includes(fleetSearchTerm.toLowerCase()))).length} of {vehicles.length} active fleet units (100% Insured)
             </span>
           </div>
 
@@ -315,7 +339,7 @@ export const AdminDashboard = () => {
               </thead>
               <tbody>
                 {vehicles
-                  .filter(v => (fleetTypeFilter === 'all' || v.vehicle_type.toLowerCase() === fleetTypeFilter.toLowerCase()) && (v.vehicle_name.toLowerCase().includes(fleetSearchTerm.toLowerCase()) || v.license_plate.toLowerCase().includes(fleetSearchTerm.toLowerCase())))
+                  .filter(v => (fleetTypeFilter === 'all' || v.vehicle_type.toLowerCase() === fleetTypeFilter.toLowerCase()) && (fleetStatusFilter === 'all' || v.status.toLowerCase() === fleetStatusFilter.toLowerCase()) && (v.vehicle_name.toLowerCase().includes(fleetSearchTerm.toLowerCase()) || v.license_plate.toLowerCase().includes(fleetSearchTerm.toLowerCase())))
                   .map(v => (
                     <tr key={v.id} style={{ borderBottom: '1px solid var(--border-color)' }}>
                       <td style={{ padding: '1rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
