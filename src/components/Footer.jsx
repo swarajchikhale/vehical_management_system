@@ -46,6 +46,12 @@ export const Footer = ({ setActiveTab }) => {
               <span className="badge badge-assigned" style={{ fontSize: '0.75rem' }} title="Dark &amp; Light dual theme engine active">
                 🌓 Dual Theme Engine
               </span>
+              <span className="badge badge-available" style={{ fontSize: '0.75rem' }} title="Fleet inspection and sanitization protocol updated daily">
+                🧼 Sanitized Daily
+              </span>
+              <span className="badge badge-confirmed" style={{ fontSize: '0.75rem' }} title="Full comprehensive zero-deductible insurance protection active">
+                🛡 Zero Deductible Cover
+              </span>
             </div>
           </div>
 
