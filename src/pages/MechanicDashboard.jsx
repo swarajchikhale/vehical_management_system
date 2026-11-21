@@ -234,6 +234,26 @@ export const MechanicDashboard = () => {
                         placeholder="Replaced worn components, refilled fluids, tested engine..."
                         required
                       />
+                      <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', marginTop: '0.45rem' }}>
+                        {['Battery Replacement', 'Brake Pad Servicing', 'Coolant Refill', 'Tire Calibrated', 'Sensor Reset'].map(tag => (
+                          <button
+                            key={tag}
+                            type="button"
+                            onClick={() => setNotesInput(prev => prev ? `${prev}, ${tag}` : tag)}
+                            style={{
+                              background: 'var(--bg-secondary)',
+                              border: '1px solid var(--border-color)',
+                              borderRadius: '4px',
+                              fontSize: '0.72rem',
+                              padding: '0.15rem 0.45rem',
+                              color: 'var(--text-muted)',
+                              cursor: 'pointer'
+                            }}
+                          >
+                            + {tag}
+                          </button>
+                        ))}
+                      </div>
                     </div>
                   </div>
 
