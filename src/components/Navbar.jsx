@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useData } from '../context/DataContext';
-import { Car, Wrench, Shield, User, Sparkles, Sun, Moon, Clock } from 'lucide-react';
+import { Car, Wrench, Shield, User, Sparkles, Sun, Moon, Clock, HelpCircle, X } from 'lucide-react';
 
 export const Navbar = ({ activeTab, setActiveTab }) => {
   const { currentUser, switchRole } = useAuth();
@@ -12,6 +12,7 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
   });
 
   const [timeStr, setTimeStr] = useState('');
+  const [showShortcuts, setShowShortcuts] = useState(false);
 
   useEffect(() => {
     const updateClock = () => {
@@ -175,6 +176,66 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
             <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
             <kbd style={{ fontSize: '0.65rem', opacity: 0.65, border: '1px solid var(--border-color)', borderRadius: '3px', padding: '0.05rem 0.3rem', marginLeft: '0.15rem' }}>T</kbd>
           </button>
+
+          {/* Quick Shortcuts Trigger */}
+          <button
+            onClick={() => setShowShortcuts(prev => !prev)}
+            title="View keyboard shortcut cheat-sheet"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.35rem',
+              background: 'var(--bg-secondary)',
+              border: '1px solid var(--border-color)',
+              borderRadius: '9999px',
+              padding: '0.4rem 0.75rem',
+              color: 'var(--text-muted)',
+              fontSize: '0.82rem',
+              cursor: 'pointer'
+            }}
+          >
+            <HelpCircle size={15} color="var(--accent-cyan)" />
+            <span>Shortcuts</span>
+          </button>
+
+          {showShortcuts && (
+            <div
+              style={{
+                position: 'absolute',
+                top: '4.2rem',
+                right: '1rem',
+                background: 'var(--bg-card)',
+                border: '1px solid var(--border-highlight)',
+                borderRadius: 'var(--radius-sm)',
+                boxShadow: '0 12px 30px rgba(0,0,0,0.3)',
+                padding: '1.25rem',
+                zIndex: 1000,
+                width: '260px',
+                fontSize: '0.85rem'
+              }}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.85rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem' }}>
+                <strong style={{ fontSize: '0.9rem' }}>Keyboard Shortcuts</strong>
+                <button onClick={() => setShowShortcuts(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)' }}>
+                  <X size={15} />
+                </button>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ color: 'var(--text-muted)' }}>Toggle Theme</span>
+                  <kbd style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '4px', padding: '0.1rem 0.4rem', fontSize: '0.75rem' }}>T</kbd>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ color: 'var(--text-muted)' }}>Close Modals</span>
+                  <kbd style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '4px', padding: '0.1rem 0.4rem', fontSize: '0.75rem' }}>Esc</kbd>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ color: 'var(--text-muted)' }}>Print Invoices</span>
+                  <kbd style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '4px', padding: '0.1rem 0.4rem', fontSize: '0.75rem' }}>Ctrl+P</kbd>
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Role Switcher */}
           <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '0.25rem 0.5rem' }}>
