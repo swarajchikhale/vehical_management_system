@@ -58,7 +58,22 @@ export const MechanicServices = ({ setActiveTab }) => {
           </p>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.35rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.45rem' }}>
+          <button
+            type="button"
+            onClick={() => {
+              setIsEmergency(true);
+              setVehicleModel(vehicleModel || 'Standard Vehicle');
+              setProblemDescription(problemDescription || 'Critical Breakdown: Roadside Emergency SOS');
+              setServiceLocation(serviceLocation || 'Current GPS Location (Highway Sector)');
+              alert('🚨 Emergency SOS protocol triggered. Details populated below for priority < 15 min dispatch.');
+            }}
+            className="btn btn-danger btn-sm"
+            style={{ fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}
+            title="Trigger instant emergency priority dispatch alert"
+          >
+            <AlertTriangle size={15} /> 🚨 SOS Priority Dispatch
+          </button>
           <span className="badge badge-confirmed" style={{ padding: '0.4rem 0.85rem', fontSize: '0.82rem' }}>
             ● Avg Emergency Dispatch ETA: 15-25 Mins
           </span>
