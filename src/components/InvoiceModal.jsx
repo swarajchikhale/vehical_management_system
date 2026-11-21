@@ -132,7 +132,14 @@ export const InvoiceModal = ({ bill, onClose }) => {
           </table>
 
           {/* Financial Calculation */}
-          <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '2rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '2rem', flexWrap: 'wrap', gap: '1rem' }}>
+            <div style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: '6px', padding: '0.85rem 1rem', fontSize: '0.78rem', color: '#4b5563', maxWidth: '280px' }}>
+              <strong style={{ display: 'block', color: '#111827', marginBottom: '0.25rem' }}>Payment &amp; Settlement Info</strong>
+              <div>UPI VPA: <code>drivepulse.ops@icici</code></div>
+              <div>Payment Mode: Instant Digital Gateway</div>
+              <div style={{ marginTop: '0.25rem', color: '#059669', fontWeight: 600 }}>● Settlement Instant &amp; Confirmed</div>
+            </div>
+
             <div style={{ width: '240px', fontSize: '0.9rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.3rem 0', color: '#4b5563' }}>
                 <span>Subtotal:</span>
