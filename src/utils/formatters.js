@@ -119,4 +119,35 @@ export const formatFuelType = (type) => {
   }
 };
 
+/**
+ * Returns formatted safety star rating and crash test compliance label.
+ * @param {number} rating - NCAP safety rating (1 to 5)
+ * @returns {string} Formatted safety rating with stars
+ */
+export const formatSafetyRating = (rating = 5) => {
+  const stars = Math.min(5, Math.max(1, Math.round(Number(rating) || 5)));
+  return `${'★'.repeat(stars)} (${stars}/5 NCAP Safety)`;
+};
+
+/**
+ * Calculates estimated daily fuel savings comparing EV/Hybrid against standard petrol.
+ * @param {string} fuelType - Vehicle fuel type ('electric', 'hybrid', 'cng', 'diesel')
+ * @param {number} dailyKm - Average expected daily commute (default: 80 km)
+ * @returns {number} Estimated savings in INR per day
+ */
+export const calculateFuelSavings = (fuelType, dailyKm = 80) => {
+  const normalized = (fuelType || '').toLowerCase();
+  if (normalized.includes('electric') || normalized === 'ev') {
+    return Math.round(dailyKm * 5.2); // ~₹416/day savings
+  }
+  if (normalized.includes('hybrid')) {
+    return Math.round(dailyKm * 2.8); // ~₹224/day savings
+  }
+  if (normalized.includes('cng')) {
+    return Math.round(dailyKm * 3.4); // ~₹272/day savings
+  }
+  return 0;
+};
+
+
 
