@@ -182,17 +182,12 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## 📜 Recent Release Commits (v3.5.0 - Safety Analytics & Dispatch Automation)
+## 📜 Recent Release Commits (v3.6.0 - Passenger Capacity & Assurance Standard)
 
-1. `Add safety rating and eco fuel savings calculator utilities to formatters` - Adds formatSafetyRating and calculateFuelSavings in `src/utils/formatters.js`.
-2. `Add NCAP safety rating badge and estimated fuel savings pill to vehicle cards` - Displays 5-star crash safety and fuel savings tags in `src/pages/Vehicles.jsx`.
-3. `Add keyboard shortcut cheat-sheet dropdown helper to navigation bar` - Implements quick shortcut helper modal in `src/components/Navbar.jsx`.
-4. `Add emergency SOS priority roadside dispatch button to mechanic service portal` - Adds one-click priority emergency SOS alert button in `src/pages/MechanicServices.jsx`.
-5. `Expand landing page performance KPI statistics with responsive cards layout` - Adds clean kilometers logged and glassmorphism cards in `src/pages/Home.jsx`.
-6. `Add settlement gateway payment details to digital invoice modal` - Displays instant UPI and payment gateway settlement credentials in `src/components/InvoiceModal.jsx`.
-7. `Add re-book vehicle action button to completed rentals in customer dashboard` - Implements instant re-booking shortcut button in `src/pages/CustomerDashboard.jsx`.
-8. `Add quick-insert diagnostic tags to mechanic repair completion logger` - Adds clickable service checklist tags for fast logging in `src/pages/MechanicDashboard.jsx`.
-9. `Add vehicle availability status filter pills to admin fleet manager` - Adds Available, Rented, and Maintenance filters in `src/pages/AdminDashboard.jsx`.
-10. `Update README architecture documentation and recent commit release log` - Documents v3.5.0 release commits and architecture notes.
+1. `Add vehicle seating and luggage capacity formatting utilities` - Adds formatSeatingCapacity and formatLuggageCapacity helpers in `src/utils/formatters.js`.
+2. `Add passenger seating and luggage capacity specification tags to vehicle cards` - Displays seating count and boot space tags in `src/pages/Vehicles.jsx`.
+3. `Add zero-deductible insurance and daily sanitization badges to footer metadata` - Adds sanitization and zero-deductible cover pills in `src/components/Footer.jsx`.
+4. `Add interactive master rental agreement verification badge to customer portal` - Adds clickable signed rental agreement terms overview in `src/pages/CustomerDashboard.jsx`.
+5. `Update README architecture documentation and recent commit release log` - Documents v3.6.0 release commits and architecture notes.
 
 
