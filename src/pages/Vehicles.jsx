@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useData } from '../context/DataContext';
 import { useAuth } from '../context/AuthContext';
-import { formatINR, getStatusBadgeClass, getStatusLabel, formatMileage, formatFuelType } from '../utils/formatters';
+import { formatINR, getStatusBadgeClass, getStatusLabel, formatMileage, formatFuelType, calculateFuelSavings, formatSafetyRating } from '../utils/formatters';
 
 import { Search, Filter, Calendar, CheckCircle, Shield, AlertCircle, X, DollarSign, Star } from 'lucide-react';
 
@@ -286,6 +286,14 @@ export const Vehicles = ({ setActiveTab }) => {
                 <span style={{ background: 'var(--bg-secondary)', padding: '0.1rem 0.45rem', borderRadius: '4px', border: '1px solid var(--border-color)', color: 'var(--accent-primary)' }}>⚡ {formatMileage(vehicle.mileage)}</span>
                 <span style={{ background: 'var(--bg-secondary)', padding: '0.1rem 0.45rem', borderRadius: '4px', border: '1px solid var(--border-color)' }} title="Vehicles disinfected & multi-point inspected prior to key handover">Insured &amp; Sanitized</span>
                 <span style={{ background: 'var(--bg-secondary)', padding: '0.1rem 0.45rem', borderRadius: '4px', border: '1px solid var(--border-color)', color: 'var(--accent-emerald)' }} title="Verified low emissions compliant vehicle standard">🌿 Low Emission</span>
+                <span style={{ background: 'rgba(16, 185, 129, 0.1)', padding: '0.1rem 0.45rem', borderRadius: '4px', border: '1px solid rgba(16, 185, 129, 0.25)', color: 'var(--accent-emerald)', fontWeight: 600 }} title="Verified 5-Star Global NCAP Crash Safety Compliance">
+                  🛡 5★ Safety
+                </span>
+                {calculateFuelSavings(vehicle.fuel_type) > 0 && (
+                  <span style={{ background: 'rgba(6, 182, 212, 0.1)', padding: '0.1rem 0.45rem', borderRadius: '4px', border: '1px solid rgba(6, 182, 212, 0.25)', color: 'var(--accent-cyan)', fontWeight: 600 }} title="Estimated daily commuting fuel cost savings compared to traditional petrol">
+                    💰 Save ~{formatINR(calculateFuelSavings(vehicle.fuel_type), false)}/day
+                  </span>
+                )}
               </div>
               <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '1.25rem', minHeight: '42px', lineHeight: 1.5 }}>
                 {vehicle.description}
