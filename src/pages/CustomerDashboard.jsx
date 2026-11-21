@@ -44,6 +44,14 @@ export const CustomerDashboard = ({ setActiveTab }) => {
             <span className="badge badge-pending" style={{ fontSize: '0.72rem' }} title="Click printable invoice icons under billing section to export JSON or print PDF">
               📥 Instant Receipt Export
             </span>
+            <span 
+              onClick={() => alert('DrivePulse Master Rental Agreement & Coverage Standard:\n\n• Zero Security Deposit: Granted to all verified customer accounts.\n• Roadside Assistance: 24/7 unlimited towing and repair dispatch.\n• Cancellation Guarantee: Up to 90% instant credit refund prior to vehicle pickup.\n• Tax Compliant: Automated 18% GST invoice generation upon reservation.')}
+              className="badge badge-available" 
+              style={{ fontSize: '0.72rem', cursor: 'pointer' }} 
+              title="Click to view your master vehicle rental agreement"
+            >
+              📝 Signed Rental Agreement (Verified)
+            </span>
             {userServices.length > 0 && (
               <span className="badge badge-assigned" style={{ fontSize: '0.72rem' }}>
                 ● {userServices.length} Service Tickets
