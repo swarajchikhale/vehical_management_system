@@ -110,31 +110,37 @@ export const Home = ({ setActiveTab, onBookVehicle }) => {
       </section>
 
       {/* Live Stats Counter */}
-      <section style={{ padding: '2rem 0', background: 'var(--bg-glass)', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>
-        <div className="container grid grid-cols-4">
-          <div style={{ textAlign: 'center', padding: '1rem' }}>
-            <div style={{ fontSize: '2.5rem', fontWeight: 800, fontFamily: 'var(--font-heading)', color: 'var(--accent-primary)' }}>
+      <section style={{ padding: '2.5rem 0', background: 'var(--bg-glass)', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>
+        <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.25rem' }}>
+          <div style={{ textAlign: 'center', padding: '1.25rem 1rem', background: 'var(--bg-card)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)' }}>
+            <div style={{ fontSize: '2.2rem', fontWeight: 800, fontFamily: 'var(--font-heading)', color: 'var(--accent-primary)' }}>
               {availableVehicles.length}+
             </div>
-            <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', fontWeight: 500 }}>Ready Vehicles</div>
+            <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 500 }}>Ready Fleet Units</div>
           </div>
-          <div style={{ textAlign: 'center', padding: '1rem' }}>
-            <div style={{ fontSize: '2.5rem', fontWeight: 800, fontFamily: 'var(--font-heading)', color: 'var(--accent-cyan)' }}>
+          <div style={{ textAlign: 'center', padding: '1.25rem 1rem', background: 'var(--bg-card)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)' }}>
+            <div style={{ fontSize: '2.2rem', fontWeight: 800, fontFamily: 'var(--font-heading)', color: 'var(--accent-cyan)' }}>
               {bookings.length + 140}+
             </div>
-            <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', fontWeight: 500 }}>Bookings Completed</div>
+            <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 500 }}>Bookings Completed</div>
           </div>
-          <div style={{ textAlign: 'center', padding: '1rem' }}>
-            <div style={{ fontSize: '2.5rem', fontWeight: 800, fontFamily: 'var(--font-heading)', color: 'var(--accent-emerald)' }}>
+          <div style={{ textAlign: 'center', padding: '1.25rem 1rem', background: 'var(--bg-card)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)' }}>
+            <div style={{ fontSize: '2.2rem', fontWeight: 800, fontFamily: 'var(--font-heading)', color: 'var(--accent-emerald)' }}>
               {services.length + 85}+
             </div>
-            <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', fontWeight: 500 }}>Emergency Repairs</div>
+            <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 500 }}>Emergency Repairs Done</div>
           </div>
-          <div style={{ textAlign: 'center', padding: '1rem' }}>
-            <div style={{ fontSize: '2.5rem', fontWeight: 800, fontFamily: 'var(--font-heading)', color: 'var(--accent-amber)' }}>
+          <div style={{ textAlign: 'center', padding: '1.25rem 1rem', background: 'var(--bg-card)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)' }}>
+            <div style={{ fontSize: '2.2rem', fontWeight: 800, fontFamily: 'var(--font-heading)', color: 'var(--accent-primary)' }}>
+              75,000+
+            </div>
+            <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 500 }}>Clean Km Traveled</div>
+          </div>
+          <div style={{ textAlign: 'center', padding: '1.25rem 1rem', background: 'var(--bg-card)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)' }}>
+            <div style={{ fontSize: '2.2rem', fontWeight: 800, fontFamily: 'var(--font-heading)', color: 'var(--accent-amber)' }}>
               4.9 ★
             </div>
-            <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', fontWeight: 500 }}>Customer Rating • 1.2k+ Drivers</div>
+            <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 500 }}>Driver Satisfaction</div>
           </div>
         </div>
       </section>
