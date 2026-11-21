@@ -149,5 +149,48 @@ export const calculateFuelSavings = (fuelType, dailyKm = 80) => {
   return 0;
 };
 
+/**
+ * Returns formatted seating capacity label based on vehicle type.
+ * @param {string} vehicleType - 'car', 'bike', 'van', 'bus', 'truck'
+ * @returns {string} Formatted seat count string
+ */
+export const formatSeatingCapacity = (vehicleType) => {
+  const normalized = (vehicleType || '').toLowerCase();
+  switch (normalized) {
+    case 'bike':
+      return '2 Seats';
+    case 'van':
+      return '7-8 Seats';
+    case 'bus':
+      return '24+ Seats';
+    case 'truck':
+      return '3 Seats (Cabin)';
+    default:
+      return '5 Seats';
+  }
+};
+
+/**
+ * Returns estimated luggage trunk capacity in liters/bags.
+ * @param {string} vehicleType - Vehicle category type
+ * @returns {string} Boot space representation
+ */
+export const formatLuggageCapacity = (vehicleType) => {
+  const normalized = (vehicleType || '').toLowerCase();
+  switch (normalized) {
+    case 'bike':
+      return 'Compact Top-Box';
+    case 'van':
+      return '650L (5 Large Bags)';
+    case 'bus':
+      return 'Commercial Cargo Bay';
+    case 'truck':
+      return 'Heavy Cargo Bed';
+    default:
+      return '450L (3 Large Bags)';
+  }
+};
+
+
 
 
