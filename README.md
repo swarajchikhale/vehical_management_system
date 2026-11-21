@@ -182,15 +182,17 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## 📜 Recent Release Commits (v3.4.0 - Fleet Efficiency & Interactive UX Improvements)
+## 📜 Recent Release Commits (v3.5.0 - Safety Analytics & Dispatch Automation)
 
-1. `Add mileage and fuel powertrain formatting utilities to formatters` - Adds formatMileage and formatFuelType helpers in `src/utils/formatters.js`.
-2. `Add fuel efficiency and powertrain specification tags to vehicle cards` - Displays mileage and fuel tags in `src/pages/Vehicles.jsx`.
-3. `Add animated duration countdown indicator bar to toast notifications` - Implements countdown timer indicator and auto-dismiss in `src/components/Toast.jsx`.
-4. `Add API latency monitor pill and stable release badge to footer` - Adds real-time 24ms API status pill and v3.4.0 badge in `src/components/Footer.jsx`.
-5. `Add interactive vehicle category filter pills to landing page fleet preview` - Adds Sedans, SUVs, Bikes, and Vans filter buttons in `src/pages/Home.jsx`.
-6. `Add booking reference copy action with inline feedback to customer dashboard` - Implements one-click reference copy with inline feedback in `src/pages/CustomerDashboard.jsx`.
-7. `Add target arrival ETA badge and customer phone copy action to dispatch tickets` - Adds ETA badge and clickable phone copy in `src/pages/MechanicDashboard.jsx`.
-8. `Update README architecture documentation and recent commit release log` - Documents v3.4.0 release commits and architecture notes.
+1. `Add safety rating and eco fuel savings calculator utilities to formatters` - Adds formatSafetyRating and calculateFuelSavings in `src/utils/formatters.js`.
+2. `Add NCAP safety rating badge and estimated fuel savings pill to vehicle cards` - Displays 5-star crash safety and fuel savings tags in `src/pages/Vehicles.jsx`.
+3. `Add keyboard shortcut cheat-sheet dropdown helper to navigation bar` - Implements quick shortcut helper modal in `src/components/Navbar.jsx`.
+4. `Add emergency SOS priority roadside dispatch button to mechanic service portal` - Adds one-click priority emergency SOS alert button in `src/pages/MechanicServices.jsx`.
+5. `Expand landing page performance KPI statistics with responsive cards layout` - Adds clean kilometers logged and glassmorphism cards in `src/pages/Home.jsx`.
+6. `Add settlement gateway payment details to digital invoice modal` - Displays instant UPI and payment gateway settlement credentials in `src/components/InvoiceModal.jsx`.
+7. `Add re-book vehicle action button to completed rentals in customer dashboard` - Implements instant re-booking shortcut button in `src/pages/CustomerDashboard.jsx`.
+8. `Add quick-insert diagnostic tags to mechanic repair completion logger` - Adds clickable service checklist tags for fast logging in `src/pages/MechanicDashboard.jsx`.
+9. `Add vehicle availability status filter pills to admin fleet manager` - Adds Available, Rented, and Maintenance filters in `src/pages/AdminDashboard.jsx`.
+10. `Update README architecture documentation and recent commit release log` - Documents v3.5.0 release commits and architecture notes.
 
 
